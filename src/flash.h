@@ -4,7 +4,9 @@
 #define PIN_LOW 0
 #define PIN_HIGH 1
 
-#define PGD PORTCbits.RC4
+#define PGD PORTCbits.RC4 
 #define PGC PORTCbits.RC3
+#define MCLR PORTEbits.RE3
+
 
 #endif // flash_H
