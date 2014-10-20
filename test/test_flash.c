@@ -1,7 +1,7 @@
 #include "unity.h"
 #include "p18f4520.h"
 #include "flash.h"
-#include "mock_fprogrammer.h"
+#include "mock_ICSP.h"
 
 void setUp(){}
 void tearDown(){}

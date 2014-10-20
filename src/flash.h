@@ -8,5 +8,12 @@
 #define PGC PORTCbits.RC3
 #define MCLR PORTEbits.RE3
 
-
+void PGD_high();
+void PGD_low();
+void PGC_high();
+void PGC_low();
+void MCLR_low();
+void MCLR_high();
+void enter_LVP();
+void exit_LVP();
 #endif // flash_H
