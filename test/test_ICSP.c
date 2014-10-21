@@ -22,3 +22,60 @@ void test_write_ICSP_write_0x08_command_bit(){
 
   writeICSP(0x08, 4); 
 }
+
+void test_write_ICSP_write_0x25f6_data_bit(){
+  //command
+  PGD_low_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_low_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_low_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  
+  PGD_low_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_low_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+
+  PGD_low_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_high_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+  PGD_low_Expect();
+  PGC_high_Expect();
+  PGC_low_Expect();
+
+  writeICSP(0x25f6, 16); 
+}

@@ -1,14 +1,14 @@
 #include "ICSP.h"
 #include <stdio.h>
 void writeICSP(unsigned int data, char number){
-  int i;
+  int i, MSB;
   
   for(i = 0 ; i < number ; i++){
-    
-    if(((data>>(3-i))&0x1) == 1){
+    MSB = ((data>>((number - 1)-i))&0x1);
+    if(MSB == 1){
       PGD_high();
     }
-    else if(((data>>(3-i))&0x1) == 0){
+    else if(MSB == 0){
       PGD_low();
     }
       
