@@ -1,22 +1,48 @@
 #include "ICSP.h"
 #include <stdio.h>
-void writeICSP(unsigned int data, char number){
-  int i, MSB;
-  
-  for(i = 0 ; i < number ; i++){
-    MSB = ((data>>((number - 1)-i))&0x1);
-    if(MSB == 1){
-      PGD_high();
-    }
-    else if(MSB == 0){
-      PGD_low();
-    }
-      
-    PGC_high();
-    PGC_low();
+
+void writeICSP(uint16 commandByte, uint16 dataBytes){
+  writeBits(commandByte, COMMAND);
+  writeBits(dataBytes, DATA);
+}
+
+void writeBit(uint16 bitToWrite){
+  writePGD(bitToWrite);
+  PGC_high();
+  PGC_low();
+}
+
+void writeBits(uint16 pattern, uint16 bitsToWrite){
+  int i=0;
+  while(i < bitsToWrite){
+    writeBit(MSB(pattern, bitsToWrite, i));
+    i++;
   }
 }
 
-void readICSP(){
+uint16 readICSP(){
+  uint16 data = 0;
+  writeBits(9, 4);
+  data = readBits(8);
+  return data;
+}
 
+uint16 readBit(){
+  uint16 data = 0;
+  data = readPGD();
+  PGC_high();
+  PGC_low();
+  return data;
+}
+
+uint16 readBits(int bitsToRead){
+  int i=0;
+  uint16 data=0;
+  
+  while(i < bitsToRead){
+    data = (data<<1)|readBit();
+    i++;
+  }
+  
+  return data;
 }

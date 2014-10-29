@@ -1,22 +1,20 @@
 #include "unity.h"
 #include "p18f4520.h"
 #include "flash.h"
-#include "mock_ICSP.h"
 
 void setUp(){}
 void tearDown(){}
 
 void test_PGD_high(){
-  PGD = PIN_LOW;
+  _PGD = PIN_LOW;
   PGD_high();
-	
-  TEST_ASSERT_EQUAL(PIN_HIGH, PGD);
+  TEST_ASSERT_EQUAL(PIN_HIGH, _PGD);
 }
 
 void test_PGD_low(){
-  PGD = PIN_HIGH;
+  _PGD = PIN_HIGH;
   PGD_low();
-  TEST_ASSERT_EQUAL(PIN_LOW, PGD);
+  TEST_ASSERT_EQUAL(PIN_LOW, _PGD);
 }
 
 void test_PGC_high(){

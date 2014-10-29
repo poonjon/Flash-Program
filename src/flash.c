@@ -3,12 +3,20 @@
 #include "p18f4520.h"
 #include "flash.h"
 
+int readPGD(){
+  return _PGD;
+}
+
+void writePGD(int bit){
+  _PGD = bit;
+}
+
 void PGD_high(){
-  PGD = 1;
+  writePGD(1);
 }
 
 void PGD_low(){
-  PGD = 0;
+  writePGD(0);
 }
 
 void PGC_high(){
@@ -21,7 +29,7 @@ void PGC_low(){
 
 void MCLR_low(){
   MCLR = 0;
-  PGD = 0;
+  writePGD(0);
   PGC = 0;
 }
 
