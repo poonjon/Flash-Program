@@ -27,4 +27,5 @@ void MCLR_low();
 void MCLR_high();
 void enter_LVP();
 void exit_LVP();
+void bulkErase();
 #endif // flash_H

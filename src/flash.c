@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "ICSP.h"
 #include "p18f4520.h"
 #include "flash.h"
 
@@ -49,4 +50,24 @@ void exit_LVP(){
   //delay >0s
   MCLR_low();
   //delay >0s
+}
+
+void bulkErase(){
+  writeICSP(0x0, 0x0e3c);
+  writeICSP(0x0, 0x6ef8);
+  writeICSP(0x0, 0x0e00);
+  writeICSP(0x0, 0x6ef7);
+  writeICSP(0x0, 0x0e05);
+  writeICSP(0x0, 0x6ef6);
+  writeICSP(0x0, 0x3f3f);
+  writeICSP(0x0, 0x0e3c);
+  writeICSP(0x0, 0x6ef8);
+  writeICSP(0x0, 0x0e00);
+  writeICSP(0x0, 0x6ef7);
+  writeICSP(0x0, 0x0e04);
+  writeICSP(0x0, 0x6ef6);
+  writeICSP(0x0, 0x8f8f);
+  writeICSP(0x0, 0);
+  writeICSP(0x0, 0);
+
 }
