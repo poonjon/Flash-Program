@@ -1,0 +1,1403 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.33 build 59893 
+                                                                                               Fri Oct 31 18:41:43 2014
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 59893
+     1                           	processor	18F4520
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text14,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text15,global,reloc=2,class=CODE,delta=1
+    23                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    24                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    25  0000                     _PORTDbits	set	3971
+    26  0000                     _TRISD	set	3989
+    27  0000                     _TRISDbits	set	3989
+    28                           
+    29                           ; 0 bytes @ 0x15
+    30 ;;
+    31 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    32 ;;
+    33 ;; *************** function _main *****************
+    34 ;; Defined at:
+    35 ;;		line 21 in file "../src/PIC18/Main.c"
+    36 ;; Parameters:    Size  Location     Type
+    37 ;;		None
+    38 ;; Auto vars:     Size  Location     Type
+    39 ;;		None
+    40 ;; Return value:  Size  Location     Type
+    41 ;;		None               void
+    42 ;; Registers used:
+    43 ;;		wreg, status,2, status,0, cstack
+    44 ;; Tracked objects:
+    45 ;;		On entry : 0/0
+    46 ;;		On exit  : 0/0
+    47 ;;		Unchanged: 0/0
+    48 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+    49 ;;      Params:         0       0       0       0       0       0       0
+    50 ;;      Locals:         0       0       0       0       0       0       0
+    51 ;;      Temps:          0       0       0       0       0       0       0
+    52 ;;      Totals:         0       0       0       0       0       0       0
+    53 ;;Total ram usage:        0 bytes
+    54 ;; Hardware stack levels required when called:    5
+    55 ;; This function calls:
+    56 ;;		_PGC_low
+    57 ;;		_enter_LVP
+    58 ;;		_exit_LVP
+    59 ;;		_readDeviceID
+    60 ;; This function is called by:
+    61 ;;		Startup code after reset
+    62 ;; This function uses a non-reentrant model
+    63 ;;
+    64                           
+    65                           	psect	text0
+    66  007E26                     __ptext0:
+    67                           	opt stack 0
+    68  007E26                     _main:
+    69                           	opt stack 26
+    70                           
+    71                           ;Main.c: 22: TRISD = 0;
+    72                           
+    73                           ;incstack = 0
+    74  007E26  0E00               	movlw	0
+    75  007E28  6E95               	movwf	3989,c	;volatile
+    76                           
+    77                           ;Main.c: 23: PGC_low();
+    78  007E2A  ECE0  F03E         	call	_PGC_low	;wreg free
+    79                           
+    80                           ;Main.c: 24: PORTDbits.RD4 = 0;
+    81  007E2E  9883               	bcf	3971,4,c	;volatile
+    82                           
+    83                           ;Main.c: 25: enter_LVP();
+    84  007E30  ECE5  F03E         	call	_enter_LVP	;wreg free
+    85                           
+    86                           ;Main.c: 26: readDeviceID();
+    87  007E34  ECBA  F03F         	call	_readDeviceID	;wreg free
+    88                           
+    89                           ;Main.c: 27: exit_LVP();
+    90  007E38  ECEA  F03E         	call	_exit_LVP	;wreg free
+    91  007E3C                     l101:
+    92  007E3C  D7FF               	goto	l101
+    93  007E3E                     __end_of_main:
+    94                           	opt stack 0
+    95                           
+    96                           	psect	cinit
+    97  007DC4                     __pcinit:
+    98                           	opt stack 0
+    99  007DC4                     start_initialization:
+   100                           	opt stack 0
+   101  007DC4                     __initialization:
+   102                           	opt stack 0
+   103  007DC4                     end_of_initialization:
+   104                           	opt stack 0
+   105  007DC4                     __end_of__initialization:
+   106                           	opt stack 0
+   107  007DC4  0100               	movlb	0
+   108  007DC6  EF13  F03F         	goto	_main	;jump to C main() function
+   109                           
+   110                           	psect	cstackCOMRAM
+   111  000001                     __pcstackCOMRAM:
+   112                           	opt stack 0
+   113  000001                     ?_readPGD:
+   114                           	opt stack 0
+   115  000001                     writePGD@data:
+   116                           	opt stack 0
+   117                           
+   118                           ; 2 bytes @ 0x0
+   119  000001                     	ds	2
+   120  000003                     ??_readPGD:
+   121  000003                     writeBit@bitToWrite:
+   122                           	opt stack 0
+   123                           
+   124                           ; 2 bytes @ 0x2
+   125  000003                     	ds	1
+   126  000004                     ?_readBit:
+   127                           	opt stack 0
+   128                           
+   129                           ; 2 bytes @ 0x3
+   130  000004                     	ds	1
+   131  000005                     writeBits@pattern:
+   132                           	opt stack 0
+   133                           
+   134                           ; 2 bytes @ 0x4
+   135  000005                     	ds	1
+   136  000006                     readBit@data:
+   137                           	opt stack 0
+   138                           
+   139                           ; 2 bytes @ 0x5
+   140  000006                     	ds	1
+   141  000007                     writeBits@bitsToWrite:
+   142                           	opt stack 0
+   143                           
+   144                           ; 2 bytes @ 0x6
+   145  000007                     	ds	1
+   146  000008                     ?_readBits:
+   147                           	opt stack 0
+   148  000008                     readBits@bitsToRead:
+   149                           	opt stack 0
+   150                           
+   151                           ; 2 bytes @ 0x7
+   152  000008                     	ds	1
+   153  000009                     ??_writeBits:
+   154                           
+   155                           ; 0 bytes @ 0x8
+   156  000009                     	ds	1
+   157  00000A                     ??_readBits:
+   158                           
+   159                           ; 0 bytes @ 0x9
+   160  00000A                     	ds	2
+   161  00000C                     writeBits@i:
+   162                           	opt stack 0
+   163  00000C                     readBits@i:
+   164                           	opt stack 0
+   165                           
+   166                           ; 2 bytes @ 0xB
+   167  00000C                     	ds	2
+   168  00000E                     writeICSP@commandByte:
+   169                           	opt stack 0
+   170  00000E                     readBits@data:
+   171                           	opt stack 0
+   172                           
+   173                           ; 2 bytes @ 0xD
+   174  00000E                     	ds	2
+   175  000010                     ?_readICSP:
+   176                           	opt stack 0
+   177  000010                     writeICSP@dataBytes:
+   178                           	opt stack 0
+   179                           
+   180                           ; 2 bytes @ 0xF
+   181  000010                     	ds	2
+   182  000012                     readICSP@data:
+   183                           	opt stack 0
+   184                           
+   185                           ; 2 bytes @ 0x11
+   186  000012                     	ds	2
+   187  000014                     readDeviceID@value:
+   188                           	opt stack 0
+   189                           
+   190                           ; 2 bytes @ 0x13
+   191  000014                     	ds	2
+   192  000016                     
+   193 ;; *************** function _readDeviceID *****************
+   194 ;; Defined at:
+   195 ;;		line 82 in file "../src/PIC18/FlashProg.c"
+   196 ;; Parameters:    Size  Location     Type
+   197 ;;		None
+   198 ;; Auto vars:     Size  Location     Type
+   199 ;;  value           2   19[COMRAM] unsigned int 
+   200 ;; Return value:  Size  Location     Type
+   201 ;;		None               void
+   202 ;; Registers used:
+   203 ;;		wreg, status,2, status,0, cstack
+   204 ;; Tracked objects:
+   205 ;;		On entry : 0/0
+   206 ;;		On exit  : 0/0
+   207 ;;		Unchanged: 0/0
+   208 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   209 ;;      Params:         0       0       0       0       0       0       0
+   210 ;;      Locals:         2       0       0       0       0       0       0
+   211 ;;      Temps:          0       0       0       0       0       0       0
+   212 ;;      Totals:         2       0       0       0       0       0       0
+   213 ;;Total ram usage:        2 bytes
+   214 ;; Hardware stack levels used:    1
+   215 ;; Hardware stack levels required when called:    4
+   216 ;; This function calls:
+   217 ;;		_readICSP
+   218 ;;		_writeICSP
+   219 ;; This function is called by:
+   220 ;;		_main
+   221 ;; This function uses a non-reentrant model
+   222 ;;
+   223                           
+   224                           	psect	text1
+   225  007F74                     __ptext1:
+   226                           	opt stack 0
+   227  007F74                     _readDeviceID:
+   228                           	opt stack 26
+   229                           
+   230                           ;FlashProg.c: 83: uint16 value = 0;
+   231                           
+   232                           ;incstack = 0
+   233  007F74  0E00               	movlw	0
+   234  007F76  6E15               	movwf	readDeviceID@value+1,c
+   235  007F78  0E00               	movlw	0
+   236  007F7A  6E14               	movwf	readDeviceID@value,c
+   237                           
+   238                           ;FlashProg.c: 84: writeICSP(0x0, 0x0e3f);
+   239  007F7C  0E00               	movlw	0
+   240  007F7E  6E0F               	movwf	writeICSP@commandByte+1,c
+   241  007F80  0E00               	movlw	0
+   242  007F82  6E0E               	movwf	writeICSP@commandByte,c
+   243  007F84  0E0E               	movlw	14
+   244  007F86  6E11               	movwf	writeICSP@dataBytes+1,c
+   245  007F88  0E3F               	movlw	63
+   246  007F8A  6E10               	movwf	writeICSP@dataBytes,c
+   247  007F8C  EC32  F03F         	call	_writeICSP	;wreg free
+   248                           
+   249                           ;FlashProg.c: 85: writeICSP(0x0, 0x6ef8);
+   250  007F90  0E00               	movlw	0
+   251  007F92  6E0F               	movwf	writeICSP@commandByte+1,c
+   252  007F94  0E00               	movlw	0
+   253  007F96  6E0E               	movwf	writeICSP@commandByte,c
+   254  007F98  0E6E               	movlw	110
+   255  007F9A  6E11               	movwf	writeICSP@dataBytes+1,c
+   256  007F9C  0EF8               	movlw	248
+   257  007F9E  6E10               	movwf	writeICSP@dataBytes,c
+   258  007FA0  EC32  F03F         	call	_writeICSP	;wreg free
+   259                           
+   260                           ;FlashProg.c: 86: writeICSP(0x0, 0x0eff);
+   261  007FA4  0E00               	movlw	0
+   262  007FA6  6E0F               	movwf	writeICSP@commandByte+1,c
+   263  007FA8  0E00               	movlw	0
+   264  007FAA  6E0E               	movwf	writeICSP@commandByte,c
+   265  007FAC  0E0E               	movlw	14
+   266  007FAE  6E11               	movwf	writeICSP@dataBytes+1,c
+   267  007FB0  6810               	setf	writeICSP@dataBytes,c
+   268  007FB2  EC32  F03F         	call	_writeICSP	;wreg free
+   269                           
+   270                           ;FlashProg.c: 87: writeICSP(0x0, 0x6ef7);
+   271  007FB6  0E00               	movlw	0
+   272  007FB8  6E0F               	movwf	writeICSP@commandByte+1,c
+   273  007FBA  0E00               	movlw	0
+   274  007FBC  6E0E               	movwf	writeICSP@commandByte,c
+   275  007FBE  0E6E               	movlw	110
+   276  007FC0  6E11               	movwf	writeICSP@dataBytes+1,c
+   277  007FC2  0EF7               	movlw	247
+   278  007FC4  6E10               	movwf	writeICSP@dataBytes,c
+   279  007FC6  EC32  F03F         	call	_writeICSP	;wreg free
+   280                           
+   281                           ;FlashProg.c: 88: writeICSP(0x0, 0x0efe);
+   282  007FCA  0E00               	movlw	0
+   283  007FCC  6E0F               	movwf	writeICSP@commandByte+1,c
+   284  007FCE  0E00               	movlw	0
+   285  007FD0  6E0E               	movwf	writeICSP@commandByte,c
+   286  007FD2  0E0E               	movlw	14
+   287  007FD4  6E11               	movwf	writeICSP@dataBytes+1,c
+   288  007FD6  0EFE               	movlw	254
+   289  007FD8  6E10               	movwf	writeICSP@dataBytes,c
+   290  007FDA  EC32  F03F         	call	_writeICSP	;wreg free
+   291                           
+   292                           ;FlashProg.c: 89: writeICSP(0x0, 0x6ef6);
+   293  007FDE  0E00               	movlw	0
+   294  007FE0  6E0F               	movwf	writeICSP@commandByte+1,c
+   295  007FE2  0E00               	movlw	0
+   296  007FE4  6E0E               	movwf	writeICSP@commandByte,c
+   297  007FE6  0E6E               	movlw	110
+   298  007FE8  6E11               	movwf	writeICSP@dataBytes+1,c
+   299  007FEA  0EF6               	movlw	246
+   300  007FEC  6E10               	movwf	writeICSP@dataBytes,c
+   301  007FEE  EC32  F03F         	call	_writeICSP	;wreg free
+   302                           
+   303                           ;FlashProg.c: 90: value = readICSP();
+   304  007FF2  EC91  F03F         	call	_readICSP	;wreg free
+   305  007FF6  C010  F014         	movff	?_readICSP,readDeviceID@value
+   306  007FFA  C011  F015         	movff	?_readICSP+1,readDeviceID@value+1
+   307  007FFE  0012               	return	
+   308  008000                     __end_of_readDeviceID:
+   309                           	opt stack 0
+   310                           
+   311 ;; *************** function _writeICSP *****************
+   312 ;; Defined at:
+   313 ;;		line 5 in file "../src/PIC18/ICSP.c"
+   314 ;; Parameters:    Size  Location     Type
+   315 ;;  commandByte     2   13[COMRAM] unsigned int 
+   316 ;;  dataBytes       2   15[COMRAM] unsigned int 
+   317 ;; Auto vars:     Size  Location     Type
+   318 ;;		None
+   319 ;; Return value:  Size  Location     Type
+   320 ;;		None               void
+   321 ;; Registers used:
+   322 ;;		wreg, status,2, status,0, cstack
+   323 ;; Tracked objects:
+   324 ;;		On entry : 0/0
+   325 ;;		On exit  : 0/0
+   326 ;;		Unchanged: 0/0
+   327 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   328 ;;      Params:         4       0       0       0       0       0       0
+   329 ;;      Locals:         0       0       0       0       0       0       0
+   330 ;;      Temps:          0       0       0       0       0       0       0
+   331 ;;      Totals:         4       0       0       0       0       0       0
+   332 ;;Total ram usage:        4 bytes
+   333 ;; Hardware stack levels used:    1
+   334 ;; Hardware stack levels required when called:    3
+   335 ;; This function calls:
+   336 ;;		_writeBits
+   337 ;; This function is called by:
+   338 ;;		_readDeviceID
+   339 ;;		_bulkErase
+   340 ;; This function uses a non-reentrant model
+   341 ;;
+   342                           
+   343                           	psect	text2
+   344  007E64                     __ptext2:
+   345                           	opt stack 0
+   346  007E64                     _writeICSP:
+   347                           	opt stack 26
+   348                           
+   349                           ;ICSP.c: 6: writeBits(commandByte, 4);
+   350                           
+   351                           ;incstack = 0
+   352  007E64  C00E  F005         	movff	writeICSP@commandByte,writeBits@pattern
+   353  007E68  C00F  F006         	movff	writeICSP@commandByte+1,writeBits@pattern+1
+   354  007E6C  0E00               	movlw	0
+   355  007E6E  6E08               	movwf	writeBits@bitsToWrite+1,c
+   356  007E70  0E04               	movlw	4
+   357  007E72  6E07               	movwf	writeBits@bitsToWrite,c
+   358  007E74  EC47  F03F         	call	_writeBits	;wreg free
+   359                           
+   360                           ;ICSP.c: 7: writeBits(dataBytes, 16);
+   361  007E78  C010  F005         	movff	writeICSP@dataBytes,writeBits@pattern
+   362  007E7C  C011  F006         	movff	writeICSP@dataBytes+1,writeBits@pattern+1
+   363  007E80  0E00               	movlw	0
+   364  007E82  6E08               	movwf	writeBits@bitsToWrite+1,c
+   365  007E84  0E10               	movlw	16
+   366  007E86  6E07               	movwf	writeBits@bitsToWrite,c
+   367  007E88  EC47  F03F         	call	_writeBits	;wreg free
+   368  007E8C  0012               	return	
+   369  007E8E                     __end_of_writeICSP:
+   370                           	opt stack 0
+   371                           
+   372 ;; *************** function _readICSP *****************
+   373 ;; Defined at:
+   374 ;;		line 24 in file "../src/PIC18/ICSP.c"
+   375 ;; Parameters:    Size  Location     Type
+   376 ;;		None
+   377 ;; Auto vars:     Size  Location     Type
+   378 ;;  data            2   17[COMRAM] unsigned int 
+   379 ;; Return value:  Size  Location     Type
+   380 ;;                  2   15[COMRAM] unsigned int 
+   381 ;; Registers used:
+   382 ;;		wreg, status,2, status,0, cstack
+   383 ;; Tracked objects:
+   384 ;;		On entry : 0/0
+   385 ;;		On exit  : 0/0
+   386 ;;		Unchanged: 0/0
+   387 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   388 ;;      Params:         2       0       0       0       0       0       0
+   389 ;;      Locals:         2       0       0       0       0       0       0
+   390 ;;      Temps:          0       0       0       0       0       0       0
+   391 ;;      Totals:         4       0       0       0       0       0       0
+   392 ;;Total ram usage:        4 bytes
+   393 ;; Hardware stack levels used:    1
+   394 ;; Hardware stack levels required when called:    3
+   395 ;; This function calls:
+   396 ;;		_readBits
+   397 ;;		_writeBits
+   398 ;; This function is called by:
+   399 ;;		_readDeviceID
+   400 ;; This function uses a non-reentrant model
+   401 ;;
+   402                           
+   403                           	psect	text3
+   404  007F22                     __ptext3:
+   405                           	opt stack 0
+   406  007F22                     _readICSP:
+   407                           	opt stack 26
+   408                           
+   409                           ;ICSP.c: 25: uint16 data = 0;
+   410                           
+   411                           ;incstack = 0
+   412  007F22  0E00               	movlw	0
+   413  007F24  6E13               	movwf	readICSP@data+1,c
+   414  007F26  0E00               	movlw	0
+   415  007F28  6E12               	movwf	readICSP@data,c
+   416                           
+   417                           ;ICSP.c: 26: writeBits(9, 4);
+   418  007F2A  0E00               	movlw	0
+   419  007F2C  6E06               	movwf	writeBits@pattern+1,c
+   420  007F2E  0E09               	movlw	9
+   421  007F30  6E05               	movwf	writeBits@pattern,c
+   422  007F32  0E00               	movlw	0
+   423  007F34  6E08               	movwf	writeBits@bitsToWrite+1,c
+   424  007F36  0E04               	movlw	4
+   425  007F38  6E07               	movwf	writeBits@bitsToWrite,c
+   426  007F3A  EC47  F03F         	call	_writeBits	;wreg free
+   427                           
+   428                           ;ICSP.c: 27: writeBits(0, 8);
+   429  007F3E  0E00               	movlw	0
+   430  007F40  6E06               	movwf	writeBits@pattern+1,c
+   431  007F42  0E00               	movlw	0
+   432  007F44  6E05               	movwf	writeBits@pattern,c
+   433  007F46  0E00               	movlw	0
+   434  007F48  6E08               	movwf	writeBits@bitsToWrite+1,c
+   435  007F4A  0E08               	movlw	8
+   436  007F4C  6E07               	movwf	writeBits@bitsToWrite,c
+   437  007F4E  EC47  F03F         	call	_writeBits	;wreg free
+   438                           
+   439                           ;ICSP.c: 28: (TRISDbits.TRISD4 = 1);
+   440  007F52  8895               	bsf	3989,4,c	;volatile
+   441                           
+   442                           ;ICSP.c: 29: data = readBits(8);
+   443  007F54  0E00               	movlw	0
+   444  007F56  6E09               	movwf	readBits@bitsToRead+1,c
+   445  007F58  0E08               	movlw	8
+   446  007F5A  6E08               	movwf	readBits@bitsToRead,c
+   447  007F5C  EC68  F03F         	call	_readBits	;wreg free
+   448  007F60  C008  F012         	movff	?_readBits,readICSP@data
+   449  007F64  C009  F013         	movff	?_readBits+1,readICSP@data+1
+   450                           
+   451                           ;ICSP.c: 30: (TRISDbits.TRISD4 = 0);
+   452  007F68  9895               	bcf	3989,4,c	;volatile
+   453                           
+   454                           ;ICSP.c: 31: return data;
+   455  007F6A  C012  F010         	movff	readICSP@data,?_readICSP
+   456  007F6E  C013  F011         	movff	readICSP@data+1,?_readICSP+1
+   457  007F72  0012               	return	
+   458  007F74                     __end_of_readICSP:
+   459                           	opt stack 0
+   460                           
+   461 ;; *************** function _writeBits *****************
+   462 ;; Defined at:
+   463 ;;		line 16 in file "../src/PIC18/ICSP.c"
+   464 ;; Parameters:    Size  Location     Type
+   465 ;;  pattern         2    4[COMRAM] unsigned int 
+   466 ;;  bitsToWrite     2    6[COMRAM] unsigned int 
+   467 ;; Auto vars:     Size  Location     Type
+   468 ;;  i               2   11[COMRAM] int 
+   469 ;; Return value:  Size  Location     Type
+   470 ;;		None               void
+   471 ;; Registers used:
+   472 ;;		wreg, status,2, status,0, cstack
+   473 ;; Tracked objects:
+   474 ;;		On entry : 0/0
+   475 ;;		On exit  : 0/0
+   476 ;;		Unchanged: 0/0
+   477 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   478 ;;      Params:         4       0       0       0       0       0       0
+   479 ;;      Locals:         2       0       0       0       0       0       0
+   480 ;;      Temps:          3       0       0       0       0       0       0
+   481 ;;      Totals:         9       0       0       0       0       0       0
+   482 ;;Total ram usage:        9 bytes
+   483 ;; Hardware stack levels used:    1
+   484 ;; Hardware stack levels required when called:    2
+   485 ;; This function calls:
+   486 ;;		_writeBit
+   487 ;; This function is called by:
+   488 ;;		_writeICSP
+   489 ;;		_readICSP
+   490 ;; This function uses a non-reentrant model
+   491 ;;
+   492                           
+   493                           	psect	text4
+   494  007E8E                     __ptext4:
+   495                           	opt stack 0
+   496  007E8E                     _writeBits:
+   497                           	opt stack 26
+   498                           
+   499                           ;ICSP.c: 17: int i=0;
+   500                           
+   501                           ;incstack = 0
+   502  007E8E  0E00               	movlw	0
+   503  007E90  6E0D               	movwf	writeBits@i+1,c
+   504  007E92  0E00               	movlw	0
+   505  007E94  6E0C               	movwf	writeBits@i,c
+   506                           
+   507                           ;ICSP.c: 18: while(i < bitsToWrite){
+   508  007E96  D015               	goto	l708
+   509  007E98                     l704:
+   510                           
+   511                           ;ICSP.c: 19: writeBit(((pattern>>i)&0x1));
+   512  007E98  C00C  F009         	movff	writeBits@i,??_writeBits
+   513  007E9C  C005  F00A         	movff	writeBits@pattern,??_writeBits+1
+   514  007EA0  C006  F00B         	movff	writeBits@pattern+1,??_writeBits+2
+   515  007EA4  2A09               	incf	??_writeBits,f,c
+   516  007EA6  D003               	goto	u34
+   517  007EA8                     u35:
+   518  007EA8  90D8               	bcf	status,0,c
+   519  007EAA  320B               	rrcf	??_writeBits+2,f,c
+   520  007EAC  320A               	rrcf	??_writeBits+1,f,c
+   521  007EAE                     u34:
+   522  007EAE  2E09               	decfsz	??_writeBits,f,c
+   523  007EB0  D7FB               	goto	u35
+   524  007EB2  0E01               	movlw	1
+   525  007EB4  140A               	andwf	??_writeBits+1,w,c
+   526  007EB6  6E03               	movwf	writeBit@bitToWrite,c
+   527  007EB8  6A04               	clrf	writeBit@bitToWrite+1,c
+   528  007EBA  EC08  F03F         	call	_writeBit	;wreg free
+   529                           
+   530                           ;ICSP.c: 20: i++;
+   531  007EBE  4A0C               	infsnz	writeBits@i,f,c
+   532  007EC0  2A0D               	incf	writeBits@i+1,f,c
+   533  007EC2                     l708:
+   534  007EC2  5007               	movf	writeBits@bitsToWrite,w,c
+   535  007EC4  5C0C               	subwf	writeBits@i,w,c
+   536  007EC6  5008               	movf	writeBits@bitsToWrite+1,w,c
+   537  007EC8  580D               	subwfb	writeBits@i+1,w,c
+   538  007ECA  B0D8               	btfsc	status,0,c
+   539  007ECC  0012               	return	
+   540  007ECE  D7E4               	goto	l704
+   541  007ED0                     __end_of_writeBits:
+   542                           	opt stack 0
+   543                           status	equ	0xFD8
+   544                           
+   545 ;; *************** function _writeBit *****************
+   546 ;; Defined at:
+   547 ;;		line 10 in file "../src/PIC18/ICSP.c"
+   548 ;; Parameters:    Size  Location     Type
+   549 ;;  bitToWrite      2    2[COMRAM] unsigned int 
+   550 ;; Auto vars:     Size  Location     Type
+   551 ;;		None
+   552 ;; Return value:  Size  Location     Type
+   553 ;;		None               void
+   554 ;; Registers used:
+   555 ;;		cstack
+   556 ;; Tracked objects:
+   557 ;;		On entry : 0/0
+   558 ;;		On exit  : 0/0
+   559 ;;		Unchanged: 0/0
+   560 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   561 ;;      Params:         2       0       0       0       0       0       0
+   562 ;;      Locals:         0       0       0       0       0       0       0
+   563 ;;      Temps:          0       0       0       0       0       0       0
+   564 ;;      Totals:         2       0       0       0       0       0       0
+   565 ;;Total ram usage:        2 bytes
+   566 ;; Hardware stack levels used:    1
+   567 ;; Hardware stack levels required when called:    1
+   568 ;; This function calls:
+   569 ;;		_PGC_high
+   570 ;;		_PGC_low
+   571 ;;		_writePGD
+   572 ;; This function is called by:
+   573 ;;		_writeBits
+   574 ;; This function uses a non-reentrant model
+   575 ;;
+   576                           
+   577                           	psect	text5
+   578  007E10                     __ptext5:
+   579                           	opt stack 0
+   580  007E10                     _writeBit:
+   581                           	opt stack 26
+   582                           
+   583                           ;ICSP.c: 11: PGC_high();
+   584                           
+   585                           ;incstack = 0
+   586  007E10  ECDE  F03E         	call	_PGC_high	;wreg free
+   587                           
+   588                           ;ICSP.c: 12: writePGD(bitToWrite);
+   589  007E14  C003  F001         	movff	writeBit@bitToWrite,writePGD@data
+   590  007E18  C004  F002         	movff	writeBit@bitToWrite+1,writePGD@data+1
+   591  007E1C  ECEF  F03E         	call	_writePGD	;wreg free
+   592                           
+   593                           ;ICSP.c: 13: PGC_low();
+   594  007E20  ECE0  F03E         	call	_PGC_low	;wreg free
+   595  007E24  0012               	return	
+   596  007E26                     __end_of_writeBit:
+   597                           	opt stack 0
+   598                           status	equ	0xFD8
+   599                           
+   600 ;; *************** function _readBits *****************
+   601 ;; Defined at:
+   602 ;;		line 42 in file "../src/PIC18/ICSP.c"
+   603 ;; Parameters:    Size  Location     Type
+   604 ;;  bitsToRead      2    7[COMRAM] int 
+   605 ;; Auto vars:     Size  Location     Type
+   606 ;;  data            2   13[COMRAM] unsigned int 
+   607 ;;  i               2   11[COMRAM] int 
+   608 ;; Return value:  Size  Location     Type
+   609 ;;                  2    7[COMRAM] unsigned int 
+   610 ;; Registers used:
+   611 ;;		wreg, status,2, status,0, cstack
+   612 ;; Tracked objects:
+   613 ;;		On entry : 0/0
+   614 ;;		On exit  : 0/0
+   615 ;;		Unchanged: 0/0
+   616 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   617 ;;      Params:         2       0       0       0       0       0       0
+   618 ;;      Locals:         4       0       0       0       0       0       0
+   619 ;;      Temps:          2       0       0       0       0       0       0
+   620 ;;      Totals:         8       0       0       0       0       0       0
+   621 ;;Total ram usage:        8 bytes
+   622 ;; Hardware stack levels used:    1
+   623 ;; Hardware stack levels required when called:    2
+   624 ;; This function calls:
+   625 ;;		_readBit
+   626 ;; This function is called by:
+   627 ;;		_readICSP
+   628 ;; This function uses a non-reentrant model
+   629 ;;
+   630                           
+   631                           	psect	text6
+   632  007ED0                     __ptext6:
+   633                           	opt stack 0
+   634  007ED0                     _readBits:
+   635                           	opt stack 26
+   636                           
+   637                           ;ICSP.c: 43: int i=0;
+   638                           
+   639                           ;incstack = 0
+   640  007ED0  0E00               	movlw	0
+   641  007ED2  6E0D               	movwf	readBits@i+1,c
+   642  007ED4  0E00               	movlw	0
+   643  007ED6  6E0C               	movwf	readBits@i,c
+   644                           
+   645                           ;ICSP.c: 44: uint16 data=0;
+   646  007ED8  0E00               	movlw	0
+   647  007EDA  6E0F               	movwf	readBits@data+1,c
+   648  007EDC  0E00               	movlw	0
+   649  007EDE  6E0E               	movwf	readBits@data,c
+   650                           
+   651                           ;ICSP.c: 46: while(i < bitsToRead){
+   652  007EE0  D011               	goto	l716
+   653  007EE2                     l712:
+   654                           
+   655                           ;ICSP.c: 47: data = (data<<1)|readBit();
+   656  007EE2  EC1F  F03F         	call	_readBit	;wreg free
+   657  007EE6  C00E  F00A         	movff	readBits@data,??_readBits
+   658  007EEA  C00F  F00B         	movff	readBits@data+1,??_readBits+1
+   659  007EEE  90D8               	bcf	status,0,c
+   660  007EF0  360A               	rlcf	??_readBits,f,c
+   661  007EF2  360B               	rlcf	??_readBits+1,f,c
+   662  007EF4  5004               	movf	?_readBit,w,c
+   663  007EF6  100A               	iorwf	??_readBits,w,c
+   664  007EF8  6E0E               	movwf	readBits@data,c
+   665  007EFA  5005               	movf	?_readBit+1,w,c
+   666  007EFC  100B               	iorwf	??_readBits+1,w,c
+   667  007EFE  6E0F               	movwf	readBits@data+1,c
+   668                           
+   669                           ;ICSP.c: 48: i++;
+   670  007F00  4A0C               	infsnz	readBits@i,f,c
+   671  007F02  2A0D               	incf	readBits@i+1,f,c
+   672  007F04                     l716:
+   673  007F04  500D               	movf	readBits@i+1,w,c
+   674  007F06  0A80               	xorlw	128
+   675  007F08  6E0A               	movwf	??_readBits& (0+255),c
+   676  007F0A  5008               	movf	readBits@bitsToRead,w,c
+   677  007F0C  5C0C               	subwf	readBits@i,w,c
+   678  007F0E  5009               	movf	readBits@bitsToRead+1,w,c
+   679  007F10  0A80               	xorlw	128
+   680  007F12  580A               	subwfb	??_readBits& (0+255),w,c
+   681  007F14  A0D8               	btfss	status,0,c
+   682  007F16  D7E5               	goto	l712
+   683                           
+   684                           ;ICSP.c: 49: }
+   685                           ;ICSP.c: 50: return data;
+   686  007F18  C00E  F008         	movff	readBits@data,?_readBits
+   687  007F1C  C00F  F009         	movff	readBits@data+1,?_readBits+1
+   688  007F20  0012               	return	
+   689  007F22                     __end_of_readBits:
+   690                           	opt stack 0
+   691                           status	equ	0xFD8
+   692                           
+   693 ;; *************** function _readBit *****************
+   694 ;; Defined at:
+   695 ;;		line 34 in file "../src/PIC18/ICSP.c"
+   696 ;; Parameters:    Size  Location     Type
+   697 ;;		None
+   698 ;; Auto vars:     Size  Location     Type
+   699 ;;  data            2    5[COMRAM] unsigned int 
+   700 ;; Return value:  Size  Location     Type
+   701 ;;                  2    3[COMRAM] unsigned int 
+   702 ;; Registers used:
+   703 ;;		wreg, status,2, cstack
+   704 ;; Tracked objects:
+   705 ;;		On entry : 0/0
+   706 ;;		On exit  : 0/0
+   707 ;;		Unchanged: 0/0
+   708 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   709 ;;      Params:         2       0       0       0       0       0       0
+   710 ;;      Locals:         2       0       0       0       0       0       0
+   711 ;;      Temps:          0       0       0       0       0       0       0
+   712 ;;      Totals:         4       0       0       0       0       0       0
+   713 ;;Total ram usage:        4 bytes
+   714 ;; Hardware stack levels used:    1
+   715 ;; Hardware stack levels required when called:    1
+   716 ;; This function calls:
+   717 ;;		_PGC_high
+   718 ;;		_PGC_low
+   719 ;;		_readPGD
+   720 ;; This function is called by:
+   721 ;;		_readBits
+   722 ;; This function uses a non-reentrant model
+   723 ;;
+   724                           
+   725                           	psect	text7
+   726  007E3E                     __ptext7:
+   727                           	opt stack 0
+   728  007E3E                     _readBit:
+   729                           	opt stack 26
+   730                           
+   731                           ;ICSP.c: 35: uint16 data=0;
+   732                           
+   733                           ;incstack = 0
+   734  007E3E  0E00               	movlw	0
+   735  007E40  6E07               	movwf	readBit@data+1,c
+   736  007E42  0E00               	movlw	0
+   737  007E44  6E06               	movwf	readBit@data,c
+   738                           
+   739                           ;ICSP.c: 36: PGC_high();
+   740  007E46  ECDE  F03E         	call	_PGC_high	;wreg free
+   741                           
+   742                           ;ICSP.c: 37: data = readPGD();
+   743  007E4A  ECFE  F03E         	call	_readPGD	;wreg free
+   744  007E4E  C001  F006         	movff	?_readPGD,readBit@data
+   745  007E52  C002  F007         	movff	?_readPGD+1,readBit@data+1
+   746                           
+   747                           ;ICSP.c: 38: PGC_low();
+   748  007E56  ECE0  F03E         	call	_PGC_low	;wreg free
+   749                           
+   750                           ;ICSP.c: 39: return data;
+   751  007E5A  C006  F004         	movff	readBit@data,?_readBit
+   752  007E5E  C007  F005         	movff	readBit@data+1,?_readBit+1
+   753  007E62  0012               	return	
+   754  007E64                     __end_of_readBit:
+   755                           	opt stack 0
+   756                           status	equ	0xFD8
+   757                           
+   758 ;; *************** function _readPGD *****************
+   759 ;; Defined at:
+   760 ;;		line 6 in file "../src/PIC18/FlashProg.c"
+   761 ;; Parameters:    Size  Location     Type
+   762 ;;		None
+   763 ;; Auto vars:     Size  Location     Type
+   764 ;;		None
+   765 ;; Return value:  Size  Location     Type
+   766 ;;                  2    0[COMRAM] unsigned int 
+   767 ;; Registers used:
+   768 ;;		wreg, status,2
+   769 ;; Tracked objects:
+   770 ;;		On entry : 0/0
+   771 ;;		On exit  : 0/0
+   772 ;;		Unchanged: 0/0
+   773 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   774 ;;      Params:         2       0       0       0       0       0       0
+   775 ;;      Locals:         0       0       0       0       0       0       0
+   776 ;;      Temps:          1       0       0       0       0       0       0
+   777 ;;      Totals:         3       0       0       0       0       0       0
+   778 ;;Total ram usage:        3 bytes
+   779 ;; Hardware stack levels used:    1
+   780 ;; This function calls:
+   781 ;;		Nothing
+   782 ;; This function is called by:
+   783 ;;		_readBit
+   784 ;; This function uses a non-reentrant model
+   785 ;;
+   786                           
+   787                           	psect	text8
+   788  007DFC                     __ptext8:
+   789                           	opt stack 0
+   790  007DFC                     _readPGD:
+   791                           	opt stack 26
+   792                           
+   793                           ;FlashProg.c: 7: return PORTDbits.RD4;
+   794                           
+   795                           ;incstack = 0
+   796  007DFC  A883               	btfss	3971,4,c	;volatile
+   797  007DFE  D003               	goto	u10
+   798  007E00  6A03               	clrf	??_readPGD& (0+255),c
+   799  007E02  2A03               	incf	??_readPGD& (0+255),f,c
+   800  007E04  D001               	goto	u18
+   801  007E06                     u10:
+   802  007E06  6A03               	clrf	??_readPGD& (0+255),c
+   803  007E08                     u18:
+   804  007E08  5003               	movf	??_readPGD,w,c
+   805  007E0A  6E01               	movwf	?_readPGD,c
+   806  007E0C  6A02               	clrf	?_readPGD+1,c
+   807  007E0E  0012               	return	
+   808  007E10                     __end_of_readPGD:
+   809                           	opt stack 0
+   810                           status	equ	0xFD8
+   811                           
+   812 ;; *************** function _PGC_low *****************
+   813 ;; Defined at:
+   814 ;;		line 26 in file "../src/PIC18/FlashProg.c"
+   815 ;; Parameters:    Size  Location     Type
+   816 ;;		None
+   817 ;; Auto vars:     Size  Location     Type
+   818 ;;		None
+   819 ;; Return value:  Size  Location     Type
+   820 ;;		None               void
+   821 ;; Registers used:
+   822 ;;		None
+   823 ;; Tracked objects:
+   824 ;;		On entry : 0/0
+   825 ;;		On exit  : 0/0
+   826 ;;		Unchanged: 0/0
+   827 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   828 ;;      Params:         0       0       0       0       0       0       0
+   829 ;;      Locals:         0       0       0       0       0       0       0
+   830 ;;      Temps:          0       0       0       0       0       0       0
+   831 ;;      Totals:         0       0       0       0       0       0       0
+   832 ;;Total ram usage:        0 bytes
+   833 ;; Hardware stack levels used:    1
+   834 ;; This function calls:
+   835 ;;		Nothing
+   836 ;; This function is called by:
+   837 ;;		_writeBit
+   838 ;;		_readBit
+   839 ;;		_main
+   840 ;; This function uses a non-reentrant model
+   841 ;;
+   842                           
+   843                           	psect	text9
+   844  007DC0                     __ptext9:
+   845                           	opt stack 0
+   846  007DC0                     _PGC_low:
+   847                           	opt stack 26
+   848                           
+   849                           ;FlashProg.c: 27: PORTDbits.RD5 = 0;
+   850                           
+   851                           ;incstack = 0
+   852  007DC0  9A83               	bcf	3971,5,c	;volatile
+   853  007DC2  0012               	return	
+   854  007DC4                     __end_of_PGC_low:
+   855                           	opt stack 0
+   856                           status	equ	0xFD8
+   857                           
+   858 ;; *************** function _PGC_high *****************
+   859 ;; Defined at:
+   860 ;;		line 22 in file "../src/PIC18/FlashProg.c"
+   861 ;; Parameters:    Size  Location     Type
+   862 ;;		None
+   863 ;; Auto vars:     Size  Location     Type
+   864 ;;		None
+   865 ;; Return value:  Size  Location     Type
+   866 ;;		None               void
+   867 ;; Registers used:
+   868 ;;		None
+   869 ;; Tracked objects:
+   870 ;;		On entry : 0/0
+   871 ;;		On exit  : 0/0
+   872 ;;		Unchanged: 0/0
+   873 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   874 ;;      Params:         0       0       0       0       0       0       0
+   875 ;;      Locals:         0       0       0       0       0       0       0
+   876 ;;      Temps:          0       0       0       0       0       0       0
+   877 ;;      Totals:         0       0       0       0       0       0       0
+   878 ;;Total ram usage:        0 bytes
+   879 ;; Hardware stack levels used:    1
+   880 ;; This function calls:
+   881 ;;		Nothing
+   882 ;; This function is called by:
+   883 ;;		_writeBit
+   884 ;;		_readBit
+   885 ;; This function uses a non-reentrant model
+   886 ;;
+   887                           
+   888                           	psect	text10
+   889  007DBC                     __ptext10:
+   890                           	opt stack 0
+   891  007DBC                     _PGC_high:
+   892                           	opt stack 26
+   893                           
+   894                           ;FlashProg.c: 23: PORTDbits.RD5 = 1;
+   895                           
+   896                           ;incstack = 0
+   897  007DBC  8A83               	bsf	3971,5,c	;volatile
+   898  007DBE  0012               	return	
+   899  007DC0                     __end_of_PGC_high:
+   900                           	opt stack 0
+   901                           status	equ	0xFD8
+   902                           
+   903 ;; *************** function _exit_LVP *****************
+   904 ;; Defined at:
+   905 ;;		line 55 in file "../src/PIC18/FlashProg.c"
+   906 ;; Parameters:    Size  Location     Type
+   907 ;;		None
+   908 ;; Auto vars:     Size  Location     Type
+   909 ;;		None
+   910 ;; Return value:  Size  Location     Type
+   911 ;;		None               void
+   912 ;; Registers used:
+   913 ;;		wreg, status,2, cstack
+   914 ;; Tracked objects:
+   915 ;;		On entry : 0/0
+   916 ;;		On exit  : 0/0
+   917 ;;		Unchanged: 0/0
+   918 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   919 ;;      Params:         0       0       0       0       0       0       0
+   920 ;;      Locals:         0       0       0       0       0       0       0
+   921 ;;      Temps:          0       0       0       0       0       0       0
+   922 ;;      Totals:         0       0       0       0       0       0       0
+   923 ;;Total ram usage:        0 bytes
+   924 ;; Hardware stack levels used:    1
+   925 ;; Hardware stack levels required when called:    2
+   926 ;; This function calls:
+   927 ;;		_MCLR_high
+   928 ;;		_MCLR_low
+   929 ;; This function is called by:
+   930 ;;		_main
+   931 ;; This function uses a non-reentrant model
+   932 ;;
+   933                           
+   934                           	psect	text11
+   935  007DD4                     __ptext11:
+   936                           	opt stack 0
+   937  007DD4                     _exit_LVP:
+   938                           	opt stack 28
+   939                           
+   940                           ;FlashProg.c: 56: MCLR_high();
+   941                           
+   942                           ;incstack = 0
+   943  007DD4  ECDC  F03E         	call	_MCLR_high	;wreg free
+   944                           
+   945                           ;FlashProg.c: 58: MCLR_low();
+   946  007DD8  ECF5  F03E         	call	_MCLR_low	;wreg free
+   947  007DDC  0012               	return	
+   948  007DDE                     __end_of_exit_LVP:
+   949                           	opt stack 0
+   950                           status	equ	0xFD8
+   951                           
+   952 ;; *************** function _enter_LVP *****************
+   953 ;; Defined at:
+   954 ;;		line 48 in file "../src/PIC18/FlashProg.c"
+   955 ;; Parameters:    Size  Location     Type
+   956 ;;		None
+   957 ;; Auto vars:     Size  Location     Type
+   958 ;;		None
+   959 ;; Return value:  Size  Location     Type
+   960 ;;		None               void
+   961 ;; Registers used:
+   962 ;;		wreg, status,2, cstack
+   963 ;; Tracked objects:
+   964 ;;		On entry : 0/0
+   965 ;;		On exit  : 0/0
+   966 ;;		Unchanged: 0/0
+   967 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   968 ;;      Params:         0       0       0       0       0       0       0
+   969 ;;      Locals:         0       0       0       0       0       0       0
+   970 ;;      Temps:          0       0       0       0       0       0       0
+   971 ;;      Totals:         0       0       0       0       0       0       0
+   972 ;;Total ram usage:        0 bytes
+   973 ;; Hardware stack levels used:    1
+   974 ;; Hardware stack levels required when called:    2
+   975 ;; This function calls:
+   976 ;;		_MCLR_high
+   977 ;;		_MCLR_low
+   978 ;; This function is called by:
+   979 ;;		_main
+   980 ;; This function uses a non-reentrant model
+   981 ;;
+   982                           
+   983                           	psect	text12
+   984  007DCA                     __ptext12:
+   985                           	opt stack 0
+   986  007DCA                     _enter_LVP:
+   987                           	opt stack 28
+   988                           
+   989                           ;FlashProg.c: 49: MCLR_low();
+   990                           
+   991                           ;incstack = 0
+   992  007DCA  ECF5  F03E         	call	_MCLR_low	;wreg free
+   993                           
+   994                           ;FlashProg.c: 51: MCLR_high();
+   995  007DCE  ECDC  F03E         	call	_MCLR_high	;wreg free
+   996  007DD2  0012               	return	
+   997  007DD4                     __end_of_enter_LVP:
+   998                           	opt stack 0
+   999                           status	equ	0xFD8
+  1000                           
+  1001 ;; *************** function _MCLR_low *****************
+  1002 ;; Defined at:
+  1003 ;;		line 38 in file "../src/PIC18/FlashProg.c"
+  1004 ;; Parameters:    Size  Location     Type
+  1005 ;;		None
+  1006 ;; Auto vars:     Size  Location     Type
+  1007 ;;		None
+  1008 ;; Return value:  Size  Location     Type
+  1009 ;;		None               void
+  1010 ;; Registers used:
+  1011 ;;		wreg, status,2, cstack
+  1012 ;; Tracked objects:
+  1013 ;;		On entry : 0/0
+  1014 ;;		On exit  : 0/0
+  1015 ;;		Unchanged: 0/0
+  1016 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1017 ;;      Params:         0       0       0       0       0       0       0
+  1018 ;;      Locals:         0       0       0       0       0       0       0
+  1019 ;;      Temps:          0       0       0       0       0       0       0
+  1020 ;;      Totals:         0       0       0       0       0       0       0
+  1021 ;;Total ram usage:        0 bytes
+  1022 ;; Hardware stack levels used:    1
+  1023 ;; Hardware stack levels required when called:    1
+  1024 ;; This function calls:
+  1025 ;;		_writePGD
+  1026 ;; This function is called by:
+  1027 ;;		_enter_LVP
+  1028 ;;		_exit_LVP
+  1029 ;; This function uses a non-reentrant model
+  1030 ;;
+  1031                           
+  1032                           	psect	text13
+  1033  007DEA                     __ptext13:
+  1034                           	opt stack 0
+  1035  007DEA                     _MCLR_low:
+  1036                           	opt stack 28
+  1037                           
+  1038                           ;FlashProg.c: 39: PORTDbits.RD6 = 0;
+  1039                           
+  1040                           ;incstack = 0
+  1041  007DEA  9C83               	bcf	3971,6,c	;volatile
+  1042                           
+  1043                           ;FlashProg.c: 40: writePGD(0);
+  1044  007DEC  0E00               	movlw	0
+  1045  007DEE  6E02               	movwf	writePGD@data+1,c
+  1046  007DF0  0E00               	movlw	0
+  1047  007DF2  6E01               	movwf	writePGD@data,c
+  1048  007DF4  ECEF  F03E         	call	_writePGD	;wreg free
+  1049                           
+  1050                           ;FlashProg.c: 41: PORTDbits.RD5 = 0;
+  1051  007DF8  9A83               	bcf	3971,5,c	;volatile
+  1052  007DFA  0012               	return	
+  1053  007DFC                     __end_of_MCLR_low:
+  1054                           	opt stack 0
+  1055                           status	equ	0xFD8
+  1056                           
+  1057 ;; *************** function _writePGD *****************
+  1058 ;; Defined at:
+  1059 ;;		line 10 in file "../src/PIC18/FlashProg.c"
+  1060 ;; Parameters:    Size  Location     Type
+  1061 ;;  data            2    0[COMRAM] int 
+  1062 ;; Auto vars:     Size  Location     Type
+  1063 ;;		None
+  1064 ;; Return value:  Size  Location     Type
+  1065 ;;		None               void
+  1066 ;; Registers used:
+  1067 ;;		None
+  1068 ;; Tracked objects:
+  1069 ;;		On entry : 0/0
+  1070 ;;		On exit  : 0/0
+  1071 ;;		Unchanged: 0/0
+  1072 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1073 ;;      Params:         2       0       0       0       0       0       0
+  1074 ;;      Locals:         0       0       0       0       0       0       0
+  1075 ;;      Temps:          0       0       0       0       0       0       0
+  1076 ;;      Totals:         2       0       0       0       0       0       0
+  1077 ;;Total ram usage:        2 bytes
+  1078 ;; Hardware stack levels used:    1
+  1079 ;; This function calls:
+  1080 ;;		Nothing
+  1081 ;; This function is called by:
+  1082 ;;		_MCLR_low
+  1083 ;;		_writeBit
+  1084 ;;		_PGD_high
+  1085 ;;		_PGD_low
+  1086 ;; This function uses a non-reentrant model
+  1087 ;;
+  1088                           
+  1089                           	psect	text14
+  1090  007DDE                     __ptext14:
+  1091                           	opt stack 0
+  1092  007DDE                     _writePGD:
+  1093                           	opt stack 26
+  1094                           
+  1095                           ;FlashProg.c: 11: PORTDbits.RD4 = data;
+  1096                           
+  1097                           ;incstack = 0
+  1098  007DDE  B001               	btfsc	writePGD@data,0,c
+  1099  007DE0  D002               	bra	u25
+  1100  007DE2  9883               	bcf	3971,4,c	;volatile
+  1101  007DE4  D001               	bra	u26
+  1102  007DE6                     u25:
+  1103  007DE6  8883               	bsf	3971,4,c	;volatile
+  1104  007DE8                     u26:
+  1105  007DE8  0012               	return	
+  1106  007DEA                     __end_of_writePGD:
+  1107                           	opt stack 0
+  1108                           status	equ	0xFD8
+  1109                           
+  1110 ;; *************** function _MCLR_high *****************
+  1111 ;; Defined at:
+  1112 ;;		line 44 in file "../src/PIC18/FlashProg.c"
+  1113 ;; Parameters:    Size  Location     Type
+  1114 ;;		None
+  1115 ;; Auto vars:     Size  Location     Type
+  1116 ;;		None
+  1117 ;; Return value:  Size  Location     Type
+  1118 ;;		None               void
+  1119 ;; Registers used:
+  1120 ;;		None
+  1121 ;; Tracked objects:
+  1122 ;;		On entry : 0/0
+  1123 ;;		On exit  : 0/0
+  1124 ;;		Unchanged: 0/0
+  1125 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1126 ;;      Params:         0       0       0       0       0       0       0
+  1127 ;;      Locals:         0       0       0       0       0       0       0
+  1128 ;;      Temps:          0       0       0       0       0       0       0
+  1129 ;;      Totals:         0       0       0       0       0       0       0
+  1130 ;;Total ram usage:        0 bytes
+  1131 ;; Hardware stack levels used:    1
+  1132 ;; This function calls:
+  1133 ;;		Nothing
+  1134 ;; This function is called by:
+  1135 ;;		_enter_LVP
+  1136 ;;		_exit_LVP
+  1137 ;; This function uses a non-reentrant model
+  1138 ;;
+  1139                           
+  1140                           	psect	text15
+  1141  007DB8                     __ptext15:
+  1142                           	opt stack 0
+  1143  007DB8                     _MCLR_high:
+  1144                           	opt stack 29
+  1145                           
+  1146                           ;FlashProg.c: 45: PORTDbits.RD6 = 1;
+  1147                           
+  1148                           ;incstack = 0
+  1149  007DB8  8C83               	bsf	3971,6,c	;volatile
+  1150  007DBA  0012               	return	
+  1151  007DBC                     __end_of_MCLR_high:
+  1152                           	opt stack 0
+  1153  0000                     status	equ	0xFD8
+  1154                           status	equ	0xFD8
+  1155                           
+  1156                           	psect	rparam
+  1157  0000                     status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127     21      21
+    BANK0           128      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    _main->_readDeviceID
+    _readDeviceID->_readICSP
+    _writeICSP->_writeBits
+    _readICSP->_readBits
+    _writeBits->_writeBit
+    _writeBit->_writePGD
+    _readBits->_readBit
+    _readBit->_readPGD
+    _MCLR_low->_writePGD
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    3016
+                            _PGC_low
+                          _enter_LVP
+                           _exit_LVP
+                       _readDeviceID
+ ---------------------------------------------------------------------------------
+ (1) _readDeviceID                                         2     2      0    2714
+                                             19 COMRAM     2     2      0
+                           _readICSP
+                          _writeICSP
+ ---------------------------------------------------------------------------------
+ (2) _writeICSP                                            4     0      4    2058
+                                             13 COMRAM     4     0      4
+                          _writeBits
+ ---------------------------------------------------------------------------------
+ (2) _readICSP                                             4     2      2     656
+                                             15 COMRAM     4     2      2
+                           _readBits
+                          _writeBits
+ ---------------------------------------------------------------------------------
+ (3) _writeBits                                            9     5      4     532
+                                              4 COMRAM     9     5      4
+                           _writeBit
+ ---------------------------------------------------------------------------------
+ (4) _writeBit                                             2     0      2     200
+                                              2 COMRAM     2     0      2
+                           _PGC_high
+                            _PGC_low
+                           _writePGD
+ ---------------------------------------------------------------------------------
+ (3) _readBits                                             8     6      2     109
+                                              7 COMRAM     8     6      2
+                            _readBit
+ ---------------------------------------------------------------------------------
+ (4) _readBit                                              4     2      2      15
+                                              3 COMRAM     4     2      2
+                           _PGC_high
+                            _PGC_low
+                            _readPGD
+ ---------------------------------------------------------------------------------
+ (5) _readPGD                                              3     1      2       0
+                                              0 COMRAM     3     1      2
+ ---------------------------------------------------------------------------------
+ (5) _PGC_low                                              0     0      0       0
+ ---------------------------------------------------------------------------------
+ (5) _PGC_high                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _exit_LVP                                             0     0      0     151
+                          _MCLR_high
+                           _MCLR_low
+ ---------------------------------------------------------------------------------
+ (1) _enter_LVP                                            0     0      0     151
+                          _MCLR_high
+                           _MCLR_low
+ ---------------------------------------------------------------------------------
+ (2) _MCLR_low                                             0     0      0     151
+                           _writePGD
+ ---------------------------------------------------------------------------------
+ (5) _writePGD                                             2     0      2     151
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (2) _MCLR_high                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 5
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _PGC_low
+   _enter_LVP
+     _MCLR_high
+     _MCLR_low
+       _writePGD
+   _exit_LVP
+     _MCLR_high
+     _MCLR_low
+       _writePGD
+   _readDeviceID
+     _readICSP
+       _readBits
+         _readBit
+           _PGC_high
+           _PGC_low
+           _readPGD
+       _writeBits
+         _writeBit
+           _PGC_high
+           _PGC_low
+           _writePGD
+     _writeICSP
+       _writeBits
+         _writeBit
+           _PGC_high
+           _PGC_low
+           _writePGD
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           7F      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              7F     15      15       1       16.5%
+STACK                0      0       0       2        0.0%
+DATA                 0      0       0       3        0.0%
+BITBANK0            80      0       0       4        0.0%
+BANK0               80      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BANK5              100      0       0      14        0.0%
+ABS                  0      0       0      15        0.0%
+BITBANK5           100      0       0      16        0.0%
+BIGRAM             5FF      0       0      17        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.33 build 59893 
+Symbol Table                                                                                   Fri Oct 31 18:41:43 2014
+
+                     u10 7E06                       u25 7DE6                       u26 7DE8  
+                     u18 7E08                       u34 7EAE                       u35 7EA8  
+                    l101 7E3C                      l712 7EE2                      l704 7E98  
+                    l716 7F04                      l708 7EC2             __CFG_LVP$OFF 000000  
+           __CFG_WDT$OFF 000000            __CFG_DEBUG$ON 000000          __end_of_PGC_low 7DC4  
+           __CFG_PWRT$ON 000000                     _main 7E26                     start 0000  
+     __size_of_MCLR_high 0004         __end_of_MCLR_low 7DFC                    ?_main 0001  
+                  _TRISD 000F95         __end_of_PGC_high 7DC0          __end_of_readPGD 7E10  
+        __end_of_readBit 7E64                    status 000FD8          __initialization 7DC4  
+           __end_of_main 7E3E            ?_readDeviceID 0001                   ??_main 0016  
+          __activetblptr 000000                ??_PGC_low 0001        __end_of_MCLR_high 7DBC  
+            readBit@data 0006           ??_readDeviceID 0014         __end_of_readICSP 7F74  
+       __end_of_readBits 7F22         __end_of_exit_LVP 7DDE                ??_readPGD 0003  
+              ??_readBit 0006         __end_of_writePGD 7DEA         __end_of_writeBit 7E26  
+             __accesstop 0080  __end_of__initialization 7DC4             readICSP@data 0012  
+              ?_MCLR_low 0001                ?_PGC_high 0001           __pcstackCOMRAM 0001  
+     __size_of_enter_LVP 000A               ??_MCLR_low 0003               ??_PGC_high 0001  
+           readBits@data 000E                  _PGC_low 7DC0     __end_of_readDeviceID 8000  
+              ?_readICSP 0010                ?_readBits 0008                ?_exit_LVP 0001  
+     __size_of_writeICSP 002A       __size_of_writeBits 0042                  __Hparam 0000  
+                __Lparam 0000       writeBit@bitToWrite 0003        __end_of_enter_LVP 7DD4  
+                __pcinit 7DC4                  __ramtop 0600                ?_writePGD 0001  
+              ?_writeBit 0003                  __ptext0 7E26                  __ptext1 7F74  
+                __ptext2 7E64                  __ptext3 7F22                  __ptext4 7E8E  
+                __ptext5 7E10                  __ptext6 7ED0                  __ptext7 7E3E  
+                __ptext8 7DFC                  __ptext9 7DC0                  _readPGD 7DFC  
+                _readBit 7E3E             writePGD@data 0001     end_of_initialization 7DC4  
+             ??_readICSP 0012                _MCLR_high 7DB8               ??_readBits 000A  
+             ??_exit_LVP 0003        readDeviceID@value 0014               ??_writePGD 0003  
+             ??_writeBit 0005                _PORTDbits 000F83        __end_of_writeICSP 7E8E  
+      __end_of_writeBits 7ED0                _TRISDbits 000F95         writeBits@pattern 0005  
+             ?_MCLR_high 0001        __size_of_MCLR_low 0012        __size_of_PGC_high 0004  
+   writeICSP@commandByte 000E    __size_of_readDeviceID 008C      start_initialization 7DC4  
+       __CFG_OSC$INTIO67 000000       writeICSP@dataBytes 0010             _readDeviceID 7F74  
+               ?_PGC_low 0001              ??_MCLR_high 0001        __size_of_readICSP 0052  
+      __size_of_readBits 0052        __size_of_exit_LVP 000A                 ?_readPGD 0001  
+               ?_readBit 0004        __size_of_writePGD 000C                _enter_LVP 7DCA  
+      __size_of_writeBit 0016                 _MCLR_low 7DEA                 _PGC_high 7DBC  
+             ?_enter_LVP 0001                _writeICSP 7E64                _writeBits 7E8E  
+       __size_of_PGC_low 0004       readBits@bitsToRead 0008                readBits@i 000C  
+               __Hrparam 0000                 __Lrparam 0000         __size_of_readPGD 0014  
+       __size_of_readBit 0026               ?_writeICSP 000E                 __ptext10 7DBC  
+               __ptext11 7DD4                 __ptext12 7DCA                 __ptext13 7DEA  
+               __ptext14 7DDE                 __ptext15 7DB8               ?_writeBits 0005  
+               _readICSP 7F22                 _readBits 7ED0                 _exit_LVP 7DD4  
+          __size_of_main 0018     writeBits@bitsToWrite 0007               writeBits@i 000C  
+               _writePGD 7DDE                 _writeBit 7E10              ??_enter_LVP 0003  
+            ??_writeICSP 0012              ??_writeBits 0009  

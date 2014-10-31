@@ -1,15 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "../18c.h"
+#include "FlashProg.h"
 #include "ICSP.h"
-#include "p18f4520.h"
-#include "flash.h"
 
-int readPGD(){
+
+uint16 readPGD(){
   return _PGD;
 }
 
-void writePGD(int bit){
-  _PGD = bit;
+void writePGD(int data){
+  _PGD = data;
 }
 
 void PGD_high(){
@@ -21,35 +20,44 @@ void PGD_low(){
 }
 
 void PGC_high(){
-  PGC = 1;
+  _PGC = 1;
 }
 
 void PGC_low(){
-  PGC = 0;
+  _PGC = 0;
+}
+
+void PGM_low(){
+  _PGM = 0;
+}
+
+void PGM_high(){
+  _PGM = 1;
 }
 
 void MCLR_low(){
-  MCLR = 0;
+  _MCLR = 0;
   writePGD(0);
-  PGC = 0;
+  _PGC = 0;
 }
 
 void MCLR_high(){
-  MCLR = 1;
+  _MCLR = 1;
 }
 
 void enter_LVP(){
+  PGC_low();
+  PGD_low();
   MCLR_low();
-  //delay for >2us
+  PGM_high();
   MCLR_high();
-  //delay >2us
 }
 
 void exit_LVP(){
-  MCLR_high();
-  //delay >0s
+  PGC_low();
+  PGD_low();
   MCLR_low();
-  //delay >0s
+  PGM_low();
 }
 
 void bulkErase(){
@@ -59,15 +67,27 @@ void bulkErase(){
   writeICSP(0x0, 0x6ef7);
   writeICSP(0x0, 0x0e05);
   writeICSP(0x0, 0x6ef6);
-  writeICSP(0x0, 0x3f3f);
+  writeICSP(0xc, 0x3f3f);
   writeICSP(0x0, 0x0e3c);
   writeICSP(0x0, 0x6ef8);
   writeICSP(0x0, 0x0e00);
   writeICSP(0x0, 0x6ef7);
   writeICSP(0x0, 0x0e04);
   writeICSP(0x0, 0x6ef6);
-  writeICSP(0x0, 0x8f8f);
+  writeICSP(0xc, 0x8f8f);
   writeICSP(0x0, 0);
   writeICSP(0x0, 0);
 
+}
+
+void readDeviceID(){
+  uint16 value = 0;
+  writeICSP(0x0, 0x0e3f);
+  writeICSP(0x0, 0x6ef8);
+  writeICSP(0x0, 0x0eff);
+  writeICSP(0x0, 0x6ef7);
+  writeICSP(0x0, 0x0efe);
+  writeICSP(0x0, 0x6ef6);
+  value = readICSP();//////
+  value = value;
 }

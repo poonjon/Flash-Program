@@ -1,5 +1,6 @@
+#include "../18c.h"
+#include "FlashProg.h"
 #include "ICSP.h"
-#include <stdio.h>
 
 void writeICSP(uint16 commandByte, uint16 dataBytes){
   writeBits(commandByte, COMMAND);
@@ -7,8 +8,8 @@ void writeICSP(uint16 commandByte, uint16 dataBytes){
 }
 
 void writeBit(uint16 bitToWrite){
-  writePGD(bitToWrite);
   PGC_high();
+  writePGD(bitToWrite);
   PGC_low();
 }
 
@@ -23,14 +24,17 @@ void writeBits(uint16 pattern, uint16 bitsToWrite){
 uint16 readICSP(){
   uint16 data = 0;
   writeBits(9, 4);
+  writeBits(0, 8);
+  setICSPDataPinAsInput;
   data = readBits(8);
+  setICSPDataPinAsOutput;
   return data;
 }
 
 uint16 readBit(){
-  uint16 data = 0;
-  data = readPGD();
+  uint16 data=0;
   PGC_high();
+  data = readPGD();
   PGC_low();
   return data;
 }
@@ -43,6 +47,5 @@ uint16 readBits(int bitsToRead){
     data = (data<<1)|readBit();
     i++;
   }
-  
   return data;
 }
