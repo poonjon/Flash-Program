@@ -1,0 +1,20 @@
+_MCLR_high: CODE, 31402 0 4
+_enter_HVP: CODE, 31474 0 18
+_writePGD: CODE, 31434 0 12
+_PGC_low: CODE, 31410 0 4
+_PGD_low: CODE, 31446 0 14
+_readPGD: CODE, 31510 0 20
+_main: CODE, 31492 0 18
+_PGC_high: CODE, 31414 0 4
+__initialization: CODE, 31418 0 0
+_exit_HVP: CODE, 31460 0 14
+_readBit: CODE, 31552 0 38
+_readBits: CODE, 31778 0 84
+_MCLR_low: CODE, 31406 0 4
+_writeBit: CODE, 31530 0 22
+_writeBits: CODE, 31632 0 68
+_trisInit: CODE, 31424 0 10
+_writeICSP: CODE, 31590 0 42
+_readDeviceID1: CODE, 31862 0 138
+_readICSP: CODE, 31700 0 78
+Total: 592
