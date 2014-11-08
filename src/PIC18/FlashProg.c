@@ -37,9 +37,11 @@ void PGM_high(){
 
 void MCLR_low(){
   _MCLR = 0;
-}
 
-void MCLR_high(){
+  writePGD(0);
+  _PGC = 0;
+
+  void MCLR_high(){
   _MCLR = 1;
 }
 
@@ -51,11 +53,13 @@ void enter_HVP(){
   MCLR_high();
 }
 
+
 void exit_HVP(){
   PGC_low();
   PGD_low();
   PGM_low();
   MCLR_low();
+
 }
 
 void bulkErase(){
@@ -78,6 +82,7 @@ void bulkErase(){
 
 }
 
+
 void readDeviceID1(){
   uint16 value = 0;
   writeICSP(0x0, 0x0e3f);
@@ -98,6 +103,7 @@ void readDeviceID2(){
   writeICSP(0x0, 0x6ef7);
   writeICSP(0x0, 0x0efe);
   writeICSP(0x0, 0x6ef6);
+
   value = readICSP();
   value = value;
 }

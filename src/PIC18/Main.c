@@ -17,6 +17,7 @@
 
 #pragma config OSC = INTIO67, PWRT = ON, WDT = OFF, LVP = OFF, DEBUG = ON
 
+
 void trisInit(){
   TRISDbits.TRISD4 = 0;
   TRISDbits.TRISD5 = 0;
@@ -37,5 +38,6 @@ void main(){
   while(1){
   
   }
+
 }
 

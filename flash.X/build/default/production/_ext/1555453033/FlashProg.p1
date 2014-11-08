@@ -3781,12 +3781,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.h: 19: void PGC_low();
 [; ;FlashProg.h: 26: void MCLR_low();
 [; ;FlashProg.h: 27: void MCLR_high();
+<<<<<<< HEAD
+=======
+[; ;FlashProg.h: 34: void PGM_low();
+[; ;FlashProg.h: 35: void PGM_high();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 [; ;FlashProg.h: 47: uint16 readPGD();
 [; ;FlashProg.h: 48: void writePGD(int data);
 [; ;FlashProg.h: 49: void PGC_high();
 [; ;FlashProg.h: 50: void PGC_low();
 [; ;FlashProg.h: 51: void PGD_high();
 [; ;FlashProg.h: 52: void PGD_low();
+<<<<<<< HEAD
 [; ;FlashProg.h: 55: void MCLR_low();
 [; ;FlashProg.h: 56: void MCLR_high();
 [; ;FlashProg.h: 57: void enter_HVP();
@@ -3794,6 +3800,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.h: 59: void bulkErase();
 [; ;FlashProg.h: 60: void readDeviceID1();
 [; ;FlashProg.h: 61: void readDeviceID2();
+=======
+[; ;FlashProg.h: 53: void PGM_high();
+[; ;FlashProg.h: 54: void PGM_low();
+[; ;FlashProg.h: 55: void MCLR_low();
+[; ;FlashProg.h: 56: void MCLR_high();
+[; ;FlashProg.h: 57: void enter_LVP();
+[; ;FlashProg.h: 58: void exit_LVP();
+[; ;FlashProg.h: 59: void bulkErase();
+[; ;FlashProg.h: 60: void readDeviceID();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 [; ;ICSP.h: 10: void writeICSP(uint16 commandByte, uint16 dataBytes);
 [; ;ICSP.h: 11: void writeBit(uint16 bitToWrite);
 [; ;ICSP.h: 12: void writeBits(uint16 pattern, uint16 bitsToWrite);
@@ -3880,12 +3896,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 "28
 [e :UE 407 ]
 }
+<<<<<<< HEAD
+=======
+"30
+[v _PGM_low `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 30: void PGM_low(){
+[e :U _PGM_low ]
+[f ]
+[; ;FlashProg.c: 31: PORTDbits.RD7 = 0;
+"31
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+[; ;FlashProg.c: 32: }
+"32
+[e :UE 408 ]
+}
+"34
+[v _PGM_high `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 34: void PGM_high(){
+[e :U _PGM_high ]
+[f ]
+[; ;FlashProg.c: 35: PORTDbits.RD7 = 1;
+"35
+[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
+[; ;FlashProg.c: 36: }
+"36
+[e :UE 409 ]
+}
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 "38
 [v _MCLR_low `(v ~T0 @X0 1 ef ]
 {
 [; ;FlashProg.c: 38: void MCLR_low(){
 [e :U _MCLR_low ]
 [f ]
+<<<<<<< HEAD
 [; ;FlashProg.c: 39: PORTDbits.RD7 = 0;
 "39
 [e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
@@ -4080,4 +4126,159 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.c: 101: }
 "101
 [e :UE 414 ]
+=======
+[; ;FlashProg.c: 39: PORTDbits.RD6 = 0;
+"39
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;FlashProg.c: 40: writePGD(0);
+"40
+[e ( _writePGD (1 -> 0 `i ]
+[; ;FlashProg.c: 41: PORTDbits.RD5 = 0;
+"41
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;FlashProg.c: 42: }
+"42
+[e :UE 410 ]
+}
+"44
+[v _MCLR_high `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 44: void MCLR_high(){
+[e :U _MCLR_high ]
+[f ]
+[; ;FlashProg.c: 45: PORTDbits.RD6 = 1;
+"45
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;FlashProg.c: 46: }
+"46
+[e :UE 411 ]
+}
+"48
+[v _enter_LVP `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 48: void enter_LVP(){
+[e :U _enter_LVP ]
+[f ]
+[; ;FlashProg.c: 49: MCLR_low();
+"49
+[e ( _MCLR_low ..  ]
+[; ;FlashProg.c: 51: MCLR_high();
+"51
+[e ( _MCLR_high ..  ]
+[; ;FlashProg.c: 53: }
+"53
+[e :UE 412 ]
+}
+"55
+[v _exit_LVP `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 55: void exit_LVP(){
+[e :U _exit_LVP ]
+[f ]
+[; ;FlashProg.c: 56: MCLR_high();
+"56
+[e ( _MCLR_high ..  ]
+[; ;FlashProg.c: 58: MCLR_low();
+"58
+[e ( _MCLR_low ..  ]
+[; ;FlashProg.c: 60: }
+"60
+[e :UE 413 ]
+}
+"62
+[v _bulkErase `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 62: void bulkErase(){
+[e :U _bulkErase ]
+[f ]
+[; ;FlashProg.c: 63: writeICSP(0x0, 0x0e3c);
+"63
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3644 `i `ui ]
+[; ;FlashProg.c: 64: writeICSP(0x0, 0x6ef8);
+"64
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
+[; ;FlashProg.c: 65: writeICSP(0x0, 0x0e00);
+"65
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3584 `i `ui ]
+[; ;FlashProg.c: 66: writeICSP(0x0, 0x6ef7);
+"66
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
+[; ;FlashProg.c: 67: writeICSP(0x0, 0x0e05);
+"67
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3589 `i `ui ]
+[; ;FlashProg.c: 68: writeICSP(0x0, 0x6ef6);
+"68
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
+[; ;FlashProg.c: 69: writeICSP(0xc, 0x3f3f);
+"69
+[e ( _writeICSP (2 , -> -> 12 `i `ui -> -> 16191 `i `ui ]
+[; ;FlashProg.c: 70: writeICSP(0x0, 0x0e3c);
+"70
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3644 `i `ui ]
+[; ;FlashProg.c: 71: writeICSP(0x0, 0x6ef8);
+"71
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
+[; ;FlashProg.c: 72: writeICSP(0x0, 0x0e00);
+"72
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3584 `i `ui ]
+[; ;FlashProg.c: 73: writeICSP(0x0, 0x6ef7);
+"73
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
+[; ;FlashProg.c: 74: writeICSP(0x0, 0x0e04);
+"74
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3588 `i `ui ]
+[; ;FlashProg.c: 75: writeICSP(0x0, 0x6ef6);
+"75
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
+[; ;FlashProg.c: 76: writeICSP(0xc, 0x8f8f);
+"76
+[e ( _writeICSP (2 , -> -> 12 `i `ui -> 36751 `ui ]
+[; ;FlashProg.c: 77: writeICSP(0x0, 0);
+"77
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 0 `i `ui ]
+[; ;FlashProg.c: 78: writeICSP(0x0, 0);
+"78
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 0 `i `ui ]
+[; ;FlashProg.c: 80: }
+"80
+[e :UE 414 ]
+}
+"82
+[v _readDeviceID `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 82: void readDeviceID(){
+[e :U _readDeviceID ]
+[f ]
+"83
+[v _value `ui ~T0 @X0 1 a ]
+[; ;FlashProg.c: 83: uint16 value = 0;
+[e = _value -> -> 0 `i `ui ]
+[; ;FlashProg.c: 84: writeICSP(0x0, 0x0e3f);
+"84
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3647 `i `ui ]
+[; ;FlashProg.c: 85: writeICSP(0x0, 0x6ef8);
+"85
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
+[; ;FlashProg.c: 86: writeICSP(0x0, 0x0eff);
+"86
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3839 `i `ui ]
+[; ;FlashProg.c: 87: writeICSP(0x0, 0x6ef7);
+"87
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
+[; ;FlashProg.c: 88: writeICSP(0x0, 0x0efe);
+"88
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3838 `i `ui ]
+[; ;FlashProg.c: 89: writeICSP(0x0, 0x6ef6);
+"89
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
+[; ;FlashProg.c: 90: value = readICSP();
+"90
+[e = _value ( _readICSP ..  ]
+[; ;FlashProg.c: 91: value = value;
+"91
+[e = _value _value ]
+[; ;FlashProg.c: 92: }
+"92
+[e :UE 415 ]
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 }

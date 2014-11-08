@@ -15,6 +15,7 @@
 [v _PGC_high PGC_high `(v  1 e 0 0 ]
 "26
 [v _PGC_low PGC_low `(v  1 e 0 0 ]
+<<<<<<< HEAD
 "38
 [v _MCLR_low MCLR_low `(v  1 e 0 0 ]
 "42
@@ -36,14 +37,43 @@
 "17
 [v _writeBits writeBits `(v  1 e 0 0 ]
 "26
+=======
+"30
+[v _PGM_low PGM_low `(v  1 e 0 0 ]
+"34
+[v _PGM_high PGM_high `(v  1 e 0 0 ]
+"38
+[v _MCLR_low MCLR_low `(v  1 e 0 0 ]
+"44
+[v _MCLR_high MCLR_high `(v  1 e 0 0 ]
+"48
+[v _enter_LVP enter_LVP `(v  1 e 0 0 ]
+"55
+[v _exit_LVP exit_LVP `(v  1 e 0 0 ]
+"62
+[v _bulkErase bulkErase `(v  1 e 0 0 ]
+"82
+[v _readDeviceID readDeviceID `(v  1 e 0 0 ]
+"5 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/ICSP.c
+[v _writeICSP writeICSP `(v  1 e 0 0 ]
+"10
+[v _writeBit writeBit `(v  1 e 0 0 ]
+"16
+[v _writeBits writeBits `(v  1 e 0 0 ]
+"24
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 [v _readICSP readICSP `(ui  1 e 2 0 ]
 "34
 [v _readBit readBit `(ui  1 e 2 0 ]
 "42
 [v _readBits readBits `(ui  1 e 2 0 ]
+<<<<<<< HEAD
 "20 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/Main.c
 [v _trisInit trisInit `(v  1 e 0 0 ]
 "27
+=======
+"21 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/Main.c
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 [v _main main `(v  1 e 0 0 ]
 "4 C:\Program Files\Microchip\xc8\v1.33\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -196,7 +226,13 @@
 ]
 [u S47 . 1 `S21 1 . 1 0 `S30 1 . 1 0 `S39 1 . 1 0 `S44 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES47  1 e 1 @3971 ]
+<<<<<<< HEAD
 [s S127 . 1 `uc 1 TRISD0 1 0 :1:0 
+=======
+"2391
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S125 . 1 `uc 1 TRISD0 1 0 :1:0 
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -206,6 +242,7 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "2423
+<<<<<<< HEAD
 [u S145 . 1 `S127 1 . 1 0 `S21 1 . 1 0 ]
 [v _TRISDbits TRISDbits `VES145  1 e 1 @3989 ]
 "27 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/Main.c
@@ -224,12 +261,28 @@
 "80
 [v readDeviceID1@value value `ui  1 a 2 19 ]
 "89
+=======
+[u S143 . 1 `S125 1 . 1 0 `S21 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES143  1 e 1 @3989 ]
+"21 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/Main.c
+[v _main main `(v  1 e 0 0 ]
+{
+"31
+} 0
+"82 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/FlashProg.c
+[v _readDeviceID readDeviceID `(v  1 e 0 0 ]
+{
+"83
+[v readDeviceID@value value `ui  1 a 2 19 ]
+"92
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 } 0
 "5 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/ICSP.c
 [v _writeICSP writeICSP `(v  1 e 0 0 ]
 {
 [v writeICSP@commandByte commandByte `ui  1 p 2 13 ]
 [v writeICSP@dataBytes dataBytes `ui  1 p 2 15 ]
+<<<<<<< HEAD
 "9
 } 0
 "26
@@ -254,6 +307,32 @@
 {
 [v writeBit@bitToWrite bitToWrite `ui  1 p 2 2 ]
 "15
+=======
+"8
+} 0
+"24
+[v _readICSP readICSP `(ui  1 e 2 0 ]
+{
+"25
+[v readICSP@data data `ui  1 a 2 17 ]
+"32
+} 0
+"16
+[v _writeBits writeBits `(v  1 e 0 0 ]
+{
+"17
+[v writeBits@i i `i  1 a 2 11 ]
+"16
+[v writeBits@pattern pattern `ui  1 p 2 4 ]
+[v writeBits@bitsToWrite bitsToWrite `ui  1 p 2 6 ]
+"22
+} 0
+"10
+[v _writeBit writeBit `(v  1 e 0 0 ]
+{
+[v writeBit@bitToWrite bitToWrite `ui  1 p 2 2 ]
+"14
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 } 0
 "42
 [v _readBits readBits `(ui  1 e 2 0 ]
@@ -264,7 +343,11 @@
 [v readBits@i i `i  1 a 2 11 ]
 "42
 [v readBits@bitsToRead bitsToRead `i  1 p 2 7 ]
+<<<<<<< HEAD
 "52
+=======
+"51
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 } 0
 "34
 [v _readBit readBit `(ui  1 e 2 0 ]
@@ -278,11 +361,20 @@
 {
 "8
 } 0
+<<<<<<< HEAD
+=======
+"26
+[v _PGC_low PGC_low `(v  1 e 0 0 ]
+{
+"28
+} 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 "22
 [v _PGC_high PGC_high `(v  1 e 0 0 ]
 {
 "24
 } 0
+<<<<<<< HEAD
 "53
 [v _exit_HVP exit_HVP `(v  1 e 0 0 ]
 {
@@ -297,6 +389,22 @@
 [v _PGD_low PGD_low `(v  1 e 0 0 ]
 {
 "20
+=======
+"55
+[v _exit_LVP exit_LVP `(v  1 e 0 0 ]
+{
+"60
+} 0
+"48
+[v _enter_LVP enter_LVP `(v  1 e 0 0 ]
+{
+"53
+} 0
+"38
+[v _MCLR_low MCLR_low `(v  1 e 0 0 ]
+{
+"42
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 } 0
 "10
 [v _writePGD writePGD `(v  1 e 0 0 ]
@@ -304,6 +412,7 @@
 [v writePGD@data data `i  1 p 2 0 ]
 "12
 } 0
+<<<<<<< HEAD
 "26
 [v _PGC_low PGC_low `(v  1 e 0 0 ]
 {
@@ -318,4 +427,10 @@
 [v _MCLR_high MCLR_high `(v  1 e 0 0 ]
 {
 "44
+=======
+"44
+[v _MCLR_high MCLR_high `(v  1 e 0 0 ]
+{
+"46
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 } 0

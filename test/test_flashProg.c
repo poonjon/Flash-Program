@@ -30,20 +30,35 @@ void test_PGC_low(){
   TEST_ASSERT_EQUAL(PIN_LOW, _PGC);
 }
 
+<<<<<<< HEAD
 void test_enter_HVP(){
   _MCLR = PIN_LOW;
   _PGM = PIN_LOW;
   enter_HVP();
+=======
+void test_enter_LVP(){
+  _MCLR = PIN_LOW;
+  _PGM = PIN_LOW;
+  enter_LVP();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
   TEST_ASSERT_EQUAL(PIN_HIGH, _MCLR);
   TEST_ASSERT_EQUAL(PIN_HIGH, _PGM);
 }
 
+<<<<<<< HEAD
 void test_exit_HVP(){
+=======
+void test_exit_LVP(){
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
   _MCLR = PIN_HIGH;
   _PGM = PIN_HIGH;
   _PGC = PIN_HIGH;
   _PGD = PIN_HIGH;
+<<<<<<< HEAD
   exit_HVP();
+=======
+  exit_LVP();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
   TEST_ASSERT_EQUAL(PIN_LOW, _MCLR);
   TEST_ASSERT_EQUAL(PIN_LOW, _PGD);
   TEST_ASSERT_EQUAL(PIN_LOW, _PGC);

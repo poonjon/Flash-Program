@@ -5009,6 +5009,13 @@ void PGC_low();
 void MCLR_low();
 void MCLR_high();
 
+<<<<<<< HEAD
+=======
+# 34
+void PGM_low();
+void PGM_high();
+
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 # 47
 uint16 readPGD();
 void writePGD(int data);
@@ -5016,6 +5023,7 @@ void PGC_high();
 void PGC_low();
 void PGD_high();
 void PGD_low();
+<<<<<<< HEAD
 
 
 void MCLR_low();
@@ -5025,6 +5033,16 @@ void exit_HVP();
 void bulkErase();
 void readDeviceID1();
 void readDeviceID2();
+=======
+void PGM_high();
+void PGM_low();
+void MCLR_low();
+void MCLR_high();
+void enter_LVP();
+void exit_LVP();
+void bulkErase();
+void readDeviceID();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 
 # 10 "../src/PIC18/ICSP.h"
 void writeICSP(uint16 commandByte, uint16 dataBytes);
@@ -5059,6 +5077,7 @@ void PGC_low(){
 PORTDbits.RD5 = 0;
 }
 
+<<<<<<< HEAD
 # 38
 void MCLR_low(){
 PORTDbits.RD7 = 0;
@@ -5079,6 +5098,38 @@ void exit_HVP(){
 PGC_low();
 PGD_low();
 MCLR_low();
+=======
+void PGM_low(){
+PORTDbits.RD7 = 0;
+}
+
+void PGM_high(){
+PORTDbits.RD7 = 1;
+}
+
+void MCLR_low(){
+PORTDbits.RD6 = 0;
+writePGD(0);
+PORTDbits.RD5 = 0;
+}
+
+void MCLR_high(){
+PORTDbits.RD6 = 1;
+}
+
+void enter_LVP(){
+MCLR_low();
+
+MCLR_high();
+
+}
+
+void exit_LVP(){
+MCLR_high();
+
+MCLR_low();
+
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 }
 
 void bulkErase(){
@@ -5101,6 +5152,7 @@ writeICSP(0x0, 0);
 
 }
 
+<<<<<<< HEAD
 void readDeviceID1(){
 uint16 value = 0;
 writeICSP(0x0, 0x0e3f);
@@ -5114,6 +5166,9 @@ value = value;
 }
 
 void readDeviceID2(){
+=======
+void readDeviceID(){
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 uint16 value = 0;
 writeICSP(0x0, 0x0e3f);
 writeICSP(0x0, 0x6ef8);

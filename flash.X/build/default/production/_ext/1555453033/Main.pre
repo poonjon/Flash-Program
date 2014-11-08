@@ -5140,6 +5140,13 @@ void PGC_low();
 void MCLR_low();
 void MCLR_high();
 
+<<<<<<< HEAD
+=======
+# 34
+void PGM_low();
+void PGM_high();
+
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 # 47
 uint16 readPGD();
 void writePGD(int data);
@@ -5147,6 +5154,7 @@ void PGC_high();
 void PGC_low();
 void PGD_high();
 void PGD_low();
+<<<<<<< HEAD
 
 
 void MCLR_low();
@@ -5156,6 +5164,16 @@ void exit_HVP();
 void bulkErase();
 void readDeviceID1();
 void readDeviceID2();
+=======
+void PGM_high();
+void PGM_low();
+void MCLR_low();
+void MCLR_high();
+void enter_LVP();
+void exit_LVP();
+void bulkErase();
+void readDeviceID();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 
 # 10 "../src/PIC18/ICSP.h"
 void writeICSP(uint16 commandByte, uint16 dataBytes);
@@ -5169,6 +5187,7 @@ uint16 readBits(int bitsToRead);
 # 18 "../src/PIC18/Main.c"
 #pragma config OSC = INTIO67, PWRT = ON, WDT = OFF, LVP = OFF, DEBUG = ON
 
+<<<<<<< HEAD
 void trisInit(){
 TRISDbits.TRISD4 = 0;
 TRISDbits.TRISD5 = 0;
@@ -5185,6 +5204,16 @@ enter_HVP();
 # 37
 readDeviceID1();
 exit_HVP();
+=======
+
+void main(){
+TRISD = 0;
+PGC_low();
+PORTDbits.RD4 = 0;
+enter_LVP();
+readDeviceID();
+exit_LVP();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 while(1){
 
 }

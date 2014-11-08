@@ -1,4 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
+<<<<<<< HEAD
 "2402 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
 [s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S133 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
@@ -17,6 +18,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _readDeviceID1 `(v ~T0 @X0 0 ef ]
 "58
 [v _exit_HVP `(v ~T0 @X0 0 ef ]
+=======
+[p mainexit ]
+"2391 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"19 ../src/PIC18/FlashProg.h
+[v _PGC_low `(v ~T0 @X0 0 ef ]
+"635 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"645
+[s S32 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S32 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
+"655
+[s S33 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S33 . . P1B P1C P1D ]
+"661
+[s S34 :7 `uc 1 :1 `uc 1 ]
+[n S34 . . SS2 ]
+"634
+[u S30 `S31 1 `S32 1 `S33 1 `S34 1 ]
+[n S30 . . . . . ]
+"666
+[v _PORTDbits `VS30 ~T0 @X0 0 e@3971 ]
+"57 ../src/PIC18/FlashProg.h
+[v _enter_LVP `(v ~T0 @X0 0 ef ]
+"60
+[v _readDeviceID `(v ~T0 @X0 0 ef ]
+"58
+[v _exit_LVP `(v ~T0 @X0 0 ef ]
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -3859,12 +3890,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.h: 19: void PGC_low();
 [; ;FlashProg.h: 26: void MCLR_low();
 [; ;FlashProg.h: 27: void MCLR_high();
+<<<<<<< HEAD
+=======
+[; ;FlashProg.h: 34: void PGM_low();
+[; ;FlashProg.h: 35: void PGM_high();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 [; ;FlashProg.h: 47: uint16 readPGD();
 [; ;FlashProg.h: 48: void writePGD(int data);
 [; ;FlashProg.h: 49: void PGC_high();
 [; ;FlashProg.h: 50: void PGC_low();
 [; ;FlashProg.h: 51: void PGD_high();
 [; ;FlashProg.h: 52: void PGD_low();
+<<<<<<< HEAD
 [; ;FlashProg.h: 55: void MCLR_low();
 [; ;FlashProg.h: 56: void MCLR_high();
 [; ;FlashProg.h: 57: void enter_HVP();
@@ -3872,6 +3909,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.h: 59: void bulkErase();
 [; ;FlashProg.h: 60: void readDeviceID1();
 [; ;FlashProg.h: 61: void readDeviceID2();
+=======
+[; ;FlashProg.h: 53: void PGM_high();
+[; ;FlashProg.h: 54: void PGM_low();
+[; ;FlashProg.h: 55: void MCLR_low();
+[; ;FlashProg.h: 56: void MCLR_high();
+[; ;FlashProg.h: 57: void enter_LVP();
+[; ;FlashProg.h: 58: void exit_LVP();
+[; ;FlashProg.h: 59: void bulkErase();
+[; ;FlashProg.h: 60: void readDeviceID();
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 [; ;ICSP.h: 10: void writeICSP(uint16 commandByte, uint16 dataBytes);
 [; ;ICSP.h: 11: void writeBit(uint16 bitToWrite);
 [; ;ICSP.h: 12: void writeBits(uint16 pattern, uint16 bitsToWrite);
@@ -3884,6 +3931,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x WDT=OFF ]
 [p x LVP=OFF ]
 [p x DEBUG=ON ]
+<<<<<<< HEAD
 "20
 [v _trisInit `(v ~T0 @X0 1 ef ]
 {
@@ -3938,4 +3986,44 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 42: }
 "42
 [e :UE 408 ]
+=======
+"21
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;Main.c: 21: void main(){
+[e :U _main ]
+[f ]
+[; ;Main.c: 22: TRISD = 0;
+"22
+[e = _TRISD -> -> 0 `i `uc ]
+[; ;Main.c: 23: PGC_low();
+"23
+[e ( _PGC_low ..  ]
+[; ;Main.c: 24: PORTDbits.RD4 = 0;
+"24
+[e = . . _PORTDbits 0 4 -> -> 0 `i `uc ]
+[; ;Main.c: 25: enter_LVP();
+"25
+[e ( _enter_LVP ..  ]
+[; ;Main.c: 26: readDeviceID();
+"26
+[e ( _readDeviceID ..  ]
+[; ;Main.c: 27: exit_LVP();
+"27
+[e ( _exit_LVP ..  ]
+[; ;Main.c: 28: while(1){
+"28
+[e :U 409 ]
+{
+"30
+}
+[e :U 408 ]
+"28
+[e $U 409  ]
+[e :U 410 ]
+[; ;Main.c: 30: }
+[; ;Main.c: 31: }
+"31
+[e :UE 407 ]
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 }

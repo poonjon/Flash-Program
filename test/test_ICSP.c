@@ -10,9 +10,15 @@ void tearDown(void){}
 void mockBitsWriting(uint16 pattern, uint16 bitsToWrite){
   int i = 0;
   while(i < bitsToWrite){
+<<<<<<< HEAD
     printf("%d", LSB(pattern, bitsToWrite, i));
     PGC_high_Expect();
     writePGD_Expect(LSB(pattern, bitsToWrite, i));
+=======
+    printf("%d", MSB(pattern, bitsToWrite, i));
+    PGC_high_Expect();
+    writePGD_Expect(MSB(pattern, bitsToWrite, i));
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
     PGC_low_Expect(); 
     i++;
   }
@@ -21,9 +27,15 @@ void mockBitsWriting(uint16 pattern, uint16 bitsToWrite){
 void mockBitsReading(uint16 pattern, uint16 bitsToRead){
   int i=0;
   while(i < bitsToRead){
+<<<<<<< HEAD
     printf("%d", LSB(pattern, bitsToRead, i));
     PGC_high_Expect();
     readPGD_ExpectAndReturn(LSB(pattern, bitsToRead, i));
+=======
+    printf("%d", MSB(pattern, bitsToRead, i));
+    PGC_high_Expect();
+    readPGD_ExpectAndReturn(MSB(pattern, bitsToRead, i));
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
     PGC_low_Expect(); 
     i++;
   }

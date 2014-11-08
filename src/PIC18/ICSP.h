@@ -3,6 +3,7 @@
 #include "Type.h"
 
 //#define MSB(pattern, type, i) ((pattern>>((type - 1)-i))&0x1)
+
 #define LSB(pattern, type, i) ((pattern>>i)&0x1)
 #define COMMAND 4
 #define DATA  16

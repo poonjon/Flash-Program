@@ -6,7 +6,11 @@
 # This sample, therefore, only demonstrates running a collection of unit tests.
 
 :project:
+<<<<<<< HEAD
   :use_exceptions: TRUE
+=======
+  :use_exceptions: FALSE
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
   :use_test_preprocessor: TRUE
   :use_auxiliary_dependencies: TRUE
   :build_root: build
@@ -38,10 +42,17 @@
   :commmon: &common_defines []
   :test:
     - *common_defines
+<<<<<<< HEAD
     - TEST
   :test_preprocess:
     - *common_defines
     - TEST
+=======
+    - TEST=
+  :test_preprocess:
+    - *common_defines
+    - TEST=
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 
 :cmock:
   :mock_prefix: mock_

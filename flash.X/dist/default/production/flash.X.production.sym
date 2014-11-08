@@ -1,47 +1,84 @@
+<<<<<<< HEAD
 __end_of_MCLR_high 7DAE 0 CODE 0
 __end_of_enter_HVP 7E04 0 CODE 0
 __S0 30000E 0 ABS 0
 __S1 16 0 ABS 0
 __S2 0 0 ABS 0
 __end_of_writePGD 7DD6 0 CODE 0
+=======
+__end_of_MCLR_high 7DBC 0 CODE 0
+__S0 30000E 0 ABS 0
+__S1 16 0 ABS 0
+__S2 0 0 ABS 0
+__end_of_writePGD 7DEA 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 __size_of_PGC_high 0 0 ABS 0
 readBits@i C 0 COMRAM 1
+<<<<<<< HEAD
 _main 7E04 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
+=======
+_main 7E26 0 CODE 0
+___sp 0 0 STACK 2
+start 0 0 CODE 0
+_TRISD F95 0 ABS 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
+<<<<<<< HEAD
 _PGC_high 7DB6 0 CODE 0
+=======
+_PGC_high 7DBC 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
 ?_readBit 4 0 COMRAM 1
 writeBits@i C 0 COMRAM 1
+<<<<<<< HEAD
 __end_of_PGC_low 7DB6 0 CODE 0
+=======
+__end_of_PGC_low 7DC4 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
 __Hrparam 0 0 ABS 0
 __Lrparam 0 0 ABS 0
+<<<<<<< HEAD
 _writeBit 7E2A 0 CODE 0
+=======
+_writeBit 7E10 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __Hcomram 0 0 ABS 0
 __Lcomram 0 0 ABS 0
+<<<<<<< HEAD
 __size_of_trisInit 0 0 ABS 0
+=======
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hsfr 0 0 ABS 0
 __Lsfr 0 0 ABS 0
 __Hbss 0 0 RAM 1
 __Lbss 0 0 RAM 1
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
+<<<<<<< HEAD
 __end_of_PGD_low 7DE4 0 CODE 0
 _trisInit 7DC0 0 CODE 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
 _readBits 7F22 0 CODE 0
+=======
+readDeviceID@value 14 0 COMRAM 1
+__Heeprom_data 0 0 EEDATA 0
+__Leeprom_data 0 0 EEDATA 0
+_readBits 7ED0 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 readBits@bitsToRead 8 0 COMRAM 1
 __Hintsave_regs 0 0 BIGRAM 1
 __Lintsave_regs 0 0 BIGRAM 1
@@ -59,20 +96,32 @@ __Hmediumconst 0 0 MEDIUMCONST 0
 __Lmediumconst 0 0 MEDIUMCONST 0
 __Hfarbss 0 0 FARRAM 0
 __Lfarbss 0 0 FARRAM 0
+<<<<<<< HEAD
 __end_of_readPGD 7E2A 0 CODE 0
 _MCLR_low 7DAE 0 CODE 0
+=======
+__end_of_readPGD 7E10 0 CODE 0
+_MCLR_low 7DEA 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hintcode 0 0 CODE 0
 __Lintcode 0 0 CODE 0
 __Hfardata 0 0 FARRAM 0
 __Lfardata 0 0 FARRAM 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
+<<<<<<< HEAD
 _MCLR_high 7DAA 0 CODE 0
+=======
+_MCLR_high 7DB8 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __CFG_OSC$INTIO67 0 0 ABS 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
 writePGD@data 1 0 COMRAM 1
+<<<<<<< HEAD
 readDeviceID1@value 14 0 COMRAM 1
+=======
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 readICSP@data 12 0 COMRAM 1
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
@@ -87,11 +136,16 @@ __Linit 0 0 CODE 0
 __Hintcodelo 0 0 CODE 0
 __Lintcodelo 0 0 CODE 0
 __Hrbss 0 0 COMRAM 1
+<<<<<<< HEAD
 __end_of_main 7E16 0 CODE 0
+=======
+__end_of_main 7E3E 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 __size_of_MCLR_low 0 0 ABS 0
+<<<<<<< HEAD
 end_of_initialization 7DBA 0 CODE 0
 ?_readBits 8 0 COMRAM 1
 __size_of_writePGD 0 0 ABS 0
@@ -102,6 +156,19 @@ _PORTDbits F83 0 ABS 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 _readPGD 7E16 0 CODE 0
+=======
+end_of_initialization 7DC4 0 CODE 0
+_readDeviceID 7F74 0 CODE 0
+?_readBits 8 0 COMRAM 1
+__size_of_writePGD 0 0 ABS 0
+_writeBits 7E8E 0 CODE 0
+_TRISDbits F95 0 ABS 0
+__end_of_PGC_high 7DC0 0 CODE 0
+_PORTDbits F83 0 ABS 0
+__Hibigdata 0 0 CODE 0
+__Libigdata 0 0 CODE 0
+_readPGD 7DFC 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hifardata 0 0 CODE 0
 __Lifardata 0 0 CODE 0
 __Hbank0 0 0 ABS 0
@@ -116,6 +183,10 @@ __size_of_readBit 0 0 ABS 0
 __Hbank4 0 0 ABS 0
 __Lbank4 0 0 ABS 0
 __Hbank5 0 0 ABS 0
+<<<<<<< HEAD
+=======
+__size_of_exit_LVP 0 0 ABS 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Lbank5 0 0 ABS 0
 __size_of_readBits 0 0 ABS 0
 __Hpowerup 0 0 CODE 0
@@ -125,6 +196,7 @@ __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
+<<<<<<< HEAD
 __ptext0 7E04 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
@@ -160,6 +232,42 @@ __end_of_readBit 7E66 0 CODE 0
 __end_of_readBits 7F76 0 CODE 0
 __end_of_MCLR_low 7DB2 0 CODE 0
 __size_of_readDeviceID1 0 0 ABS 0
+=======
+__ptext0 7E26 0 CODE 0
+__Htext2 0 0 ABS 0
+__Ltext2 0 0 ABS 0
+__ptext1 7F74 0 CODE 0
+__Htext3 0 0 ABS 0
+__Ltext3 0 0 ABS 0
+__ptext2 7E64 0 CODE 0
+__Htext4 0 0 ABS 0
+__Ltext4 0 0 ABS 0
+__ptext3 7F22 0 CODE 0
+__Htext5 0 0 ABS 0
+__Ltext5 0 0 ABS 0
+__ptext4 7E8E 0 CODE 0
+__Htext6 0 0 ABS 0
+__Ltext6 0 0 ABS 0
+__ptext5 7E10 0 CODE 0
+__Htext7 0 0 ABS 0
+__Ltext7 0 0 ABS 0
+__ptext6 7ED0 0 CODE 0
+__Htext8 0 0 ABS 0
+__Ltext8 0 0 ABS 0
+__size_of_readDeviceID 0 0 ABS 0
+__ptext7 7E3E 0 CODE 0
+__Htext9 0 0 ABS 0
+__Ltext9 0 0 ABS 0
+__ptext8 7DFC 0 CODE 0
+__ptext9 7DC0 0 CODE 0
+__Hclrtext 0 0 ABS 0
+__Lclrtext 0 0 ABS 0
+__end_of__initialization 7DC4 0 CODE 0
+writeICSP@dataBytes 10 0 COMRAM 1
+__end_of_readBit 7E64 0 CODE 0
+__end_of_readBits 7F22 0 CODE 0
+__end_of_MCLR_low 7DFC 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __size_of_PGC_low 0 0 ABS 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
@@ -172,7 +280,11 @@ __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __size_of_writeICSP 0 0 ABS 0
 __size_of_MCLR_high 0 0 ABS 0
+<<<<<<< HEAD
 _readBit 7E40 0 CODE 0
+=======
+_readBit 7E3E 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __Hparam 0 0 ABS 0
 __Lparam 0 0 ABS 0
 __Hspace_0 30000E 0 ABS 0
@@ -191,6 +303,7 @@ __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
+<<<<<<< HEAD
 __pcinit 7DBA 0 CODE 0
 _PGC_low 7DB2 0 CODE 0
 _PGD_low 7DD6 0 CODE 0
@@ -203,11 +316,23 @@ __Hconst 0 0 CODE 0
 __Lconst 0 0 CODE 0
 __size_of_PGD_low 0 0 ABS 0
 __size_of_exit_HVP 0 0 ABS 0
+=======
+__pcinit 7DC4 0 CODE 0
+_PGC_low 7DC0 0 CODE 0
+__ramtop 600 0 RAM 0
+__mediumconst 0 0 MEDIUMCONST 0
+__end_of_writeBit 7E26 0 CODE 0
+__size_of_main 0 0 ABS 0
+__end_of_writeBits 7ED0 0 CODE 0
+__Hconst 0 0 CODE 0
+__Lconst 0 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __CFG_PWRT$ON 0 0 ABS 0
 __size_of_readICSP 0 0 ABS 0
 writeICSP@commandByte E 0 COMRAM 1
 __Htext10 0 0 ABS 0
 __Ltext10 0 0 ABS 0
+<<<<<<< HEAD
 __ptext10 7DB6 0 CODE 0
 __Htext11 0 0 ABS 0
 readBit@data 6 0 COMRAM 1
@@ -234,19 +359,50 @@ __ptext16 7DAE 0 CODE 0
 __Htext17 0 0 ABS 0
 __Ltext17 0 0 ABS 0
 __ptext17 7DAA 0 CODE 0
+=======
+__ptext10 7DBC 0 CODE 0
+__Htext11 0 0 ABS 0
+readBit@data 6 0 COMRAM 1
+__Ltext11 0 0 ABS 0
+__ptext11 7DD4 0 CODE 0
+__Htext12 0 0 ABS 0
+__Ltext12 0 0 ABS 0
+__ptext12 7DCA 0 CODE 0
+__Htext13 0 0 ABS 0
+__Ltext13 0 0 ABS 0
+__ptext13 7DEA 0 CODE 0
+__Htext14 0 0 ABS 0
+__Ltext14 0 0 ABS 0
+?_readICSP 10 0 COMRAM 1
+__ptext14 7DDE 0 CODE 0
+__Htext15 0 0 ABS 0
+__Ltext15 0 0 ABS 0
+__ptext15 7DB8 0 CODE 0
+___inthi_sp 0 0 STACK 2
+_writeICSP 7E64 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __size_of_writeBit 0 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 __size_of_writeBits 0 0 ABS 0
 __Hend_init 4 0 CODE 0
 __Lend_init 0 0 CODE 0
+<<<<<<< HEAD
 _readDeviceID1 7F76 0 CODE 0
 _enter_HVP 7DF2 0 CODE 0
+=======
+__end_of_enter_LVP 7DD4 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __smallconst 0 0 SMALLCONST 0
 ?_readPGD 1 0 COMRAM 1
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
+<<<<<<< HEAD
 __end_of_trisInit 7DCA 0 CODE 0
 _writePGD 7DCA 0 CODE 0
+=======
+_enter_LVP 7DCA 0 CODE 0
+_writePGD 7DDE 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __accesstop 80 0 ABS 0
 __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
@@ -255,6 +411,7 @@ intlevel1 0 0 CODE 0
 __size_of_readPGD 0 0 ABS 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
+<<<<<<< HEAD
 _readICSP 7ED4 0 CODE 0
 __end_of_writeICSP 7E90 0 CODE 0
 _exit_HVP 7DE4 0 CODE 0
@@ -266,6 +423,20 @@ __CFG_DEBUG$ON 0 0 ABS 0
 __initialization 7DBA 0 CODE 0
 __activetblptr 0 0 ABS 0
 __size_of_enter_HVP 0 0 ABS 0
+=======
+_readICSP 7F22 0 CODE 0
+__end_of_writeICSP 7E8E 0 CODE 0
+__end_of_exit_LVP 7DDE 0 CODE 0
+start_initialization 7DC4 0 CODE 0
+writeBit@bitToWrite 3 0 COMRAM 1
+_exit_LVP 7DD4 0 CODE 0
+__end_of_readDeviceID 8000 0 CODE 0
+__end_of_readICSP 7F74 0 CODE 0
+__CFG_DEBUG$ON 0 0 ABS 0
+__initialization 7DC4 0 CODE 0
+__activetblptr 0 0 ABS 0
+__size_of_enter_LVP 0 0 ABS 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 __CFG_WDT$OFF 0 0 ABS 0
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
@@ -273,6 +444,7 @@ reset_vec 0 3 CODE 0 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 cstackCOMRAM 1 15 COMRAM 1 1
+<<<<<<< HEAD
 text2 7F76 7FFF CODE 7F76 0
 text7 7F22 7F75 CODE 7F22 0
 text4 7ED4 7F21 CODE 7ED4 0
@@ -292,10 +464,30 @@ text10 7DB6 7DB9 CODE 7DB6 0
 text15 7DB2 7DB5 CODE 7DB2 0
 text16 7DAE 7DB1 CODE 7DAE 0
 text17 7DAA 7DAD CODE 7DAA 0
+=======
+text1 7F74 7FFF CODE 7F74 0
+text3 7F22 7F73 CODE 7F22 0
+text6 7ED0 7F21 CODE 7ED0 0
+text4 7E8E 7ECF CODE 7E8E 0
+text2 7E64 7E8D CODE 7E64 0
+text7 7E3E 7E63 CODE 7E3E 0
+text0 7E26 7E3D CODE 7E26 0
+text5 7E10 7E25 CODE 7E10 0
+text8 7DFC 7E0F CODE 7DFC 0
+text13 7DEA 7DFB CODE 7DEA 0
+text14 7DDE 7DE9 CODE 7DDE 0
+text11 7DD4 7DDD CODE 7DD4 0
+text12 7DCA 7DD3 CODE 7DCA 0
+cinit 7DC4 7DC9 CODE 7DC4 0
+text9 7DC0 7DC3 CODE 7DC0 0
+text10 7DBC 7DBF CODE 7DBC 0
+text15 7DB8 7DBB CODE 7DB8 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 %locals
 dist/default/production\flash.X.production.obj
 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+<<<<<<< HEAD
 2423 7E04 0 CODE 0
 ../src/PIC18/Main.c
 27 7E04 0 CODE 0
@@ -418,3 +610,117 @@ C:\DOCUME~1\D300-01\LOCALS~1\Temp\s1p4.
 42 7DAA 0 CODE 0
 43 7DAA 0 CODE 0
 44 7DAC 0 CODE 0
+=======
+2423 7E26 0 CODE 0
+../src/PIC18/Main.c
+21 7E26 0 CODE 0
+22 7E26 0 CODE 0
+23 7E2A 0 CODE 0
+24 7E2E 0 CODE 0
+25 7E30 0 CODE 0
+26 7E34 0 CODE 0
+27 7E38 0 CODE 0
+28 7E3C 0 CODE 0
+C:\DOCUME~1\D300-01\LOCALS~1\Temp\s3t0.
+1024 7DC4 0 CODE 0
+1026 7DC4 0 CODE 0
+1029 7DC4 0 CODE 0
+1035 7DC4 0 CODE 0
+1036 7DC4 0 CODE 0
+1037 7DC6 0 CODE 0
+../src/PIC18/FlashProg.c
+82 7F74 0 CODE 0
+83 7F74 0 CODE 0
+84 7F7C 0 CODE 0
+85 7F90 0 CODE 0
+86 7FA4 0 CODE 0
+87 7FB6 0 CODE 0
+88 7FCA 0 CODE 0
+89 7FDE 0 CODE 0
+90 7FF2 0 CODE 0
+92 7FFE 0 CODE 0
+../src/PIC18/ICSP.c
+5 7E64 0 CODE 0
+6 7E64 0 CODE 0
+7 7E78 0 CODE 0
+8 7E8C 0 CODE 0
+../src/PIC18/ICSP.c
+24 7F22 0 CODE 0
+25 7F22 0 CODE 0
+26 7F2A 0 CODE 0
+27 7F3E 0 CODE 0
+28 7F52 0 CODE 0
+29 7F54 0 CODE 0
+30 7F68 0 CODE 0
+31 7F6A 0 CODE 0
+32 7F72 0 CODE 0
+../src/PIC18/ICSP.c
+16 7E8E 0 CODE 0
+17 7E8E 0 CODE 0
+18 7E96 0 CODE 0
+19 7E98 0 CODE 0
+20 7EBE 0 CODE 0
+18 7EC2 0 CODE 0
+22 7ECC 0 CODE 0
+18 7ECE 0 CODE 0
+../src/PIC18/ICSP.c
+10 7E10 0 CODE 0
+11 7E10 0 CODE 0
+12 7E14 0 CODE 0
+13 7E20 0 CODE 0
+14 7E24 0 CODE 0
+../src/PIC18/ICSP.c
+42 7ED0 0 CODE 0
+43 7ED0 0 CODE 0
+44 7ED8 0 CODE 0
+46 7EE0 0 CODE 0
+47 7EE2 0 CODE 0
+48 7F00 0 CODE 0
+46 7F04 0 CODE 0
+50 7F18 0 CODE 0
+51 7F20 0 CODE 0
+../src/PIC18/ICSP.c
+34 7E3E 0 CODE 0
+35 7E3E 0 CODE 0
+36 7E46 0 CODE 0
+37 7E4A 0 CODE 0
+38 7E56 0 CODE 0
+39 7E5A 0 CODE 0
+40 7E62 0 CODE 0
+../src/PIC18/FlashProg.c
+6 7DFC 0 CODE 0
+7 7DFC 0 CODE 0
+8 7E0E 0 CODE 0
+../src/PIC18/FlashProg.c
+26 7DC0 0 CODE 0
+27 7DC0 0 CODE 0
+28 7DC2 0 CODE 0
+../src/PIC18/FlashProg.c
+22 7DBC 0 CODE 0
+23 7DBC 0 CODE 0
+24 7DBE 0 CODE 0
+../src/PIC18/FlashProg.c
+55 7DD4 0 CODE 0
+56 7DD4 0 CODE 0
+58 7DD8 0 CODE 0
+60 7DDC 0 CODE 0
+../src/PIC18/FlashProg.c
+48 7DCA 0 CODE 0
+49 7DCA 0 CODE 0
+51 7DCE 0 CODE 0
+53 7DD2 0 CODE 0
+../src/PIC18/FlashProg.c
+38 7DEA 0 CODE 0
+39 7DEA 0 CODE 0
+40 7DEC 0 CODE 0
+41 7DF8 0 CODE 0
+42 7DFA 0 CODE 0
+../src/PIC18/FlashProg.c
+10 7DDE 0 CODE 0
+11 7DDE 0 CODE 0
+12 7DE8 0 CODE 0
+../src/PIC18/FlashProg.c
+44 7DB8 0 CODE 0
+45 7DB8 0 CODE 0
+46 7DBA 0 CODE 0
+>>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
