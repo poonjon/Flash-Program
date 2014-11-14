@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F4520 ]
 [d frameptr 4065 ]
-"6 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/FlashProg.c
+"6 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
 [v _readPGD readPGD `(ui  1 e 2 0 ]
 "10
 [v _writePGD writePGD `(v  1 e 0 0 ]
@@ -15,35 +15,49 @@
 [v _PGC_high PGC_high `(v  1 e 0 0 ]
 "26
 [v _PGC_low PGC_low `(v  1 e 0 0 ]
+"30
+[v _PGM_low PGM_low `(v  1 e 0 0 ]
+"34
+[v _PGM_high PGM_high `(v  1 e 0 0 ]
 "38
 [v _MCLR_low MCLR_low `(v  1 e 0 0 ]
-"42
+"45
 [v _MCLR_high MCLR_high `(v  1 e 0 0 ]
-"46
+"49
 [v _enter_HVP enter_HVP `(v  1 e 0 0 ]
-"53
+"57
 [v _exit_HVP exit_HVP `(v  1 e 0 0 ]
-"59
+"65
 [v _bulkErase bulkErase `(v  1 e 0 0 ]
-"79
+"87
 [v _readDeviceID1 readDeviceID1 `(v  1 e 0 0 ]
-"91
+"99
 [v _readDeviceID2 readDeviceID2 `(v  1 e 0 0 ]
-"5 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/ICSP.c
+"112
+[v _enableWrite enableWrite `(v  1 e 0 0 ]
+"119
+[v _tableSelect tableSelect `(v  1 e 0 0 ]
+"136
+[v _writeTableThenIncremeant writeTableThenIncremeant `(v  1 e 0 0 ]
+"153
+[v _read2Byte read2Byte `(ui  1 e 2 0 ]
+"5 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/ICSP.c
 [v _writeICSP writeICSP `(v  1 e 0 0 ]
-"11
+"10
 [v _writeBit writeBit `(v  1 e 0 0 ]
-"17
+"16
 [v _writeBits writeBits `(v  1 e 0 0 ]
-"26
+"25
 [v _readICSP readICSP `(ui  1 e 2 0 ]
-"34
+"33
+[v _readFirstByte readFirstByte `(ui  1 e 2 0 ]
+"44
 [v _readBit readBit `(ui  1 e 2 0 ]
-"42
+"52
 [v _readBits readBits `(ui  1 e 2 0 ]
-"20 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/Main.c
+"21 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/Main.c
 [v _trisInit trisInit `(v  1 e 0 0 ]
-"27
+"28
 [v _main main `(v  1 e 0 0 ]
 "4 C:\Program Files\Microchip\xc8\v1.33\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -196,7 +210,7 @@
 ]
 [u S47 . 1 `S21 1 . 1 0 `S30 1 . 1 0 `S39 1 . 1 0 `S44 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES47  1 e 1 @3971 ]
-[s S127 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S151 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -206,99 +220,168 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "2423
-[u S145 . 1 `S127 1 . 1 0 `S21 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES145  1 e 1 @3989 ]
-"27 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/Main.c
+[u S169 . 1 `S151 1 . 1 0 `S21 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES169  1 e 1 @3989 ]
+"28 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/Main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"42
+"33
+[v main@d d `ui  1 a 2 45 ]
+"32
+[v main@c c `ui  1 a 2 43 ]
+"31
+[v main@b b `ui  1 a 2 41 ]
+"30
+[v main@a a `ui  1 a 2 39 ]
+"29
+[v main@i i `ui  1 a 2 37 ]
+"62
 } 0
-"20
+"136 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+[v _writeTableThenIncremeant writeTableThenIncremeant `(v  1 e 0 0 ]
+{
+"137
+[v writeTableThenIncremeant@i i `i  1 a 2 21 ]
+"136
+[v writeTableThenIncremeant@first2Byte first2Byte `ui  1 p 2 17 ]
+[v writeTableThenIncremeant@second2Byte second2Byte `ui  1 p 2 19 ]
+"151
+} 0
+"21 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/Main.c
 [v _trisInit trisInit `(v  1 e 0 0 ]
 {
-"25
-} 0
-"79 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/FlashProg.c
-[v _readDeviceID1 readDeviceID1 `(v  1 e 0 0 ]
-{
-"80
-[v readDeviceID1@value value `ui  1 a 2 19 ]
-"89
-} 0
-"5 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/ICSP.c
-[v _writeICSP writeICSP `(v  1 e 0 0 ]
-{
-[v writeICSP@commandByte commandByte `ui  1 p 2 13 ]
-[v writeICSP@dataBytes dataBytes `ui  1 p 2 15 ]
-"9
-} 0
 "26
+} 0
+"119 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+[v _tableSelect tableSelect `(v  1 e 0 0 ]
+{
+"122
+[v tableSelect@lowAddr lowAddr `ul  1 a 4 33 ]
+"121
+[v tableSelect@highAddr highAddr `ul  1 a 4 29 ]
+"120
+[v tableSelect@upperAddr upperAddr `ul  1 a 4 25 ]
+"119
+[v tableSelect@address address `ul  1 p 4 17 ]
+"134
+} 0
+"153
+[v _read2Byte read2Byte `(ui  1 e 2 0 ]
+{
+"154
+[v read2Byte@data data `ui  1 a 2 22 ]
+"155
+[v read2Byte@firstData firstData `ui  1 a 2 20 ]
+"163
+} 0
+"25 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/ICSP.c
 [v _readICSP readICSP `(ui  1 e 2 0 ]
 {
-"27
-[v readICSP@data data `ui  1 a 2 17 ]
+"26
+[v readICSP@data data `ui  1 a 2 16 ]
 "32
 } 0
-"17
-[v _writeBits writeBits `(v  1 e 0 0 ]
+"33
+[v _readFirstByte readFirstByte `(ui  1 e 2 0 ]
 {
-"18
-[v writeBits@i i `i  1 a 2 11 ]
-"17
-[v writeBits@pattern pattern `ui  1 p 2 4 ]
-[v writeBits@bitsToWrite bitsToWrite `ui  1 p 2 6 ]
-"24
+"34
+[v readFirstByte@data data `ui  1 a 2 16 ]
+"41
 } 0
-"11
-[v _writeBit writeBit `(v  1 e 0 0 ]
-{
-[v writeBit@bitToWrite bitToWrite `ui  1 p 2 2 ]
-"15
-} 0
-"42
+"52
 [v _readBits readBits `(ui  1 e 2 0 ]
 {
-"44
-[v readBits@data data `ui  1 a 2 13 ]
-"43
-[v readBits@i i `i  1 a 2 11 ]
-"42
-[v readBits@bitsToRead bitsToRead `i  1 p 2 7 ]
+"54
+[v readBits@data data `ui  1 a 2 12 ]
+"53
+[v readBits@i i `i  1 a 2 10 ]
 "52
+[v readBits@bitsToRead bitsToRead `i  1 p 2 7 ]
+"63
 } 0
-"34
+"44
 [v _readBit readBit `(ui  1 e 2 0 ]
 {
-"35
+"45
 [v readBit@data data `ui  1 a 2 5 ]
-"40
+"50
 } 0
-"6 C:\Documents and Settings\D300-01\Desktop\Flash-Program/src/PIC18/FlashProg.c
+"6 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
 [v _readPGD readPGD `(ui  1 e 2 0 ]
 {
 "8
 } 0
-"22
-[v _PGC_high PGC_high `(v  1 e 0 0 ]
-{
-"24
-} 0
-"53
+"57
 [v _exit_HVP exit_HVP `(v  1 e 0 0 ]
 {
-"57
+"63
 } 0
-"46
+"30
+[v _PGM_low PGM_low `(v  1 e 0 0 ]
+{
+"32
+} 0
+"49
 [v _enter_HVP enter_HVP `(v  1 e 0 0 ]
 {
-"51
+"55
+} 0
+"34
+[v _PGM_high PGM_high `(v  1 e 0 0 ]
+{
+"36
 } 0
 "18
 [v _PGD_low PGD_low `(v  1 e 0 0 ]
 {
 "20
 } 0
+"38
+[v _MCLR_low MCLR_low `(v  1 e 0 0 ]
+{
+"43
+} 0
+"45
+[v _MCLR_high MCLR_high `(v  1 e 0 0 ]
+{
+"47
+} 0
+"112
+[v _enableWrite enableWrite `(v  1 e 0 0 ]
+{
+"115
+} 0
+"65
+[v _bulkErase bulkErase `(v  1 e 0 0 ]
+{
+"66
+[v bulkErase@i i `i  1 a 2 17 ]
+"85
+} 0
+"5 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/ICSP.c
+[v _writeICSP writeICSP `(v  1 e 0 0 ]
+{
+[v writeICSP@commandByte commandByte `ui  1 p 2 13 ]
+[v writeICSP@dataBytes dataBytes `ui  1 p 2 15 ]
+"8
+} 0
+"16
+[v _writeBits writeBits `(v  1 e 0 0 ]
+{
+"17
+[v writeBits@i i `i  1 a 2 11 ]
+"16
+[v writeBits@pattern pattern `ui  1 p 2 4 ]
+[v writeBits@bitsToWrite bitsToWrite `ui  1 p 2 6 ]
+"23
+} 0
 "10
+[v _writeBit writeBit `(v  1 e 0 0 ]
+{
+[v writeBit@bitToWrite bitToWrite `ui  1 p 2 2 ]
+"14
+} 0
+"10 C:\Documents and Settings\D300-01\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
 [v _writePGD writePGD `(v  1 e 0 0 ]
 {
 [v writePGD@data data `i  1 p 2 0 ]
@@ -309,13 +392,8 @@
 {
 "28
 } 0
-"38
-[v _MCLR_low MCLR_low `(v  1 e 0 0 ]
+"22
+[v _PGC_high PGC_high `(v  1 e 0 0 ]
 {
-"40
-} 0
-"42
-[v _MCLR_high MCLR_high `(v  1 e 0 0 ]
-{
-"44
+"24
 } 0

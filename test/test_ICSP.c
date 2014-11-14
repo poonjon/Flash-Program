@@ -10,15 +10,10 @@ void tearDown(void){}
 void mockBitsWriting(uint16 pattern, uint16 bitsToWrite){
   int i = 0;
   while(i < bitsToWrite){
-<<<<<<< HEAD
+
     printf("%d", LSB(pattern, bitsToWrite, i));
     PGC_high_Expect();
     writePGD_Expect(LSB(pattern, bitsToWrite, i));
-=======
-    printf("%d", MSB(pattern, bitsToWrite, i));
-    PGC_high_Expect();
-    writePGD_Expect(MSB(pattern, bitsToWrite, i));
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
     PGC_low_Expect(); 
     i++;
   }
@@ -27,15 +22,11 @@ void mockBitsWriting(uint16 pattern, uint16 bitsToWrite){
 void mockBitsReading(uint16 pattern, uint16 bitsToRead){
   int i=0;
   while(i < bitsToRead){
-<<<<<<< HEAD
+
     printf("%d", LSB(pattern, bitsToRead, i));
     PGC_high_Expect();
     readPGD_ExpectAndReturn(LSB(pattern, bitsToRead, i));
-=======
-    printf("%d", MSB(pattern, bitsToRead, i));
-    PGC_high_Expect();
-    readPGD_ExpectAndReturn(MSB(pattern, bitsToRead, i));
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
+
     PGC_low_Expect(); 
     i++;
   }
@@ -101,21 +92,21 @@ void test_readBit_should_return_0(){
 
 void test_readBits_should_return_0x11(){
   mockBitsReading(0x11, 8);
-  TEST_ASSERT_EQUAL(0x88, readBits(8));
+  TEST_ASSERT_EQUAL(0x11, readBits(8));
   
 }
 
 void test_readBits_should_return_0xf6(){
   
   mockBitsReading(0xf6, 8);
-  TEST_ASSERT_EQUAL(0x6f, readBits(8));
+  TEST_ASSERT_EQUAL(0xf6, readBits(8));
   
 }
 
 void test_readBits_should_return_0x35f6(){
   
   mockBitsReading(0x35f6, 16);
-  TEST_ASSERT_EQUAL(0x6fac, readBits(16));
+  TEST_ASSERT_EQUAL(0x35f6, readBits(16));
   
 }
 
@@ -124,7 +115,7 @@ void test_readICSP_should_read_0x34(){
   mockBitsWriting(0x0, 8);
   mockBitsReading(0x34, 8);
   
-  TEST_ASSERT_EQUAL(0x2c, readICSP(0x34));
+  TEST_ASSERT_EQUAL(0x34, readICSP(0x34));
   
 }
 

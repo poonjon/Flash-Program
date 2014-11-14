@@ -1,41 +1,27 @@
-<<<<<<< HEAD
-_MCLR_high: CODE, 31402 0 4
-_enter_HVP: CODE, 31474 0 18
-_writePGD: CODE, 31434 0 12
-_PGC_low: CODE, 31410 0 4
-_PGD_low: CODE, 31446 0 14
-_readPGD: CODE, 31510 0 20
-_main: CODE, 31492 0 18
-_PGC_high: CODE, 31414 0 4
-__initialization: CODE, 31418 0 0
-_exit_HVP: CODE, 31460 0 14
-_readBit: CODE, 31552 0 38
-_readBits: CODE, 31778 0 84
-_MCLR_low: CODE, 31406 0 4
-_writeBit: CODE, 31530 0 22
-_writeBits: CODE, 31632 0 68
-_trisInit: CODE, 31424 0 10
-_writeICSP: CODE, 31590 0 42
-_readDeviceID1: CODE, 31862 0 138
-_readICSP: CODE, 31700 0 78
-Total: 592
-=======
-_MCLR_high: CODE, 32184 0 4
-_writePGD: CODE, 32222 0 12
-_PGC_low: CODE, 32192 0 4
-_readPGD: CODE, 32252 0 20
-_main: CODE, 32294 0 24
-_PGC_high: CODE, 32188 0 4
-__initialization: CODE, 32196 0 0
-_readBit: CODE, 32318 0 38
-_readBits: CODE, 32464 0 82
-_MCLR_low: CODE, 32234 0 18
-_writeBit: CODE, 32272 0 22
-_writeBits: CODE, 32398 0 66
-_enter_LVP: CODE, 32202 0 10
-_writeICSP: CODE, 32356 0 42
-_exit_LVP: CODE, 32212 0 10
-_readDeviceID: CODE, 32628 0 140
-_readICSP: CODE, 32546 0 82
-Total: 578
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
+_writeTableThenIncremeant: CODE, 31050 0 154
+_MCLR_high: CODE, 30434 0 4
+_enter_HVP: CODE, 30566 0 22
+_writePGD: CODE, 30462 0 12
+_PGC_low: CODE, 30430 0 4
+_PGD_low: CODE, 30474 0 14
+_readPGD: CODE, 30524 0 20
+_main: CODE, 31204 0 188
+_bulkErase: CODE, 31620 0 380
+_enableWrite: CODE, 30660 0 42
+_tableSelect: CODE, 31392 0 228
+_PGC_high: CODE, 30426 0 4
+__initialization: CODE, 30446 0 0
+_exit_HVP: CODE, 30506 0 18
+_readBit: CODE, 30588 0 30
+_readBits: CODE, 30962 0 88
+_MCLR_low: CODE, 30488 0 18
+_PGM_low: CODE, 30442 0 4
+_writeBit: CODE, 30544 0 22
+_writeBits: CODE, 30748 0 68
+_read2Byte: CODE, 30702 0 46
+_trisInit: CODE, 30452 0 10
+_PGM_high: CODE, 30438 0 4
+_writeICSP: CODE, 30618 0 42
+_readICSP: CODE, 30816 0 70
+_readFirstByte: CODE, 30886 0 76
+Total: 1568

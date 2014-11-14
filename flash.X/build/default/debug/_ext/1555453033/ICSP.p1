@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"12 ../src/PIC18/ICSP.h
+"11 ../src/PIC18/ICSP.h
 [v _writeBits `(v ~T0 @X0 0 ef2`ui`ui ]
 "18 ../src/PIC18/FlashProg.h
 [v _PGC_high `(v ~T0 @X0 0 ef ]
@@ -3777,29 +3777,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
 [; ;Type.h: 4: typedef unsigned int uint16;
+[; ;Type.h: 5: typedef unsigned long uint32;
 [; ;FlashProg.h: 10: uint16 readPGD();
 [; ;FlashProg.h: 11: void writePGD(int data);
 [; ;FlashProg.h: 18: void PGC_high();
 [; ;FlashProg.h: 19: void PGC_low();
 [; ;FlashProg.h: 26: void MCLR_low();
 [; ;FlashProg.h: 27: void MCLR_high();
-[; ;FlashProg.h: 47: uint16 readPGD();
-[; ;FlashProg.h: 48: void writePGD(int data);
-[; ;FlashProg.h: 49: void PGC_high();
-[; ;FlashProg.h: 50: void PGC_low();
-[; ;FlashProg.h: 51: void PGD_high();
-[; ;FlashProg.h: 52: void PGD_low();
-[; ;FlashProg.h: 55: void MCLR_low();
-[; ;FlashProg.h: 56: void MCLR_high();
-[; ;FlashProg.h: 57: void enter_HVP();
-[; ;FlashProg.h: 58: void exit_HVP();
-[; ;FlashProg.h: 59: void bulkErase();
-[; ;FlashProg.h: 60: void readDeviceID1();
-[; ;FlashProg.h: 61: void readDeviceID2();
-[; ;ICSP.h: 10: void writeICSP(uint16 commandByte, uint16 dataBytes);
-[; ;ICSP.h: 11: void writeBit(uint16 bitToWrite);
-[; ;ICSP.h: 12: void writeBits(uint16 pattern, uint16 bitsToWrite);
-[; ;ICSP.h: 13: uint16 readICSP();
+[; ;FlashProg.h: 34: void PGM_low();
+[; ;FlashProg.h: 35: void PGM_high();
+[; ;FlashProg.h: 48: uint16 readPGD();
+[; ;FlashProg.h: 49: void writePGD(int data);
+[; ;FlashProg.h: 50: void PGC_high();
+[; ;FlashProg.h: 51: void PGC_low();
+[; ;FlashProg.h: 52: void PGD_high();
+[; ;FlashProg.h: 53: void PGD_low();
+[; ;FlashProg.h: 54: void PGM_high();
+[; ;FlashProg.h: 55: void PGM_low();
+[; ;FlashProg.h: 56: void MCLR_low();
+[; ;FlashProg.h: 57: void MCLR_high();
+[; ;FlashProg.h: 58: void enter_HVP();
+[; ;FlashProg.h: 59: void exit_HVP();
+[; ;FlashProg.h: 60: void bulkErase();
+[; ;FlashProg.h: 61: void readDeviceID1();
+[; ;FlashProg.h: 62: void readDeviceID2();
+[; ;FlashProg.h: 63: void enableWrite();
+[; ;FlashProg.h: 64: void tableSelect(uint32 address);
+[; ;FlashProg.h: 65: void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
+[; ;FlashProg.h: 66: uint16 read2Byte();
+[; ;ICSP.h: 9: void writeICSP(uint16 commandByte, uint16 dataBytes);
+[; ;ICSP.h: 10: void writeBit(uint16 bitToWrite);
+[; ;ICSP.h: 11: void writeBits(uint16 pattern, uint16 bitsToWrite);
+[; ;ICSP.h: 12: uint16 readICSP();
+[; ;ICSP.h: 13: uint16 readFirstByte();
 [; ;ICSP.h: 14: uint16 readBit();
 [; ;ICSP.h: 15: uint16 readBits(int bitsToRead);
 "5 ../src/PIC18/ICSP.c
@@ -3810,91 +3820,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _commandByte `ui ~T0 @X0 1 r1 ]
 [v _dataBytes `ui ~T0 @X0 1 r2 ]
 [f ]
-[; ;ICSP.c: 7: writeBits(commandByte, 4);
-"7
+[; ;ICSP.c: 6: writeBits(commandByte, 4);
+"6
 [e ( _writeBits (2 , _commandByte -> -> 4 `i `ui ]
-[; ;ICSP.c: 8: writeBits(dataBytes, 16);
-"8
+[; ;ICSP.c: 7: writeBits(dataBytes, 16);
+"7
 [e ( _writeBits (2 , _dataBytes -> -> 16 `i `ui ]
-[; ;ICSP.c: 9: }
-"9
+[; ;ICSP.c: 8: }
+"8
 [e :UE 402 ]
 }
-"11
+"10
 [v _writeBit `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;ICSP.c: 11: void writeBit(uint16 bitToWrite){
+[; ;ICSP.c: 10: void writeBit(uint16 bitToWrite){
 [e :U _writeBit ]
 [v _bitToWrite `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;ICSP.c: 12: PGC_high();
-"12
+[; ;ICSP.c: 11: PGC_high();
+"11
 [e ( _PGC_high ..  ]
-[; ;ICSP.c: 13: writePGD(bitToWrite);
-"13
+[; ;ICSP.c: 12: writePGD(bitToWrite);
+"12
 [e ( _writePGD (1 -> _bitToWrite `i ]
-[; ;ICSP.c: 14: PGC_low();
-"14
+[; ;ICSP.c: 13: PGC_low();
+"13
 [e ( _PGC_low ..  ]
-[; ;ICSP.c: 15: }
-"15
+[; ;ICSP.c: 14: }
+"14
 [e :UE 403 ]
 }
-"17
+"16
 [v _writeBits `(v ~T0 @X0 1 ef2`ui`ui ]
 {
-[; ;ICSP.c: 17: void writeBits(uint16 pattern, uint16 bitsToWrite){
+[; ;ICSP.c: 16: void writeBits(uint16 pattern, uint16 bitsToWrite){
 [e :U _writeBits ]
 [v _pattern `ui ~T0 @X0 1 r1 ]
 [v _bitsToWrite `ui ~T0 @X0 1 r2 ]
 [f ]
-"18
+"17
 [v _i `i ~T0 @X0 1 a ]
-[; ;ICSP.c: 18: int i=0;
+[; ;ICSP.c: 17: int i=0;
 [e = _i -> 0 `i ]
-[; ;ICSP.c: 19: (TRISDbits.TRISD4 = 0);
-"19
+[; ;ICSP.c: 18: (TRISDbits.TRISD4 = 0);
+"18
 [e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-[; ;ICSP.c: 20: while(i < bitsToWrite){
-"20
+[; ;ICSP.c: 19: while(i < bitsToWrite){
+"19
 [e $U 405  ]
 [e :U 406 ]
 {
-[; ;ICSP.c: 21: writeBit(((pattern>>i)&0x1));
-"21
+[; ;ICSP.c: 20: writeBit(((pattern>>i)&0x1));
+"20
 [e ( _writeBit (1 & >> _pattern _i -> -> 1 `i `ui ]
-[; ;ICSP.c: 22: i++;
-"22
+[; ;ICSP.c: 21: i++;
+"21
 [e ++ _i -> 1 `i ]
-"23
+"22
 }
 [e :U 405 ]
-"20
+"19
 [e $ < -> _i `ui _bitsToWrite 406  ]
 [e :U 407 ]
+[; ;ICSP.c: 22: }
 [; ;ICSP.c: 23: }
-[; ;ICSP.c: 24: }
-"24
+"23
 [e :UE 404 ]
 }
-"26
+"25
 [v _readICSP `(ui ~T0 @X0 1 ef ]
 {
-[; ;ICSP.c: 26: uint16 readICSP(){
+[; ;ICSP.c: 25: uint16 readICSP(){
 [e :U _readICSP ]
 [f ]
-"27
+"26
 [v _data `ui ~T0 @X0 1 a ]
-[; ;ICSP.c: 27: uint16 data = 0;
-[e = _data -> -> 0 `i `ui ]
-[; ;ICSP.c: 28: writeBits(9, 4);
-"28
+[; ;ICSP.c: 26: uint16 data;
+[; ;ICSP.c: 27: writeBits(9, 4);
+"27
 [e ( _writeBits (2 , -> -> 9 `i `ui -> -> 4 `i `ui ]
-[; ;ICSP.c: 29: writeBits(0, 8);
-"29
+[; ;ICSP.c: 28: writeBits(0, 8);
+"28
 [e ( _writeBits (2 , -> -> 0 `i `ui -> -> 8 `i `ui ]
-[; ;ICSP.c: 30: data = readBits(8);
-"30
+[; ;ICSP.c: 29: data = readBits(8);
+"29
 [e = _data ( _readBits (1 -> 8 `i ]
 [; ;ICSP.c: 31: return data;
 "31
@@ -3904,74 +3913,102 @@ Version 3.2 HI-TECH Software Intermediate Code
 "32
 [e :UE 408 ]
 }
-"34
-[v _readBit `(ui ~T0 @X0 1 ef ]
+"33
+[v _readFirstByte `(ui ~T0 @X0 1 ef ]
 {
-[; ;ICSP.c: 34: uint16 readBit(){
-[e :U _readBit ]
+[; ;ICSP.c: 33: uint16 readFirstByte(){
+[e :U _readFirstByte ]
 [f ]
-"35
+"34
 [v _data `ui ~T0 @X0 1 a ]
-[; ;ICSP.c: 35: uint16 data=0;
-[e = _data -> -> 0 `i `ui ]
-[; ;ICSP.c: 36: PGC_high();
+[; ;ICSP.c: 34: uint16 data;
+[; ;ICSP.c: 35: writeBits(9, 4);
+"35
+[e ( _writeBits (2 , -> -> 9 `i `ui -> -> 4 `i `ui ]
+[; ;ICSP.c: 36: writeBits(0, 8);
 "36
-[e ( _PGC_high ..  ]
-[; ;ICSP.c: 37: data = readPGD();
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 8 `i `ui ]
+[; ;ICSP.c: 37: data = readBits(8);
 "37
-[e = _data ( _readPGD ..  ]
-[; ;ICSP.c: 38: PGC_low();
+[e = _data ( _readBits (1 -> 8 `i ]
+[; ;ICSP.c: 38: data = data<<8;
 "38
-[e ( _PGC_low ..  ]
+[e = _data << _data -> 8 `i ]
 [; ;ICSP.c: 39: return data;
 "39
 [e ) _data ]
 [e $UE 409  ]
-[; ;ICSP.c: 40: }
-"40
+[; ;ICSP.c: 41: }
+"41
 [e :UE 409 ]
 }
-"42
+"44
+[v _readBit `(ui ~T0 @X0 1 ef ]
+{
+[; ;ICSP.c: 44: uint16 readBit(){
+[e :U _readBit ]
+[f ]
+"45
+[v _data `ui ~T0 @X0 1 a ]
+[; ;ICSP.c: 45: uint16 data;
+[; ;ICSP.c: 46: PGC_high();
+"46
+[e ( _PGC_high ..  ]
+[; ;ICSP.c: 47: data = readPGD();
+"47
+[e = _data ( _readPGD ..  ]
+[; ;ICSP.c: 48: PGC_low();
+"48
+[e ( _PGC_low ..  ]
+[; ;ICSP.c: 49: return data;
+"49
+[e ) _data ]
+[e $UE 410  ]
+[; ;ICSP.c: 50: }
+"50
+[e :UE 410 ]
+}
+"52
 [v _readBits `(ui ~T0 @X0 1 ef1`i ]
 {
-[; ;ICSP.c: 42: uint16 readBits(int bitsToRead){
+[; ;ICSP.c: 52: uint16 readBits(int bitsToRead){
 [e :U _readBits ]
 [v _bitsToRead `i ~T0 @X0 1 r1 ]
 [f ]
-"43
+"53
 [v _i `i ~T0 @X0 1 a ]
-[; ;ICSP.c: 43: int i=0;
+[; ;ICSP.c: 53: int i=0;
 [e = _i -> 0 `i ]
-"44
+"54
 [v _data `ui ~T0 @X0 1 a ]
-[; ;ICSP.c: 44: uint16 data=0;
+[; ;ICSP.c: 54: uint16 data = 0;
 [e = _data -> -> 0 `i `ui ]
-[; ;ICSP.c: 45: (TRISDbits.TRISD4 = 1);
-"45
+[; ;ICSP.c: 56: (TRISDbits.TRISD4 = 1);
+"56
 [e = . . _TRISDbits 0 4 -> -> 1 `i `uc ]
-[; ;ICSP.c: 46: while(i < bitsToRead){
-"46
-[e $U 411  ]
-[e :U 412 ]
-{
-[; ;ICSP.c: 47: data = (data<<1)|readBit();
-"47
-[e = _data | << _data -> 1 `i ( _readBit ..  ]
-[; ;ICSP.c: 48: i++;
-"48
-[e ++ _i -> 1 `i ]
-"49
-}
-[e :U 411 ]
-"46
-[e $ < _i _bitsToRead 412  ]
+[; ;ICSP.c: 58: while(i < bitsToRead){
+"58
+[e $U 412  ]
 [e :U 413 ]
-[; ;ICSP.c: 49: }
-[; ;ICSP.c: 51: return data;
-"51
+{
+[; ;ICSP.c: 59: data = (readBit()<< i)|data;
+"59
+[e = _data | << ( _readBit ..  _i _data ]
+[; ;ICSP.c: 60: i++;
+"60
+[e ++ _i -> 1 `i ]
+"61
+}
+[e :U 412 ]
+"58
+[e $ < _i _bitsToRead 413  ]
+[e :U 414 ]
+[; ;ICSP.c: 61: }
+[; ;ICSP.c: 62: return data;
+"62
 [e ) _data ]
-[e $UE 410  ]
-[; ;ICSP.c: 52: }
-"52
-[e :UE 410 ]
+[e $UE 411  ]
+[; ;ICSP.c: 63: }
+"63
+[e :UE 411 ]
 }

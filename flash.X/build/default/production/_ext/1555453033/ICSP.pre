@@ -4996,6 +4996,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 4 "../src/PIC18/Type.h"
 typedef unsigned int uint16;
+typedef unsigned long uint32;
 
 # 10 "../src/PIC18/FlashProg.h"
 uint16 readPGD();
@@ -5009,23 +5010,19 @@ void PGC_low();
 void MCLR_low();
 void MCLR_high();
 
-<<<<<<< HEAD
-=======
 # 34
 void PGM_low();
 void PGM_high();
 
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
-# 47
+# 48
 uint16 readPGD();
 void writePGD(int data);
 void PGC_high();
 void PGC_low();
 void PGD_high();
 void PGD_low();
-<<<<<<< HEAD
-
-
+void PGM_high();
+void PGM_low();
 void MCLR_low();
 void MCLR_high();
 void enter_HVP();
@@ -5033,31 +5030,22 @@ void exit_HVP();
 void bulkErase();
 void readDeviceID1();
 void readDeviceID2();
-=======
-void PGM_high();
-void PGM_low();
-void MCLR_low();
-void MCLR_high();
-void enter_LVP();
-void exit_LVP();
-void bulkErase();
-void readDeviceID();
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
+void enableWrite();
+void tableSelect(uint32 address);
+void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
+uint16 read2Byte();
 
-# 10 "../src/PIC18/ICSP.h"
+# 9 "../src/PIC18/ICSP.h"
 void writeICSP(uint16 commandByte, uint16 dataBytes);
 void writeBit(uint16 bitToWrite);
 void writeBits(uint16 pattern, uint16 bitsToWrite);
 uint16 readICSP();
+uint16 readFirstByte();
 uint16 readBit();
 uint16 readBits(int bitsToRead);
 
 # 5 "../src/PIC18/ICSP.c"
 void writeICSP(uint16 commandByte, uint16 dataBytes){
-<<<<<<< HEAD
-
-=======
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 writeBits(commandByte, 4);
 writeBits(dataBytes, 16);
 }
@@ -5070,10 +5058,7 @@ PGC_low();
 
 void writeBits(uint16 pattern, uint16 bitsToWrite){
 int i=0;
-<<<<<<< HEAD
 (TRISDbits.TRISD4 = 0);
-=======
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 while(i < bitsToWrite){
 writeBit(((pattern>>i)&0x1));
 i++;
@@ -5081,21 +5066,26 @@ i++;
 }
 
 uint16 readICSP(){
-uint16 data = 0;
+uint16 data;
 writeBits(9, 4);
 writeBits(0, 8);
-<<<<<<< HEAD
 data = readBits(8);
-=======
-(TRISDbits.TRISD4 = 1);
-data = readBits(8);
-(TRISDbits.TRISD4 = 0);
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
+
 return data;
 }
+uint16 readFirstByte(){
+uint16 data;
+writeBits(9, 4);
+writeBits(0, 8);
+data = readBits(8);
+data = data<<8;
+return data;
+
+}
+
 
 uint16 readBit(){
-uint16 data=0;
+uint16 data;
 PGC_high();
 data = readPGD();
 PGC_low();
@@ -5104,19 +5094,13 @@ return data;
 
 uint16 readBits(int bitsToRead){
 int i=0;
-uint16 data=0;
-<<<<<<< HEAD
-(TRISDbits.TRISD4 = 1);
-=======
+uint16 data = 0;
 
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
+(TRISDbits.TRISD4 = 1);
+
 while(i < bitsToRead){
-data = (data<<1)|readBit();
+data = (readBit()<< i)|data;
 i++;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> f42554db059f0c0b36c6a7a37ea9ea98c92664cb
 return data;
 }

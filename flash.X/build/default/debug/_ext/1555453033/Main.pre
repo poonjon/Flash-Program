@@ -5127,6 +5127,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 4 "../src/PIC18/Type.h"
 typedef unsigned int uint16;
+typedef unsigned long uint32;
 
 # 10 "../src/PIC18/FlashProg.h"
 uint16 readPGD();
@@ -5140,15 +5141,19 @@ void PGC_low();
 void MCLR_low();
 void MCLR_high();
 
-# 47
+# 34
+void PGM_low();
+void PGM_high();
+
+# 48
 uint16 readPGD();
 void writePGD(int data);
 void PGC_high();
 void PGC_low();
 void PGD_high();
 void PGD_low();
-
-
+void PGM_high();
+void PGM_low();
 void MCLR_low();
 void MCLR_high();
 void enter_HVP();
@@ -5156,18 +5161,24 @@ void exit_HVP();
 void bulkErase();
 void readDeviceID1();
 void readDeviceID2();
+void enableWrite();
+void tableSelect(uint32 address);
+void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
+uint16 read2Byte();
 
-# 10 "../src/PIC18/ICSP.h"
+# 9 "../src/PIC18/ICSP.h"
 void writeICSP(uint16 commandByte, uint16 dataBytes);
 void writeBit(uint16 bitToWrite);
 void writeBits(uint16 pattern, uint16 bitsToWrite);
 uint16 readICSP();
+uint16 readFirstByte();
 uint16 readBit();
 uint16 readBits(int bitsToRead);
 
 
 # 18 "../src/PIC18/Main.c"
 #pragma config OSC = INTIO67, PWRT = ON, WDT = OFF, LVP = OFF, DEBUG = ON
+
 
 void trisInit(){
 TRISDbits.TRISD4 = 0;
@@ -5177,16 +5188,34 @@ TRISDbits.TRISD7 = 0;
 }
 
 void main(){
-
+uint16 i = 0;
+uint16 a = 0;
+uint16 b = 0;
+uint16 c = 0;
+uint16 d = 0;
 trisInit();
 
 enter_HVP();
 
-# 37
-readDeviceID1();
+bulkErase();
+tableSelect(0x001232);
+enableWrite();
+writeTableThenIncremeant(0x25d6, 0x58a6);
+writeTableThenIncremeant(0x2fdf, 0x58ff);
+tableSelect(0x001232);
+a = read2Byte();
+b = read2Byte();
+c = read2Byte();
+d = read2Byte();
+
+
+i = i;
 exit_HVP();
+
 while(1){
 
 }
+
+# 62
 }
 

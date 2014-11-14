@@ -11,11 +11,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "2423
 [v _TRISDbits `VS132 ~T0 @X0 0 e@3989 ]
 [p mainexit ]
-"57 ../src/PIC18/FlashProg.h
+"58 ../src/PIC18/FlashProg.h
 [v _enter_HVP `(v ~T0 @X0 0 ef ]
 "60
-[v _readDeviceID1 `(v ~T0 @X0 0 ef ]
-"58
+[v _bulkErase `(v ~T0 @X0 0 ef ]
+"64
+[v _tableSelect `(v ~T0 @X0 0 ef1`ul ]
+"63
+[v _enableWrite `(v ~T0 @X0 0 ef ]
+"65
+[v _writeTableThenIncremeant `(v ~T0 @X0 0 ef2`ui`ui ]
+"66
+[v _read2Byte `(ui ~T0 @X0 0 ef ]
+"59
 [v _exit_HVP `(v ~T0 @X0 0 ef ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
@@ -3853,29 +3861,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
 [; ;Type.h: 4: typedef unsigned int uint16;
+[; ;Type.h: 5: typedef unsigned long uint32;
 [; ;FlashProg.h: 10: uint16 readPGD();
 [; ;FlashProg.h: 11: void writePGD(int data);
 [; ;FlashProg.h: 18: void PGC_high();
 [; ;FlashProg.h: 19: void PGC_low();
 [; ;FlashProg.h: 26: void MCLR_low();
 [; ;FlashProg.h: 27: void MCLR_high();
-[; ;FlashProg.h: 47: uint16 readPGD();
-[; ;FlashProg.h: 48: void writePGD(int data);
-[; ;FlashProg.h: 49: void PGC_high();
-[; ;FlashProg.h: 50: void PGC_low();
-[; ;FlashProg.h: 51: void PGD_high();
-[; ;FlashProg.h: 52: void PGD_low();
-[; ;FlashProg.h: 55: void MCLR_low();
-[; ;FlashProg.h: 56: void MCLR_high();
-[; ;FlashProg.h: 57: void enter_HVP();
-[; ;FlashProg.h: 58: void exit_HVP();
-[; ;FlashProg.h: 59: void bulkErase();
-[; ;FlashProg.h: 60: void readDeviceID1();
-[; ;FlashProg.h: 61: void readDeviceID2();
-[; ;ICSP.h: 10: void writeICSP(uint16 commandByte, uint16 dataBytes);
-[; ;ICSP.h: 11: void writeBit(uint16 bitToWrite);
-[; ;ICSP.h: 12: void writeBits(uint16 pattern, uint16 bitsToWrite);
-[; ;ICSP.h: 13: uint16 readICSP();
+[; ;FlashProg.h: 34: void PGM_low();
+[; ;FlashProg.h: 35: void PGM_high();
+[; ;FlashProg.h: 48: uint16 readPGD();
+[; ;FlashProg.h: 49: void writePGD(int data);
+[; ;FlashProg.h: 50: void PGC_high();
+[; ;FlashProg.h: 51: void PGC_low();
+[; ;FlashProg.h: 52: void PGD_high();
+[; ;FlashProg.h: 53: void PGD_low();
+[; ;FlashProg.h: 54: void PGM_high();
+[; ;FlashProg.h: 55: void PGM_low();
+[; ;FlashProg.h: 56: void MCLR_low();
+[; ;FlashProg.h: 57: void MCLR_high();
+[; ;FlashProg.h: 58: void enter_HVP();
+[; ;FlashProg.h: 59: void exit_HVP();
+[; ;FlashProg.h: 60: void bulkErase();
+[; ;FlashProg.h: 61: void readDeviceID1();
+[; ;FlashProg.h: 62: void readDeviceID2();
+[; ;FlashProg.h: 63: void enableWrite();
+[; ;FlashProg.h: 64: void tableSelect(uint32 address);
+[; ;FlashProg.h: 65: void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
+[; ;FlashProg.h: 66: uint16 read2Byte();
+[; ;ICSP.h: 9: void writeICSP(uint16 commandByte, uint16 dataBytes);
+[; ;ICSP.h: 10: void writeBit(uint16 bitToWrite);
+[; ;ICSP.h: 11: void writeBits(uint16 pattern, uint16 bitsToWrite);
+[; ;ICSP.h: 12: uint16 readICSP();
+[; ;ICSP.h: 13: uint16 readFirstByte();
 [; ;ICSP.h: 14: uint16 readBit();
 [; ;ICSP.h: 15: uint16 readBits(int bitsToRead);
 "18 ../src/PIC18/Main.c
@@ -3884,58 +3902,108 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x WDT=OFF ]
 [p x LVP=OFF ]
 [p x DEBUG=ON ]
-"20
+"21
 [v _trisInit `(v ~T0 @X0 1 ef ]
 {
-[; ;Main.c: 20: void trisInit(){
+[; ;Main.c: 21: void trisInit(){
 [e :U _trisInit ]
 [f ]
-[; ;Main.c: 21: TRISDbits.TRISD4 = 0;
-"21
-[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
-[; ;Main.c: 22: TRISDbits.TRISD5 = 0;
+[; ;Main.c: 22: TRISDbits.TRISD4 = 0;
 "22
-[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
-[; ;Main.c: 23: TRISDbits.TRISD6 = 0;
+[e = . . _TRISDbits 0 4 -> -> 0 `i `uc ]
+[; ;Main.c: 23: TRISDbits.TRISD5 = 0;
 "23
-[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
-[; ;Main.c: 24: TRISDbits.TRISD7 = 0;
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
+[; ;Main.c: 24: TRISDbits.TRISD6 = 0;
 "24
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
-[; ;Main.c: 25: }
+[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
+[; ;Main.c: 25: TRISDbits.TRISD7 = 0;
 "25
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+[; ;Main.c: 26: }
+"26
 [e :UE 407 ]
 }
-"27
+"28
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Main.c: 27: void main(){
+[; ;Main.c: 28: void main(){
 [e :U _main ]
 [f ]
-[; ;Main.c: 29: trisInit();
 "29
-[e ( _trisInit ..  ]
-[; ;Main.c: 31: enter_HVP();
+[v _i `ui ~T0 @X0 1 a ]
+[; ;Main.c: 29: uint16 i = 0;
+[e = _i -> -> 0 `i `ui ]
+"30
+[v _a `ui ~T0 @X0 1 a ]
+[; ;Main.c: 30: uint16 a = 0;
+[e = _a -> -> 0 `i `ui ]
 "31
+[v _b `ui ~T0 @X0 1 a ]
+[; ;Main.c: 31: uint16 b = 0;
+[e = _b -> -> 0 `i `ui ]
+"32
+[v _c `ui ~T0 @X0 1 a ]
+[; ;Main.c: 32: uint16 c = 0;
+[e = _c -> -> 0 `i `ui ]
+"33
+[v _d `ui ~T0 @X0 1 a ]
+[; ;Main.c: 33: uint16 d = 0;
+[e = _d -> -> 0 `i `ui ]
+[; ;Main.c: 34: trisInit();
+"34
+[e ( _trisInit ..  ]
+[; ;Main.c: 36: enter_HVP();
+"36
 [e ( _enter_HVP ..  ]
-[; ;Main.c: 37: readDeviceID1();
-"37
-[e ( _readDeviceID1 ..  ]
-[; ;Main.c: 38: exit_HVP();
+[; ;Main.c: 38: bulkErase();
 "38
-[e ( _exit_HVP ..  ]
-[; ;Main.c: 39: while(1){
+[e ( _bulkErase ..  ]
+[; ;Main.c: 39: tableSelect(0x001232);
 "39
+[e ( _tableSelect (1 -> -> -> 4658 `i `l `ul ]
+[; ;Main.c: 40: enableWrite();
+"40
+[e ( _enableWrite ..  ]
+[; ;Main.c: 41: writeTableThenIncremeant(0x25d6, 0x58a6);
+"41
+[e ( _writeTableThenIncremeant (2 , -> -> 9686 `i `ui -> -> 22694 `i `ui ]
+[; ;Main.c: 42: writeTableThenIncremeant(0x2fdf, 0x58ff);
+"42
+[e ( _writeTableThenIncremeant (2 , -> -> 12255 `i `ui -> -> 22783 `i `ui ]
+[; ;Main.c: 43: tableSelect(0x001232);
+"43
+[e ( _tableSelect (1 -> -> -> 4658 `i `l `ul ]
+[; ;Main.c: 44: a = read2Byte();
+"44
+[e = _a ( _read2Byte ..  ]
+[; ;Main.c: 45: b = read2Byte();
+"45
+[e = _b ( _read2Byte ..  ]
+[; ;Main.c: 46: c = read2Byte();
+"46
+[e = _c ( _read2Byte ..  ]
+[; ;Main.c: 47: d = read2Byte();
+"47
+[e = _d ( _read2Byte ..  ]
+[; ;Main.c: 50: i = i;
+"50
+[e = _i _i ]
+[; ;Main.c: 51: exit_HVP();
+"51
+[e ( _exit_HVP ..  ]
+[; ;Main.c: 53: while(1){
+"53
 [e :U 410 ]
 {
-"41
+"55
 }
 [e :U 409 ]
-"39
+"53
 [e $U 410  ]
 [e :U 411 ]
-[; ;Main.c: 41: }
-[; ;Main.c: 42: }
-"42
+[; ;Main.c: 55: }
+[; ;Main.c: 62: }
+"62
 [e :UE 408 ]
 }

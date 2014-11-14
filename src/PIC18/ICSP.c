@@ -23,7 +23,7 @@ void writeBits(uint16 pattern, uint16 bitsToWrite){
 }
 
 uint16 readICSP(){
-  uint16 data = 0;
+  uint16 data;
   writeBits(9, 4);
   writeBits(0, 8);
   data = readBits(8);
@@ -31,8 +31,18 @@ uint16 readICSP(){
   return data;
 }
 
+uint16 readFirstByte(){
+  uint16 data;
+  writeBits(9, 4);
+  writeBits(0, 8);
+  data = readBits(8);
+  data = data<<8;
+  return data;
+
+}
+
 uint16 readBit(){
-  uint16 data=0;
+  uint16 data;
   PGC_high();
   data = readPGD();
   PGC_low();
@@ -41,12 +51,12 @@ uint16 readBit(){
 
 uint16 readBits(int bitsToRead){
   int i=0;
-  uint16 data=0;
+  uint16 data = 0;
 
   setICSPDataPinAsInput;
 
   while(i < bitsToRead){
-    data = (data<<1)|readBit();
+    data = (readBit()<< i)|data;
     i++;
   }
   return data;
