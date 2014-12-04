@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2402 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+"2402 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
 [s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S133 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
 "2412
@@ -15,14 +15,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _enter_HVP `(v ~T0 @X0 0 ef ]
 "60
 [v _bulkErase `(v ~T0 @X0 0 ef ]
-"64
-[v _tableSelect `(v ~T0 @X0 0 ef1`ul ]
 "63
 [v _enableWrite `(v ~T0 @X0 0 ef ]
+"64
+[v _flashSetAddress `(v ~T0 @X0 0 ef1`ul ]
+"73
+[v _flashWriteData `(v ~T0 @X0 0 ef1`ul ]
 "65
-[v _writeTableThenIncremeant `(v ~T0 @X0 0 ef2`ui`ui ]
-"66
-[v _read2Byte `(ui ~T0 @X0 0 ef ]
+[v _flashWriteAndProgram `(v ~T0 @X0 0 ef1`ul ]
+"67
+[v _flashRead16Bits `(ui ~T0 @X0 0 ef ]
+"9 ../src/PIC18/ICSP.h
+[v _writeICSP `(v ~T0 @X0 0 ef2`ui`ui ]
+"11
+[v _writeBits `(v ~T0 @X0 0 ef2`ui`ui ]
+"18 ../src/PIC18/FlashProg.h
+[v _PGC_high `(v ~T0 @X0 0 ef ]
+"53
+[v _PGD_low `(v ~T0 @X0 0 ef ]
+"19
+[v _PGC_low `(v ~T0 @X0 0 ef ]
 "59
 [v _exit_HVP `(v ~T0 @X0 0 ef ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
@@ -112,7 +124,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 47: extern volatile unsigned char PORTA @ 0xF80;
-"49 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
 [; ;pic18f4520.h: 49: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18f4520.h: 52: typedef union {
@@ -3860,8 +3872,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;Type.h: 4: typedef unsigned int uint16;
-[; ;Type.h: 5: typedef unsigned long uint32;
+[; ;Type.h: 4: typedef unsigned char uint8;
+[; ;Type.h: 5: typedef unsigned int uint16;
+[; ;Type.h: 6: typedef unsigned long uint32;
 [; ;FlashProg.h: 10: uint16 readPGD();
 [; ;FlashProg.h: 11: void writePGD(int data);
 [; ;FlashProg.h: 18: void PGC_high();
@@ -3886,9 +3899,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.h: 61: void readDeviceID1();
 [; ;FlashProg.h: 62: void readDeviceID2();
 [; ;FlashProg.h: 63: void enableWrite();
-[; ;FlashProg.h: 64: void tableSelect(uint32 address);
-[; ;FlashProg.h: 65: void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
-[; ;FlashProg.h: 66: uint16 read2Byte();
+[; ;FlashProg.h: 64: void flashSetAddress(uint32 address);
+[; ;FlashProg.h: 65: void flashWriteAndProgram(uint32 data);
+[; ;FlashProg.h: 66: void flashWrite8Bits(uint8 data);
+[; ;FlashProg.h: 67: uint16 flashRead16Bits();
+[; ;FlashProg.h: 68: uint8 flashRead8Bits();
+[; ;FlashProg.h: 69: int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
+[; ;FlashProg.h: 70: int flashReadData(uint8 *data, uint16 size, uint32 address);
+[; ;FlashProg.h: 71: int memRange(uint32 address);
+[; ;FlashProg.h: 72: void rowErase(uint32 address);
+[; ;FlashProg.h: 73: void flashWriteData(uint32 data);
 [; ;ICSP.h: 9: void writeICSP(uint16 commandByte, uint16 dataBytes);
 [; ;ICSP.h: 10: void writeBit(uint16 bitToWrite);
 [; ;ICSP.h: 11: void writeBits(uint16 pattern, uint16 bitsToWrite);
@@ -3950,60 +3970,278 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _d `ui ~T0 @X0 1 a ]
 [; ;Main.c: 33: uint16 d = 0;
 [e = _d -> -> 0 `i `ui ]
-[; ;Main.c: 34: trisInit();
 "34
-[e ( _trisInit ..  ]
-[; ;Main.c: 36: enter_HVP();
+[v _e `ui ~T0 @X0 1 a ]
+[; ;Main.c: 34: uint16 e = 0;
+[e = _e -> -> 0 `i `ui ]
+"35
+[v _data `ui ~T0 @X0 1 a ]
+[; ;Main.c: 35: uint16 data = 0x0000;
+[e = _data -> -> 0 `i `ui ]
 "36
-[e ( _enter_HVP ..  ]
-[; ;Main.c: 38: bulkErase();
-"38
-[e ( _bulkErase ..  ]
-[; ;Main.c: 39: tableSelect(0x001232);
+[v _address `ul ~T0 @X0 1 a ]
+[; ;Main.c: 36: uint32 address = 0x000000;
+[e = _address -> -> -> 0 `i `l `ul ]
+[; ;Main.c: 37: trisInit();
+"37
+[e ( _trisInit ..  ]
+[; ;Main.c: 39: enter_HVP();
 "39
-[e ( _tableSelect (1 -> -> -> 4658 `i `l `ul ]
-[; ;Main.c: 40: enableWrite();
-"40
-[e ( _enableWrite ..  ]
-[; ;Main.c: 41: writeTableThenIncremeant(0x25d6, 0x58a6);
+[e ( _enter_HVP ..  ]
+[; ;Main.c: 41: bulkErase();
 "41
-[e ( _writeTableThenIncremeant (2 , -> -> 9686 `i `ui -> -> 22694 `i `ui ]
-[; ;Main.c: 42: writeTableThenIncremeant(0x2fdf, 0x58ff);
+[e ( _bulkErase ..  ]
+[; ;Main.c: 42: enableWrite();
 "42
-[e ( _writeTableThenIncremeant (2 , -> -> 12255 `i `ui -> -> 22783 `i `ui ]
-[; ;Main.c: 43: tableSelect(0x001232);
-"43
-[e ( _tableSelect (1 -> -> -> 4658 `i `l `ul ]
-[; ;Main.c: 44: a = read2Byte();
+[e ( _enableWrite ..  ]
+[; ;Main.c: 44: flashSetAddress(0x000000);
 "44
-[e = _a ( _read2Byte ..  ]
-[; ;Main.c: 45: b = read2Byte();
+[e ( _flashSetAddress (1 -> -> -> 0 `i `l `ul ]
+[; ;Main.c: 45: for(i = 0 ; i < 15 ; i++){
 "45
-[e = _b ( _read2Byte ..  ]
-[; ;Main.c: 46: c = read2Byte();
-"46
-[e = _c ( _read2Byte ..  ]
-[; ;Main.c: 47: d = read2Byte();
-"47
-[e = _d ( _read2Byte ..  ]
-[; ;Main.c: 50: i = i;
-"50
-[e = _i _i ]
-[; ;Main.c: 51: exit_HVP();
-"51
-[e ( _exit_HVP ..  ]
-[; ;Main.c: 53: while(1){
-"53
-[e :U 410 ]
 {
-"55
-}
-[e :U 409 ]
-"53
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 15 `i `ui 409  ]
 [e $U 410  ]
-[e :U 411 ]
-[; ;Main.c: 55: }
-[; ;Main.c: 62: }
+[e :U 409 ]
+{
+[; ;Main.c: 46: flashWriteData(data);
+"46
+[e ( _flashWriteData (1 -> _data `ul ]
+[; ;Main.c: 47: data++;
+"47
+[e ++ _data -> -> 1 `i `ui ]
+"48
+}
+"45
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 15 `i `ui 409  ]
+[e :U 410 ]
+"48
+}
+[; ;Main.c: 48: }
+[; ;Main.c: 49: flashWriteAndProgram(data);
+"49
+[e ( _flashWriteAndProgram (1 -> _data `ul ]
+[; ;Main.c: 51: for(i = 0 ; i < 15 ; i++){
+"51
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 15 `i `ui 412  ]
+[e $U 413  ]
+[e :U 412 ]
+{
+[; ;Main.c: 52: flashWriteData(data);
+"52
+[e ( _flashWriteData (1 -> _data `ul ]
+[; ;Main.c: 53: data++;
+"53
+[e ++ _data -> -> 1 `i `ui ]
+"54
+}
+"51
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 15 `i `ui 412  ]
+[e :U 413 ]
+"54
+}
+[; ;Main.c: 54: }
+[; ;Main.c: 55: flashWriteAndProgram(data);
+"55
+[e ( _flashWriteAndProgram (1 -> _data `ul ]
+[; ;Main.c: 58: flashSetAddress(0x000000);
+"58
+[e ( _flashSetAddress (1 -> -> -> 0 `i `l `ul ]
+[; ;Main.c: 59: for(i = 0 ; i < 16 ; i++){
+"59
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 16 `i `ui 415  ]
+[e $U 416  ]
+[e :U 415 ]
+{
+[; ;Main.c: 60: a = flashRead16Bits();
+"60
+[e = _a ( _flashRead16Bits ..  ]
+[; ;Main.c: 61: b = flashRead16Bits();
+"61
+[e = _b ( _flashRead16Bits ..  ]
+[; ;Main.c: 62: c = flashRead16Bits();
 "62
+[e = _c ( _flashRead16Bits ..  ]
+[; ;Main.c: 63: d = flashRead16Bits();
+"63
+[e = _d ( _flashRead16Bits ..  ]
+[; ;Main.c: 64: e = flashRead16Bits();
+"64
+[e = _e ( _flashRead16Bits ..  ]
+"66
+}
+"59
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 16 `i `ui 415  ]
+[e :U 416 ]
+"66
+}
+[; ;Main.c: 66: }
+[; ;Main.c: 67: flashSetAddress(address);
+"67
+[e ( _flashSetAddress (1 _address ]
+[; ;Main.c: 68: writeICSP(0x0, 0x84a6);
+"68
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 33958 `ui ]
+[; ;Main.c: 69: writeICSP(0x0, 0x88a6);
+"69
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 34982 `ui ]
+[; ;Main.c: 70: writeICSP(0x0, 0x82a6);
+"70
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 33446 `ui ]
+[; ;Main.c: 71: writeBits(0x0, 3);
+"71
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 3 `i `ui ]
+[; ;Main.c: 72: PGC_high();
+"72
+[e ( _PGC_high ..  ]
+[; ;Main.c: 73: PGD_low();
+"73
+[e ( _PGD_low ..  ]
+[; ;Main.c: 74: for(i = 0; i < 25 ; i++){}
+"74
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 418  ]
+[e $U 419  ]
+[e :U 418 ]
+{
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 418  ]
+[e :U 419 ]
+}
+[; ;Main.c: 75: PGC_low();
+"75
+[e ( _PGC_low ..  ]
+[; ;Main.c: 76: for(i = 0; i < 25 ; i++){}
+"76
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 421  ]
+[e $U 422  ]
+[e :U 421 ]
+{
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 421  ]
+[e :U 422 ]
+}
+[; ;Main.c: 77: writeBits(0x0, 16);
+"77
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 16 `i `ui ]
+[; ;Main.c: 78: flashSetAddress(address);
+"78
+[e ( _flashSetAddress (1 _address ]
+[; ;Main.c: 79: for(i = 0 ; i <15 ; i++){
+"79
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 15 `i `ui 424  ]
+[e $U 425  ]
+[e :U 424 ]
+{
+[; ;Main.c: 80: flashWriteData(0x6666);
+"80
+[e ( _flashWriteData (1 -> -> -> 26214 `i `l `ul ]
+"81
+}
+"79
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 15 `i `ui 424  ]
+[e :U 425 ]
+"81
+}
+[; ;Main.c: 81: }
+[; ;Main.c: 82: flashWriteAndProgram(0x8778);
+"82
+[e ( _flashWriteAndProgram (1 -> -> 34680 `ui `ul ]
+[; ;Main.c: 83: writeBits(0x0, 3);
+"83
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 3 `i `ui ]
+[; ;Main.c: 84: PGC_high();
+"84
+[e ( _PGC_high ..  ]
+[; ;Main.c: 85: PGD_low();
+"85
+[e ( _PGD_low ..  ]
+[; ;Main.c: 86: for(i = 0; i < 25 ; i++){}
+"86
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 427  ]
+[e $U 428  ]
+[e :U 427 ]
+{
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 427  ]
+[e :U 428 ]
+}
+[; ;Main.c: 87: PGC_low();
+"87
+[e ( _PGC_low ..  ]
+[; ;Main.c: 88: for(i = 0; i < 25 ; i++){}
+"88
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 430  ]
+[e $U 431  ]
+[e :U 430 ]
+{
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 25 `i `ui 430  ]
+[e :U 431 ]
+}
+[; ;Main.c: 89: writeICSP(0x0, 0x94a6);
+"89
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 38054 `ui ]
+[; ;Main.c: 91: flashSetAddress(0x000000);
+"91
+[e ( _flashSetAddress (1 -> -> -> 0 `i `l `ul ]
+[; ;Main.c: 92: for(i = 0 ; i < 17 ; i++){
+"92
+{
+[e = _i -> -> 0 `i `ui ]
+[e $ < _i -> -> 17 `i `ui 433  ]
+[e $U 434  ]
+[e :U 433 ]
+{
+[; ;Main.c: 93: a = flashRead16Bits();
+"93
+[e = _a ( _flashRead16Bits ..  ]
+"94
+}
+"92
+[e ++ _i -> -> 1 `i `ui ]
+[e $ < _i -> -> 17 `i `ui 433  ]
+[e :U 434 ]
+"94
+}
+[; ;Main.c: 94: }
+[; ;Main.c: 96: i = i;
+"96
+[e = _i _i ]
+[; ;Main.c: 98: exit_HVP();
+"98
+[e ( _exit_HVP ..  ]
+[; ;Main.c: 100: while(1){}
+"100
+[e :U 437 ]
+{
+}
+[e :U 436 ]
+[e $U 437  ]
+[e :U 438 ]
+[; ;Main.c: 101: }
+"101
 [e :UE 408 ]
 }

@@ -43,7 +43,7 @@
 #define _MCLR PORTDbits.RD7
 #define setICSPDataPinAsInput (TRISDbits.TRISD4 = 1)
 #define setICSPDataPinAsOutput (TRISDbits.TRISD4 = 0)
-#define defaultTable tableSelect(0x00, 0x00, 0x00)
+#define defaultTable flashSetAddress(0x00, 0x00, 0x00)
 
 uint16 readPGD();
 void writePGD(int data);
@@ -61,7 +61,14 @@ void bulkErase();
 void readDeviceID1();
 void readDeviceID2();
 void enableWrite();
-void tableSelect(uint32 address);
-void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
-uint16 read2Byte();
+void flashSetAddress(uint32 address);
+void flashWriteAndProgram(uint32 data);
+void flashWrite8Bits(uint8 data);
+uint16 flashRead16Bits();
+uint8 flashRead8Bits();
+int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
+int flashReadData(uint8 *data, uint16 size, uint32 address);
+int memRange(uint32 address);
+void rowErase(uint32 address);
+void flashWriteData(uint32 data);
 #endif // FlashProg_H

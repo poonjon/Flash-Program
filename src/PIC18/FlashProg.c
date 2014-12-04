@@ -1,4 +1,5 @@
 #include "../18c.h"
+#include "stdio.h"
 #include "FlashProg.h"
 #include "ICSP.h"
 
@@ -114,7 +115,7 @@ void enableWrite(){
   writeICSP(0x0, 0x9ca6);
 }
 
-void tableSelect(uint32 address){
+void flashSetAddress(uint32 address){
   uint32 upperAddr;
   uint32 highAddr;
   uint32 lowAddr;
@@ -131,11 +132,16 @@ void tableSelect(uint32 address){
   writeICSP(0x0, 0x6ef6);
 }
 
-void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte){
+void flashWriteData(uint32 data){
+  writeICSP(0xd, data);
+  
+}
+
+void flashWriteAndProgram(uint32 data){
   int i;
 
-  writeICSP(0xd, first2Byte);
-  writeICSP(0xe, second2Byte);
+
+  writeICSP(0xf, data);
 
   writeBits(0x0, 3);
   PGC_high();
@@ -147,7 +153,22 @@ void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte){
 
 }
 
-uint16 read2Byte(){
+void flashWrite8Bits(uint8 data){
+  int i;
+
+  writeICSP(0xe, data);
+
+  writeBits(0x0, 3);
+  PGC_high();
+  PGD_low();
+  for(i = 0; i < 25 ; i++){} //p9 minimum 1ms
+  PGC_low();
+  for(i = 0; i < 25 ; i++){} //p10 minimum 100us
+  writeBits(0x0, 16);
+
+}
+
+uint16 flashRead16Bits(){
     uint16 data;
     uint16 firstData;
 
@@ -158,3 +179,104 @@ uint16 read2Byte(){
     
     return data;
 }
+
+uint8 flashRead8Bits(){
+    uint16 data;
+
+    data = readICSP();
+    
+    return data;
+}
+
+int flashReadData(uint8 *data, uint16 size, uint32 address){
+  int i;
+  
+  flashSetAddress(address);
+  
+  if(size < 64000){
+    for(i = 0; i < size/8 ; i++){
+      data[i] = flashRead8Bits();
+    }
+  }
+  else 
+    return 0;
+    
+  return size;
+}
+
+// (size/8) = bytes
+int flashWriteBlock(uint8 *data, uint16 size, uint32 address){
+  uint32 writeLimit;
+  uint8 buffer[32];
+  uint16 read;
+  int i;
+  read = flashReadData(&buffer[0], 32, 0x000000);
+  rowErase(0x000000);
+  writeLimit = memRange(address);
+  printf("%d \n", address);
+  printf("%d \n", writeLimit/8);
+  for(i = 0 ; i < 40 ; i++){
+
+  }
+  if(size <= writeLimit){
+		
+    if(size == 8){
+      for(i = 0 ; i < (size/8) ; i++){
+        flashSetAddress(address);
+        flashWrite8Bits(data[i]);
+        address++;
+      }
+    }
+    else{
+      for(i = 0 ; i < (size/8) ; i++){
+        flashSetAddress(address);
+        flashWriteAndProgram(data[i]);
+        address++;
+      }
+    }
+    return size/8;
+  }  
+  else{
+    for(i = 0 ; i < writeLimit ; i++){
+      flashSetAddress(address);
+      flashWriteAndProgram(data[i]);
+      address++;
+    }
+    return writeLimit;
+  }
+}
+
+int memRange(uint32 address){
+	int range;
+  
+  range = 40-(address%40);
+  
+  return range;
+}
+
+void rowErase(uint32 address){
+  int i;
+  writeICSP(0x0, 0x8ea6);
+  writeICSP(0x0, 0x9ca6);
+  writeICSP(0x0, 0x84a6);
+
+
+  writeICSP(0x0, 0x6af8);
+  writeICSP(0x0, 0x6af7);
+  writeICSP(0x0, 0x6af6);
+  flashSetAddress(address);
+
+  writeICSP(0x0, 0x88a6);
+  writeICSP(0x0, 0x82a6);
+  writeBits(0x0, 3);
+  PGC_high();
+  PGD_low();
+  for(i = 0; i < 25 ; i++){} //p9 minimum 1ms
+  PGC_low();
+  for(i = 0; i < 25 ; i++){} //p10 minimum 100us
+  writeBits(0x0, 16);
+}
+
+
+
+//flashWriteData();

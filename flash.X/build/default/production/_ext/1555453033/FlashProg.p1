@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"635 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+"635 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
 [s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S26 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "645
@@ -24,10 +24,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _readICSP `(ui ~T0 @X0 0 ef ]
 "13
 [v _readFirstByte `(ui ~T0 @X0 0 ef ]
+"72 ../src/PIC18/FlashProg.h
+[v _rowErase `(v ~T0 @X0 0 ef1`ul ]
+"71
+[v _memRange `(i ~T0 @X0 0 ef1`ul ]
+"206 C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 47: extern volatile unsigned char PORTA @ 0xF80;
-"49 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
 [; ;pic18f4520.h: 49: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18f4520.h: 52: typedef union {
@@ -3778,8 +3784,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;Type.h: 4: typedef unsigned int uint16;
-[; ;Type.h: 5: typedef unsigned long uint32;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 23: extern int errno;
+[; ;stdio.h: 54: struct __prbuf
+[; ;stdio.h: 55: {
+[; ;stdio.h: 56: char * ptr;
+[; ;stdio.h: 57: void (* func)(char);
+[; ;stdio.h: 58: };
+[; ;conio.h: 17: extern int errno;
+[; ;conio.h: 20: extern void init_uart(void);
+[; ;conio.h: 22: extern char getch(void);
+[; ;conio.h: 23: extern char getche(void);
+[; ;conio.h: 24: extern void putch(char);
+[; ;conio.h: 25: extern void ungetch(char);
+[; ;conio.h: 27: extern __bit kbhit(void);
+[; ;conio.h: 31: extern char * cgets(char *);
+[; ;conio.h: 32: extern void cputs(const char *);
+[; ;stdio.h: 99: extern int cprintf(char *, ...);
+[; ;stdio.h: 104: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 194: extern char * gets(char *);
+[; ;stdio.h: 195: extern int puts(const char *);
+[; ;stdio.h: 196: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 197: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 198: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 199: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 200: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 201: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 205: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 206: extern int printf(const char *, ...);
+[; ;Type.h: 4: typedef unsigned char uint8;
+[; ;Type.h: 5: typedef unsigned int uint16;
+[; ;Type.h: 6: typedef unsigned long uint32;
 [; ;FlashProg.h: 10: uint16 readPGD();
 [; ;FlashProg.h: 11: void writePGD(int data);
 [; ;FlashProg.h: 18: void PGC_high();
@@ -3804,9 +3841,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.h: 61: void readDeviceID1();
 [; ;FlashProg.h: 62: void readDeviceID2();
 [; ;FlashProg.h: 63: void enableWrite();
-[; ;FlashProg.h: 64: void tableSelect(uint32 address);
-[; ;FlashProg.h: 65: void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
-[; ;FlashProg.h: 66: uint16 read2Byte();
+[; ;FlashProg.h: 64: void flashSetAddress(uint32 address);
+[; ;FlashProg.h: 65: void flashWriteAndProgram(uint32 data);
+[; ;FlashProg.h: 66: void flashWrite8Bits(uint8 data);
+[; ;FlashProg.h: 67: uint16 flashRead16Bits();
+[; ;FlashProg.h: 68: uint8 flashRead8Bits();
+[; ;FlashProg.h: 69: int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
+[; ;FlashProg.h: 70: int flashReadData(uint8 *data, uint16 size, uint32 address);
+[; ;FlashProg.h: 71: int memRange(uint32 address);
+[; ;FlashProg.h: 72: void rowErase(uint32 address);
+[; ;FlashProg.h: 73: void flashWriteData(uint32 data);
 [; ;ICSP.h: 9: void writeICSP(uint16 commandByte, uint16 dataBytes);
 [; ;ICSP.h: 10: void writeBit(uint16 bitToWrite);
 [; ;ICSP.h: 11: void writeBits(uint16 pattern, uint16 bitsToWrite);
@@ -3814,496 +3858,924 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ICSP.h: 13: uint16 readFirstByte();
 [; ;ICSP.h: 14: uint16 readBit();
 [; ;ICSP.h: 15: uint16 readBits(int bitsToRead);
-"6 ../src/PIC18/FlashProg.c
+"7 ../src/PIC18/FlashProg.c
 [v _readPGD `(ui ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 6: uint16 readPGD(){
+[; ;FlashProg.c: 7: uint16 readPGD(){
 [e :U _readPGD ]
 [f ]
-[; ;FlashProg.c: 7: return PORTDbits.RD4;
-"7
-[e ) -> . . _PORTDbits 0 4 `ui ]
-[e $UE 402  ]
-[; ;FlashProg.c: 8: }
+[; ;FlashProg.c: 8: return PORTDbits.RD4;
 "8
-[e :UE 402 ]
+[e ) -> . . _PORTDbits 0 4 `ui ]
+[e $UE 403  ]
+[; ;FlashProg.c: 9: }
+"9
+[e :UE 403 ]
 }
-"10
+"11
 [v _writePGD `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;FlashProg.c: 10: void writePGD(int data){
+[; ;FlashProg.c: 11: void writePGD(int data){
 [e :U _writePGD ]
 [v _data `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;FlashProg.c: 11: PORTDbits.RD4 = data;
-"11
-[e = . . _PORTDbits 0 4 -> _data `uc ]
-[; ;FlashProg.c: 12: }
+[; ;FlashProg.c: 12: PORTDbits.RD4 = data;
 "12
-[e :UE 403 ]
-}
-"14
-[v _PGD_high `(v ~T0 @X0 1 ef ]
-{
-[; ;FlashProg.c: 14: void PGD_high(){
-[e :U _PGD_high ]
-[f ]
-[; ;FlashProg.c: 15: writePGD(1);
-"15
-[e ( _writePGD (1 -> 1 `i ]
-[; ;FlashProg.c: 16: }
-"16
+[e = . . _PORTDbits 0 4 -> _data `uc ]
+[; ;FlashProg.c: 13: }
+"13
 [e :UE 404 ]
 }
-"18
-[v _PGD_low `(v ~T0 @X0 1 ef ]
+"15
+[v _PGD_high `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 18: void PGD_low(){
-[e :U _PGD_low ]
+[; ;FlashProg.c: 15: void PGD_high(){
+[e :U _PGD_high ]
 [f ]
-[; ;FlashProg.c: 19: writePGD(0);
-"19
-[e ( _writePGD (1 -> 0 `i ]
-[; ;FlashProg.c: 20: }
-"20
+[; ;FlashProg.c: 16: writePGD(1);
+"16
+[e ( _writePGD (1 -> 1 `i ]
+[; ;FlashProg.c: 17: }
+"17
 [e :UE 405 ]
 }
-"22
-[v _PGC_high `(v ~T0 @X0 1 ef ]
+"19
+[v _PGD_low `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 22: void PGC_high(){
-[e :U _PGC_high ]
+[; ;FlashProg.c: 19: void PGD_low(){
+[e :U _PGD_low ]
 [f ]
-[; ;FlashProg.c: 23: PORTDbits.RD5 = 1;
-"23
-[e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
-[; ;FlashProg.c: 24: }
-"24
+[; ;FlashProg.c: 20: writePGD(0);
+"20
+[e ( _writePGD (1 -> 0 `i ]
+[; ;FlashProg.c: 21: }
+"21
 [e :UE 406 ]
 }
-"26
-[v _PGC_low `(v ~T0 @X0 1 ef ]
+"23
+[v _PGC_high `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 26: void PGC_low(){
-[e :U _PGC_low ]
+[; ;FlashProg.c: 23: void PGC_high(){
+[e :U _PGC_high ]
 [f ]
-[; ;FlashProg.c: 27: PORTDbits.RD5 = 0;
-"27
-[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-[; ;FlashProg.c: 28: }
-"28
+[; ;FlashProg.c: 24: PORTDbits.RD5 = 1;
+"24
+[e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
+[; ;FlashProg.c: 25: }
+"25
 [e :UE 407 ]
 }
-"30
-[v _PGM_low `(v ~T0 @X0 1 ef ]
+"27
+[v _PGC_low `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 30: void PGM_low(){
-[e :U _PGM_low ]
+[; ;FlashProg.c: 27: void PGC_low(){
+[e :U _PGC_low ]
 [f ]
-[; ;FlashProg.c: 31: PORTDbits.RD6 = 0;
-"31
-[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
-[; ;FlashProg.c: 32: }
-"32
+[; ;FlashProg.c: 28: PORTDbits.RD5 = 0;
+"28
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;FlashProg.c: 29: }
+"29
 [e :UE 408 ]
 }
-"34
-[v _PGM_high `(v ~T0 @X0 1 ef ]
+"31
+[v _PGM_low `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 34: void PGM_high(){
-[e :U _PGM_high ]
+[; ;FlashProg.c: 31: void PGM_low(){
+[e :U _PGM_low ]
 [f ]
-[; ;FlashProg.c: 35: PORTDbits.RD6 = 1;
-"35
-[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
-[; ;FlashProg.c: 36: }
-"36
+[; ;FlashProg.c: 32: PORTDbits.RD6 = 0;
+"32
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+[; ;FlashProg.c: 33: }
+"33
 [e :UE 409 ]
 }
-"38
-[v _MCLR_low `(v ~T0 @X0 1 ef ]
+"35
+[v _PGM_high `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 38: void MCLR_low(){
-[e :U _MCLR_low ]
+[; ;FlashProg.c: 35: void PGM_high(){
+[e :U _PGM_high ]
 [f ]
-[; ;FlashProg.c: 39: PORTDbits.RD7 = 0;
-"39
-[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
-[; ;FlashProg.c: 41: writePGD(0);
-"41
-[e ( _writePGD (1 -> 0 `i ]
-[; ;FlashProg.c: 42: PORTDbits.RD5 = 0;
-"42
-[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
-[; ;FlashProg.c: 43: }
-"43
+[; ;FlashProg.c: 36: PORTDbits.RD6 = 1;
+"36
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;FlashProg.c: 37: }
+"37
 [e :UE 410 ]
 }
-"45
-[v _MCLR_high `(v ~T0 @X0 1 ef ]
+"39
+[v _MCLR_low `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 45: void MCLR_high(){
-[e :U _MCLR_high ]
+[; ;FlashProg.c: 39: void MCLR_low(){
+[e :U _MCLR_low ]
 [f ]
-[; ;FlashProg.c: 46: PORTDbits.RD7 = 1;
-"46
-[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
-[; ;FlashProg.c: 47: }
-"47
+[; ;FlashProg.c: 40: PORTDbits.RD7 = 0;
+"40
+[e = . . _PORTDbits 0 7 -> -> 0 `i `uc ]
+[; ;FlashProg.c: 42: writePGD(0);
+"42
+[e ( _writePGD (1 -> 0 `i ]
+[; ;FlashProg.c: 43: PORTDbits.RD5 = 0;
+"43
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;FlashProg.c: 44: }
+"44
 [e :UE 411 ]
 }
-"49
-[v _enter_HVP `(v ~T0 @X0 1 ef ]
+"46
+[v _MCLR_high `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 49: void enter_HVP(){
-[e :U _enter_HVP ]
+[; ;FlashProg.c: 46: void MCLR_high(){
+[e :U _MCLR_high ]
 [f ]
-[; ;FlashProg.c: 50: MCLR_low();
-"50
-[e ( _MCLR_low ..  ]
-[; ;FlashProg.c: 51: PGC_low();
-"51
-[e ( _PGC_low ..  ]
-[; ;FlashProg.c: 52: PGD_low();
-"52
-[e ( _PGD_low ..  ]
-[; ;FlashProg.c: 53: PGM_high();
-"53
-[e ( _PGM_high ..  ]
-[; ;FlashProg.c: 54: MCLR_high();
-"54
-[e ( _MCLR_high ..  ]
-[; ;FlashProg.c: 55: }
-"55
+[; ;FlashProg.c: 47: PORTDbits.RD7 = 1;
+"47
+[e = . . _PORTDbits 0 7 -> -> 1 `i `uc ]
+[; ;FlashProg.c: 48: }
+"48
 [e :UE 412 ]
 }
-"57
-[v _exit_HVP `(v ~T0 @X0 1 ef ]
+"50
+[v _enter_HVP `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 57: void exit_HVP(){
-[e :U _exit_HVP ]
+[; ;FlashProg.c: 50: void enter_HVP(){
+[e :U _enter_HVP ]
 [f ]
-[; ;FlashProg.c: 58: PGC_low();
-"58
-[e ( _PGC_low ..  ]
-[; ;FlashProg.c: 59: PGD_low();
-"59
-[e ( _PGD_low ..  ]
-[; ;FlashProg.c: 60: PGM_low();
-"60
-[e ( _PGM_low ..  ]
-[; ;FlashProg.c: 61: MCLR_low();
-"61
+[; ;FlashProg.c: 51: MCLR_low();
+"51
 [e ( _MCLR_low ..  ]
-[; ;FlashProg.c: 63: }
-"63
+[; ;FlashProg.c: 52: PGC_low();
+"52
+[e ( _PGC_low ..  ]
+[; ;FlashProg.c: 53: PGD_low();
+"53
+[e ( _PGD_low ..  ]
+[; ;FlashProg.c: 54: PGM_high();
+"54
+[e ( _PGM_high ..  ]
+[; ;FlashProg.c: 55: MCLR_high();
+"55
+[e ( _MCLR_high ..  ]
+[; ;FlashProg.c: 56: }
+"56
 [e :UE 413 ]
 }
-"65
-[v _bulkErase `(v ~T0 @X0 1 ef ]
+"58
+[v _exit_HVP `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 65: void bulkErase(){
-[e :U _bulkErase ]
+[; ;FlashProg.c: 58: void exit_HVP(){
+[e :U _exit_HVP ]
 [f ]
-"66
-[v _i `i ~T0 @X0 1 a ]
-[; ;FlashProg.c: 66: int i = 0;
-[e = _i -> 0 `i ]
-[; ;FlashProg.c: 67: writeICSP(0x0, 0x0e3c);
-"67
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3644 `i `ui ]
-[; ;FlashProg.c: 68: writeICSP(0x0, 0x6ef8);
-"68
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
-[; ;FlashProg.c: 69: writeICSP(0x0, 0x0e00);
-"69
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3584 `i `ui ]
-[; ;FlashProg.c: 70: writeICSP(0x0, 0x6ef7);
-"70
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
-[; ;FlashProg.c: 71: writeICSP(0x0, 0x0e05);
-"71
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3589 `i `ui ]
-[; ;FlashProg.c: 72: writeICSP(0x0, 0x6ef6);
-"72
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
-[; ;FlashProg.c: 73: writeICSP(0xc, 0x3f3f);
-"73
-[e ( _writeICSP (2 , -> -> 12 `i `ui -> -> 16191 `i `ui ]
-[; ;FlashProg.c: 74: writeICSP(0x0, 0x0e3c);
-"74
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3644 `i `ui ]
-[; ;FlashProg.c: 75: writeICSP(0x0, 0x6ef8);
-"75
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
-[; ;FlashProg.c: 76: writeICSP(0x0, 0x0e00);
-"76
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3584 `i `ui ]
-[; ;FlashProg.c: 77: writeICSP(0x0, 0x6ef7);
-"77
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
-[; ;FlashProg.c: 78: writeICSP(0x0, 0x0e04);
-"78
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3588 `i `ui ]
-[; ;FlashProg.c: 79: writeICSP(0x0, 0x6ef6);
-"79
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
-[; ;FlashProg.c: 80: writeICSP(0xc, 0x8f8f);
-"80
-[e ( _writeICSP (2 , -> -> 12 `i `ui -> 36751 `ui ]
-[; ;FlashProg.c: 81: writeICSP(0x0, 0);
-"81
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 0 `i `ui ]
-[; ;FlashProg.c: 82: writeBits(0, 4);
-"82
-[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 4 `i `ui ]
-[; ;FlashProg.c: 83: for(i = 0; i < 200 ; i++){}
-"83
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 200 `i 415  ]
-[e $U 416  ]
-[e :U 415 ]
-{
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 200 `i 415  ]
-[e :U 416 ]
-}
-[; ;FlashProg.c: 84: writeBits(0, 16);
-"84
-[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 16 `i `ui ]
-[; ;FlashProg.c: 85: }
-"85
+[; ;FlashProg.c: 59: PGC_low();
+"59
+[e ( _PGC_low ..  ]
+[; ;FlashProg.c: 60: PGD_low();
+"60
+[e ( _PGD_low ..  ]
+[; ;FlashProg.c: 61: PGM_low();
+"61
+[e ( _PGM_low ..  ]
+[; ;FlashProg.c: 62: MCLR_low();
+"62
+[e ( _MCLR_low ..  ]
+[; ;FlashProg.c: 64: }
+"64
 [e :UE 414 ]
 }
-"87
+"66
+[v _bulkErase `(v ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 66: void bulkErase(){
+[e :U _bulkErase ]
+[f ]
+"67
+[v _i `i ~T0 @X0 1 a ]
+[; ;FlashProg.c: 67: int i = 0;
+[e = _i -> 0 `i ]
+[; ;FlashProg.c: 68: writeICSP(0x0, 0x0e3c);
+"68
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3644 `i `ui ]
+[; ;FlashProg.c: 69: writeICSP(0x0, 0x6ef8);
+"69
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
+[; ;FlashProg.c: 70: writeICSP(0x0, 0x0e00);
+"70
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3584 `i `ui ]
+[; ;FlashProg.c: 71: writeICSP(0x0, 0x6ef7);
+"71
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
+[; ;FlashProg.c: 72: writeICSP(0x0, 0x0e05);
+"72
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3589 `i `ui ]
+[; ;FlashProg.c: 73: writeICSP(0x0, 0x6ef6);
+"73
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
+[; ;FlashProg.c: 74: writeICSP(0xc, 0x3f3f);
+"74
+[e ( _writeICSP (2 , -> -> 12 `i `ui -> -> 16191 `i `ui ]
+[; ;FlashProg.c: 75: writeICSP(0x0, 0x0e3c);
+"75
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3644 `i `ui ]
+[; ;FlashProg.c: 76: writeICSP(0x0, 0x6ef8);
+"76
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
+[; ;FlashProg.c: 77: writeICSP(0x0, 0x0e00);
+"77
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3584 `i `ui ]
+[; ;FlashProg.c: 78: writeICSP(0x0, 0x6ef7);
+"78
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
+[; ;FlashProg.c: 79: writeICSP(0x0, 0x0e04);
+"79
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3588 `i `ui ]
+[; ;FlashProg.c: 80: writeICSP(0x0, 0x6ef6);
+"80
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
+[; ;FlashProg.c: 81: writeICSP(0xc, 0x8f8f);
+"81
+[e ( _writeICSP (2 , -> -> 12 `i `ui -> 36751 `ui ]
+[; ;FlashProg.c: 82: writeICSP(0x0, 0);
+"82
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 0 `i `ui ]
+[; ;FlashProg.c: 83: writeBits(0, 4);
+"83
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 4 `i `ui ]
+[; ;FlashProg.c: 84: for(i = 0; i < 200 ; i++){}
+"84
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 200 `i 416  ]
+[e $U 417  ]
+[e :U 416 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 200 `i 416  ]
+[e :U 417 ]
+}
+[; ;FlashProg.c: 85: writeBits(0, 16);
+"85
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 16 `i `ui ]
+[; ;FlashProg.c: 86: }
+"86
+[e :UE 415 ]
+}
+"88
 [v _readDeviceID1 `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 87: void readDeviceID1(){
+[; ;FlashProg.c: 88: void readDeviceID1(){
 [e :U _readDeviceID1 ]
 [f ]
-"88
-[v _value `ui ~T0 @X0 1 a ]
-[; ;FlashProg.c: 88: uint16 value = 0;
-[e = _value -> -> 0 `i `ui ]
-[; ;FlashProg.c: 89: writeICSP(0x0, 0x0e3f);
 "89
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3647 `i `ui ]
-[; ;FlashProg.c: 90: writeICSP(0x0, 0x6ef8);
-"90
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
-[; ;FlashProg.c: 91: writeICSP(0x0, 0x0eff);
-"91
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3839 `i `ui ]
-[; ;FlashProg.c: 92: writeICSP(0x0, 0x6ef7);
-"92
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
-[; ;FlashProg.c: 93: writeICSP(0x0, 0x0eff);
-"93
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3839 `i `ui ]
-[; ;FlashProg.c: 94: writeICSP(0x0, 0x6ef6);
-"94
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
-[; ;FlashProg.c: 95: value = readICSP();
-"95
-[e = _value ( _readICSP ..  ]
-[; ;FlashProg.c: 96: value = value;
-"96
-[e = _value _value ]
-[; ;FlashProg.c: 97: }
-"97
-[e :UE 418 ]
-}
-"99
-[v _readDeviceID2 `(v ~T0 @X0 1 ef ]
-{
-[; ;FlashProg.c: 99: void readDeviceID2(){
-[e :U _readDeviceID2 ]
-[f ]
-"100
 [v _value `ui ~T0 @X0 1 a ]
-[; ;FlashProg.c: 100: uint16 value = 0;
+[; ;FlashProg.c: 89: uint16 value = 0;
 [e = _value -> -> 0 `i `ui ]
-[; ;FlashProg.c: 101: writeICSP(0x0, 0x0e3f);
-"101
+[; ;FlashProg.c: 90: writeICSP(0x0, 0x0e3f);
+"90
 [e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3647 `i `ui ]
-[; ;FlashProg.c: 102: writeICSP(0x0, 0x6ef8);
-"102
+[; ;FlashProg.c: 91: writeICSP(0x0, 0x6ef8);
+"91
 [e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
-[; ;FlashProg.c: 103: writeICSP(0x0, 0x0eff);
-"103
+[; ;FlashProg.c: 92: writeICSP(0x0, 0x0eff);
+"92
 [e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3839 `i `ui ]
-[; ;FlashProg.c: 104: writeICSP(0x0, 0x6ef7);
-"104
+[; ;FlashProg.c: 93: writeICSP(0x0, 0x6ef7);
+"93
 [e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
-[; ;FlashProg.c: 105: writeICSP(0x0, 0x0efe);
-"105
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3838 `i `ui ]
-[; ;FlashProg.c: 106: writeICSP(0x0, 0x6ef6);
-"106
+[; ;FlashProg.c: 94: writeICSP(0x0, 0x0eff);
+"94
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3839 `i `ui ]
+[; ;FlashProg.c: 95: writeICSP(0x0, 0x6ef6);
+"95
 [e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
-[; ;FlashProg.c: 108: value = readICSP();
-"108
+[; ;FlashProg.c: 96: value = readICSP();
+"96
 [e = _value ( _readICSP ..  ]
-[; ;FlashProg.c: 109: value = value;
-"109
+[; ;FlashProg.c: 97: value = value;
+"97
 [e = _value _value ]
-[; ;FlashProg.c: 110: }
-"110
+[; ;FlashProg.c: 98: }
+"98
 [e :UE 419 ]
 }
-"112
-[v _enableWrite `(v ~T0 @X0 1 ef ]
+"100
+[v _readDeviceID2 `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 112: void enableWrite(){
-[e :U _enableWrite ]
+[; ;FlashProg.c: 100: void readDeviceID2(){
+[e :U _readDeviceID2 ]
 [f ]
-[; ;FlashProg.c: 113: writeICSP(0x0, 0x8ea6);
-"113
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> 36518 `ui ]
-[; ;FlashProg.c: 114: writeICSP(0x0, 0x9ca6);
-"114
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> 40102 `ui ]
-[; ;FlashProg.c: 115: }
-"115
+"101
+[v _value `ui ~T0 @X0 1 a ]
+[; ;FlashProg.c: 101: uint16 value = 0;
+[e = _value -> -> 0 `i `ui ]
+[; ;FlashProg.c: 102: writeICSP(0x0, 0x0e3f);
+"102
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3647 `i `ui ]
+[; ;FlashProg.c: 103: writeICSP(0x0, 0x6ef8);
+"103
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
+[; ;FlashProg.c: 104: writeICSP(0x0, 0x0eff);
+"104
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3839 `i `ui ]
+[; ;FlashProg.c: 105: writeICSP(0x0, 0x6ef7);
+"105
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
+[; ;FlashProg.c: 106: writeICSP(0x0, 0x0efe);
+"106
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 3838 `i `ui ]
+[; ;FlashProg.c: 107: writeICSP(0x0, 0x6ef6);
+"107
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
+[; ;FlashProg.c: 109: value = readICSP();
+"109
+[e = _value ( _readICSP ..  ]
+[; ;FlashProg.c: 110: value = value;
+"110
+[e = _value _value ]
+[; ;FlashProg.c: 111: }
+"111
 [e :UE 420 ]
 }
-"119
-[v _tableSelect `(v ~T0 @X0 1 ef1`ul ]
+"113
+[v _enableWrite `(v ~T0 @X0 1 ef ]
 {
-[; ;FlashProg.c: 119: void tableSelect(uint32 address){
-[e :U _tableSelect ]
-[v _address `ul ~T0 @X0 1 r1 ]
+[; ;FlashProg.c: 113: void enableWrite(){
+[e :U _enableWrite ]
 [f ]
-"120
-[v _upperAddr `ul ~T0 @X0 1 a ]
-"121
-[v _highAddr `ul ~T0 @X0 1 a ]
-"122
-[v _lowAddr `ul ~T0 @X0 1 a ]
-[; ;FlashProg.c: 120: uint32 upperAddr;
-[; ;FlashProg.c: 121: uint32 highAddr;
-[; ;FlashProg.c: 122: uint32 lowAddr;
-[; ;FlashProg.c: 124: lowAddr = (address&0x0000ff);
-"124
-[e = _lowAddr & _address -> -> -> 255 `i `l `ul ]
-[; ;FlashProg.c: 125: highAddr = ((address>>8)&0x0000ff);
-"125
-[e = _highAddr & >> _address -> 8 `i -> -> -> 255 `i `l `ul ]
-[; ;FlashProg.c: 126: upperAddr = ((address>>16)&0x0000ff);
-"126
-[e = _upperAddr & >> _address -> 16 `i -> -> -> 255 `i `l `ul ]
-[; ;FlashProg.c: 128: writeICSP(0x0, 0x0e00|upperAddr);
-"128
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> | -> -> -> 3584 `i `l `ul _upperAddr `ui ]
-[; ;FlashProg.c: 129: writeICSP(0x0, 0x6ef8);
-"129
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
-[; ;FlashProg.c: 130: writeICSP(0x0, 0x0e00|highAddr);
-"130
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> | -> -> -> 3584 `i `l `ul _highAddr `ui ]
-[; ;FlashProg.c: 131: writeICSP(0x0, 0x6ef7);
-"131
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
-[; ;FlashProg.c: 132: writeICSP(0x0, 0x0e00|lowAddr);
-"132
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> | -> -> -> 3584 `i `l `ul _lowAddr `ui ]
-[; ;FlashProg.c: 133: writeICSP(0x0, 0x6ef6);
-"133
-[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
-[; ;FlashProg.c: 134: }
-"134
+[; ;FlashProg.c: 114: writeICSP(0x0, 0x8ea6);
+"114
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 36518 `ui ]
+[; ;FlashProg.c: 115: writeICSP(0x0, 0x9ca6);
+"115
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 40102 `ui ]
+[; ;FlashProg.c: 116: }
+"116
 [e :UE 421 ]
 }
-"136
-[v _writeTableThenIncremeant `(v ~T0 @X0 1 ef2`ui`ui ]
+"118
+[v _flashSetAddress `(v ~T0 @X0 1 ef1`ul ]
 {
-[; ;FlashProg.c: 136: void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte){
-[e :U _writeTableThenIncremeant ]
-[v _first2Byte `ui ~T0 @X0 1 r1 ]
-[v _second2Byte `ui ~T0 @X0 1 r2 ]
+[; ;FlashProg.c: 118: void flashSetAddress(uint32 address){
+[e :U _flashSetAddress ]
+[v _address `ul ~T0 @X0 1 r1 ]
 [f ]
-"137
-[v _i `i ~T0 @X0 1 a ]
-[; ;FlashProg.c: 137: int i;
-[; ;FlashProg.c: 139: writeICSP(0xd, first2Byte);
-"139
-[e ( _writeICSP (2 , -> -> 13 `i `ui _first2Byte ]
-[; ;FlashProg.c: 140: writeICSP(0xe, second2Byte);
-"140
-[e ( _writeICSP (2 , -> -> 14 `i `ui _second2Byte ]
-[; ;FlashProg.c: 142: writeBits(0x0, 3);
-"142
-[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 3 `i `ui ]
-[; ;FlashProg.c: 143: PGC_high();
-"143
-[e ( _PGC_high ..  ]
-[; ;FlashProg.c: 144: PGD_low();
-"144
-[e ( _PGD_low ..  ]
-[; ;FlashProg.c: 145: for(i = 0; i < 25 ; i++){}
-"145
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 25 `i 423  ]
-[e $U 424  ]
-[e :U 423 ]
-{
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 25 `i 423  ]
-[e :U 424 ]
-}
-[; ;FlashProg.c: 146: PGC_low();
-"146
-[e ( _PGC_low ..  ]
-[; ;FlashProg.c: 147: for(i = 0; i < 25 ; i++){}
-"147
-{
-[e = _i -> 0 `i ]
-[e $ < _i -> 25 `i 426  ]
-[e $U 427  ]
-[e :U 426 ]
-{
-}
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 25 `i 426  ]
-[e :U 427 ]
-}
-[; ;FlashProg.c: 149: writeBits(0x0, 16);
-"149
-[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 16 `i `ui ]
-[; ;FlashProg.c: 151: }
-"151
+"119
+[v _upperAddr `ul ~T0 @X0 1 a ]
+"120
+[v _highAddr `ul ~T0 @X0 1 a ]
+"121
+[v _lowAddr `ul ~T0 @X0 1 a ]
+[; ;FlashProg.c: 119: uint32 upperAddr;
+[; ;FlashProg.c: 120: uint32 highAddr;
+[; ;FlashProg.c: 121: uint32 lowAddr;
+[; ;FlashProg.c: 123: lowAddr = (address&0x0000ff);
+"123
+[e = _lowAddr & _address -> -> -> 255 `i `l `ul ]
+[; ;FlashProg.c: 124: highAddr = ((address>>8)&0x0000ff);
+"124
+[e = _highAddr & >> _address -> 8 `i -> -> -> 255 `i `l `ul ]
+[; ;FlashProg.c: 125: upperAddr = ((address>>16)&0x0000ff);
+"125
+[e = _upperAddr & >> _address -> 16 `i -> -> -> 255 `i `l `ul ]
+[; ;FlashProg.c: 127: writeICSP(0x0, 0x0e00|upperAddr);
+"127
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> | -> -> -> 3584 `i `l `ul _upperAddr `ui ]
+[; ;FlashProg.c: 128: writeICSP(0x0, 0x6ef8);
+"128
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28408 `i `ui ]
+[; ;FlashProg.c: 129: writeICSP(0x0, 0x0e00|highAddr);
+"129
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> | -> -> -> 3584 `i `l `ul _highAddr `ui ]
+[; ;FlashProg.c: 130: writeICSP(0x0, 0x6ef7);
+"130
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28407 `i `ui ]
+[; ;FlashProg.c: 131: writeICSP(0x0, 0x0e00|lowAddr);
+"131
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> | -> -> -> 3584 `i `l `ul _lowAddr `ui ]
+[; ;FlashProg.c: 132: writeICSP(0x0, 0x6ef6);
+"132
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 28406 `i `ui ]
+[; ;FlashProg.c: 133: }
+"133
 [e :UE 422 ]
 }
-"153
-[v _read2Byte `(ui ~T0 @X0 1 ef ]
+"135
+[v _flashWriteData `(v ~T0 @X0 1 ef1`ul ]
 {
-[; ;FlashProg.c: 153: uint16 read2Byte(){
-[e :U _read2Byte ]
+[; ;FlashProg.c: 135: void flashWriteData(uint32 data){
+[e :U _flashWriteData ]
+[v _data `ul ~T0 @X0 1 r1 ]
 [f ]
-"154
-[v _data `ui ~T0 @X0 1 a ]
-"155
-[v _firstData `ui ~T0 @X0 1 a ]
-[; ;FlashProg.c: 154: uint16 data;
-[; ;FlashProg.c: 155: uint16 firstData;
-[; ;FlashProg.c: 157: data = readICSP();
-"157
-[e = _data ( _readICSP ..  ]
-[; ;FlashProg.c: 158: firstData = readFirstByte();
-"158
-[e = _firstData ( _readFirstByte ..  ]
-[; ;FlashProg.c: 160: data = firstData|data;
-"160
-[e = _data | _firstData _data ]
-[; ;FlashProg.c: 162: return data;
-"162
-[e ) _data ]
-[e $UE 429  ]
-[; ;FlashProg.c: 163: }
-"163
-[e :UE 429 ]
+[; ;FlashProg.c: 136: writeICSP(0xd, data);
+"136
+[e ( _writeICSP (2 , -> -> 13 `i `ui -> _data `ui ]
+[; ;FlashProg.c: 138: }
+"138
+[e :UE 423 ]
 }
+"140
+[v _flashWriteAndProgram `(v ~T0 @X0 1 ef1`ul ]
+{
+[; ;FlashProg.c: 140: void flashWriteAndProgram(uint32 data){
+[e :U _flashWriteAndProgram ]
+[v _data `ul ~T0 @X0 1 r1 ]
+[f ]
+"141
+[v _i `i ~T0 @X0 1 a ]
+[; ;FlashProg.c: 141: int i;
+[; ;FlashProg.c: 144: writeICSP(0xf, data);
+"144
+[e ( _writeICSP (2 , -> -> 15 `i `ui -> _data `ui ]
+[; ;FlashProg.c: 146: writeBits(0x0, 3);
+"146
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 3 `i `ui ]
+[; ;FlashProg.c: 147: PGC_high();
+"147
+[e ( _PGC_high ..  ]
+[; ;FlashProg.c: 148: PGD_low();
+"148
+[e ( _PGD_low ..  ]
+[; ;FlashProg.c: 149: for(i = 0; i < 25 ; i++){}
+"149
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 25 `i 425  ]
+[e $U 426  ]
+[e :U 425 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 25 `i 425  ]
+[e :U 426 ]
+}
+[; ;FlashProg.c: 150: PGC_low();
+"150
+[e ( _PGC_low ..  ]
+[; ;FlashProg.c: 151: for(i = 0; i < 25 ; i++){}
+"151
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 25 `i 428  ]
+[e $U 429  ]
+[e :U 428 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 25 `i 428  ]
+[e :U 429 ]
+}
+[; ;FlashProg.c: 152: writeBits(0x0, 16);
+"152
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 16 `i `ui ]
+[; ;FlashProg.c: 154: }
+"154
+[e :UE 424 ]
+}
+"156
+[v _flashWrite8Bits `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;FlashProg.c: 156: void flashWrite8Bits(uint8 data){
+[e :U _flashWrite8Bits ]
+[v _data `uc ~T0 @X0 1 r1 ]
+[f ]
+"157
+[v _i `i ~T0 @X0 1 a ]
+[; ;FlashProg.c: 157: int i;
+[; ;FlashProg.c: 159: writeICSP(0xe, data);
+"159
+[e ( _writeICSP (2 , -> -> 14 `i `ui -> _data `ui ]
+[; ;FlashProg.c: 161: writeBits(0x0, 3);
+"161
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 3 `i `ui ]
+[; ;FlashProg.c: 162: PGC_high();
+"162
+[e ( _PGC_high ..  ]
+[; ;FlashProg.c: 163: PGD_low();
+"163
+[e ( _PGD_low ..  ]
+[; ;FlashProg.c: 164: for(i = 0; i < 25 ; i++){}
+"164
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 25 `i 432  ]
+[e $U 433  ]
+[e :U 432 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 25 `i 432  ]
+[e :U 433 ]
+}
+[; ;FlashProg.c: 165: PGC_low();
+"165
+[e ( _PGC_low ..  ]
+[; ;FlashProg.c: 166: for(i = 0; i < 25 ; i++){}
+"166
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 25 `i 435  ]
+[e $U 436  ]
+[e :U 435 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 25 `i 435  ]
+[e :U 436 ]
+}
+[; ;FlashProg.c: 167: writeBits(0x0, 16);
+"167
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 16 `i `ui ]
+[; ;FlashProg.c: 169: }
+"169
+[e :UE 431 ]
+}
+"171
+[v _flashRead16Bits `(ui ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 171: uint16 flashRead16Bits(){
+[e :U _flashRead16Bits ]
+[f ]
+"172
+[v _data `ui ~T0 @X0 1 a ]
+"173
+[v _firstData `ui ~T0 @X0 1 a ]
+[; ;FlashProg.c: 172: uint16 data;
+[; ;FlashProg.c: 173: uint16 firstData;
+[; ;FlashProg.c: 175: data = readICSP();
+"175
+[e = _data ( _readICSP ..  ]
+[; ;FlashProg.c: 176: firstData = readFirstByte();
+"176
+[e = _firstData ( _readFirstByte ..  ]
+[; ;FlashProg.c: 178: data = firstData|data;
+"178
+[e = _data | _firstData _data ]
+[; ;FlashProg.c: 180: return data;
+"180
+[e ) _data ]
+[e $UE 438  ]
+[; ;FlashProg.c: 181: }
+"181
+[e :UE 438 ]
+}
+"183
+[v _flashRead8Bits `(uc ~T0 @X0 1 ef ]
+{
+[; ;FlashProg.c: 183: uint8 flashRead8Bits(){
+[e :U _flashRead8Bits ]
+[f ]
+"184
+[v _data `ui ~T0 @X0 1 a ]
+[; ;FlashProg.c: 184: uint16 data;
+[; ;FlashProg.c: 186: data = readICSP();
+"186
+[e = _data ( _readICSP ..  ]
+[; ;FlashProg.c: 188: return data;
+"188
+[e ) -> _data `uc ]
+[e $UE 439  ]
+[; ;FlashProg.c: 189: }
+"189
+[e :UE 439 ]
+}
+"191
+[v _flashReadData `(i ~T0 @X0 1 ef3`*uc`ui`ul ]
+{
+[; ;FlashProg.c: 191: int flashReadData(uint8 *data, uint16 size, uint32 address){
+[e :U _flashReadData ]
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _size `ui ~T0 @X0 1 r2 ]
+[v _address `ul ~T0 @X0 1 r3 ]
+[f ]
+"192
+[v _i `i ~T0 @X0 1 a ]
+[; ;FlashProg.c: 192: int i;
+[; ;FlashProg.c: 194: flashSetAddress(address);
+"194
+[e ( _flashSetAddress (1 _address ]
+[; ;FlashProg.c: 196: if(size < 64000){
+"196
+[e $ ! < -> _size `l -> 64000 `l 441  ]
+{
+[; ;FlashProg.c: 197: for(i = 0; i < size/8 ; i++){
+"197
+{
+[e = _i -> 0 `i ]
+[e $U 445  ]
+[e :U 442 ]
+{
+[; ;FlashProg.c: 198: data[i] = flashRead8Bits();
+"198
+[e = *U + _data * -> _i `x -> -> # *U _data `i `x ( _flashRead8Bits ..  ]
+"199
+}
+"197
+[e ++ _i -> 1 `i ]
+[e :U 445 ]
+[e $ < -> _i `ui / _size -> -> 8 `i `ui 442  ]
+[e :U 443 ]
+"199
+}
+"200
+}
+[; ;FlashProg.c: 199: }
+[; ;FlashProg.c: 200: }
+[e $U 446  ]
+"201
+[e :U 441 ]
+[; ;FlashProg.c: 201: else
+[; ;FlashProg.c: 202: return 0;
+"202
+[e ) -> 0 `i ]
+[e $UE 440  ]
+[e :U 446 ]
+[; ;FlashProg.c: 204: return size;
+"204
+[e ) -> _size `i ]
+[e $UE 440  ]
+[; ;FlashProg.c: 205: }
+"205
+[e :UE 440 ]
+}
+"208
+[v _flashWriteBlock `(i ~T0 @X0 1 ef3`*uc`ui`ul ]
+{
+[; ;FlashProg.c: 208: int flashWriteBlock(uint8 *data, uint16 size, uint32 address){
+[e :U _flashWriteBlock ]
+[v _data `*uc ~T0 @X0 1 r1 ]
+[v _size `ui ~T0 @X0 1 r2 ]
+[v _address `ul ~T0 @X0 1 r3 ]
+[f ]
+"209
+[v _writeLimit `ul ~T0 @X0 1 a ]
+"210
+[v _buffer `uc ~T0 @X0 -> 32 `i a ]
+"211
+[v _read `ui ~T0 @X0 1 a ]
+"212
+[v _i `i ~T0 @X0 1 a ]
+[; ;FlashProg.c: 209: uint32 writeLimit;
+[; ;FlashProg.c: 210: uint8 buffer[32];
+[; ;FlashProg.c: 211: uint16 read;
+[; ;FlashProg.c: 212: int i;
+[; ;FlashProg.c: 213: read = flashReadData(&buffer[0], 32, 0x000000);
+"213
+[e = _read -> ( _flashReadData (3 , , &U *U + &U _buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> -> 32 `i `ui -> -> -> 0 `i `l `ul `ui ]
+[; ;FlashProg.c: 214: rowErase(0x000000);
+"214
+[e ( _rowErase (1 -> -> -> 0 `i `l `ul ]
+[; ;FlashProg.c: 215: writeLimit = memRange(address);
+"215
+[e = _writeLimit -> -> ( _memRange (1 _address `l `ul ]
+[; ;FlashProg.c: 216: printf("%d \n", address);
+"216
+[e ( _printf , (. :s 1C _address ]
+[; ;FlashProg.c: 217: printf("%d \n", writeLimit/8);
+"217
+[e ( _printf , (. :s 2C / _writeLimit -> -> -> 8 `i `l `ul ]
+[; ;FlashProg.c: 218: for(i = 0 ; i < 40 ; i++){
+"218
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 40 `i 448  ]
+[e $U 449  ]
+[e :U 448 ]
+{
+"220
+}
+"218
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 40 `i 448  ]
+[e :U 449 ]
+"220
+}
+[; ;FlashProg.c: 220: }
+[; ;FlashProg.c: 221: if(size <= writeLimit){
+"221
+[e $ ! <= -> _size `ul _writeLimit 451  ]
+{
+[; ;FlashProg.c: 223: if(size == 8){
+"223
+[e $ ! == _size -> -> 8 `i `ui 452  ]
+{
+[; ;FlashProg.c: 224: for(i = 0 ; i < (size/8) ; i++){
+"224
+{
+[e = _i -> 0 `i ]
+[e $U 456  ]
+[e :U 453 ]
+{
+[; ;FlashProg.c: 225: flashSetAddress(address);
+"225
+[e ( _flashSetAddress (1 _address ]
+[; ;FlashProg.c: 226: flashWrite8Bits(data[i]);
+"226
+[e ( _flashWrite8Bits (1 *U + _data * -> _i `x -> -> # *U _data `i `x ]
+[; ;FlashProg.c: 227: address++;
+"227
+[e ++ _address -> -> -> 1 `i `l `ul ]
+"228
+}
+"224
+[e ++ _i -> 1 `i ]
+[e :U 456 ]
+[e $ < -> _i `ui / _size -> -> 8 `i `ui 453  ]
+[e :U 454 ]
+"228
+}
+"229
+}
+[; ;FlashProg.c: 228: }
+[; ;FlashProg.c: 229: }
+[e $U 457  ]
+"230
+[e :U 452 ]
+[; ;FlashProg.c: 230: else{
+{
+[; ;FlashProg.c: 231: for(i = 0 ; i < (size/8) ; i++){
+"231
+{
+[e = _i -> 0 `i ]
+[e $U 461  ]
+[e :U 458 ]
+{
+[; ;FlashProg.c: 232: flashSetAddress(address);
+"232
+[e ( _flashSetAddress (1 _address ]
+[; ;FlashProg.c: 233: flashWriteAndProgram(data[i]);
+"233
+[e ( _flashWriteAndProgram (1 -> *U + _data * -> _i `x -> -> # *U _data `i `x `ul ]
+[; ;FlashProg.c: 234: address++;
+"234
+[e ++ _address -> -> -> 1 `i `l `ul ]
+"235
+}
+"231
+[e ++ _i -> 1 `i ]
+[e :U 461 ]
+[e $ < -> _i `ui / _size -> -> 8 `i `ui 458  ]
+[e :U 459 ]
+"235
+}
+"236
+}
+[e :U 457 ]
+[; ;FlashProg.c: 235: }
+[; ;FlashProg.c: 236: }
+[; ;FlashProg.c: 237: return size/8;
+"237
+[e ) -> / _size -> -> 8 `i `ui `i ]
+[e $UE 447  ]
+"238
+}
+[; ;FlashProg.c: 238: }
+[e $U 462  ]
+"239
+[e :U 451 ]
+[; ;FlashProg.c: 239: else{
+{
+[; ;FlashProg.c: 240: for(i = 0 ; i < writeLimit ; i++){
+"240
+{
+[e = _i -> 0 `i ]
+[e $U 466  ]
+[e :U 463 ]
+{
+[; ;FlashProg.c: 241: flashSetAddress(address);
+"241
+[e ( _flashSetAddress (1 _address ]
+[; ;FlashProg.c: 242: flashWriteAndProgram(data[i]);
+"242
+[e ( _flashWriteAndProgram (1 -> *U + _data * -> _i `x -> -> # *U _data `i `x `ul ]
+[; ;FlashProg.c: 243: address++;
+"243
+[e ++ _address -> -> -> 1 `i `l `ul ]
+"244
+}
+"240
+[e ++ _i -> 1 `i ]
+[e :U 466 ]
+[e $ < -> -> _i `l `ul _writeLimit 463  ]
+[e :U 464 ]
+"244
+}
+[; ;FlashProg.c: 244: }
+[; ;FlashProg.c: 245: return writeLimit;
+"245
+[e ) -> _writeLimit `i ]
+[e $UE 447  ]
+"246
+}
+[e :U 462 ]
+[; ;FlashProg.c: 246: }
+[; ;FlashProg.c: 247: }
+"247
+[e :UE 447 ]
+}
+"249
+[v _memRange `(i ~T0 @X0 1 ef1`ul ]
+{
+[; ;FlashProg.c: 249: int memRange(uint32 address){
+[e :U _memRange ]
+[v _address `ul ~T0 @X0 1 r1 ]
+[f ]
+"250
+[v _range `i ~T0 @X0 1 a ]
+[; ;FlashProg.c: 250: int range;
+[; ;FlashProg.c: 252: range = 40-(address%40);
+"252
+[e = _range -> - -> -> -> 40 `i `l `ul % _address -> -> -> 40 `i `l `ul `i ]
+[; ;FlashProg.c: 254: return range;
+"254
+[e ) _range ]
+[e $UE 467  ]
+[; ;FlashProg.c: 255: }
+"255
+[e :UE 467 ]
+}
+"257
+[v _rowErase `(v ~T0 @X0 1 ef1`ul ]
+{
+[; ;FlashProg.c: 257: void rowErase(uint32 address){
+[e :U _rowErase ]
+[v _address `ul ~T0 @X0 1 r1 ]
+[f ]
+"258
+[v _i `i ~T0 @X0 1 a ]
+[; ;FlashProg.c: 258: int i;
+[; ;FlashProg.c: 259: writeICSP(0x0, 0x8ea6);
+"259
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 36518 `ui ]
+[; ;FlashProg.c: 260: writeICSP(0x0, 0x9ca6);
+"260
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 40102 `ui ]
+[; ;FlashProg.c: 261: writeICSP(0x0, 0x84a6);
+"261
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 33958 `ui ]
+[; ;FlashProg.c: 264: writeICSP(0x0, 0x6af8);
+"264
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 27384 `i `ui ]
+[; ;FlashProg.c: 265: writeICSP(0x0, 0x6af7);
+"265
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 27383 `i `ui ]
+[; ;FlashProg.c: 266: writeICSP(0x0, 0x6af6);
+"266
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> -> 27382 `i `ui ]
+[; ;FlashProg.c: 267: flashSetAddress(address);
+"267
+[e ( _flashSetAddress (1 _address ]
+[; ;FlashProg.c: 269: writeICSP(0x0, 0x88a6);
+"269
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 34982 `ui ]
+[; ;FlashProg.c: 270: writeICSP(0x0, 0x82a6);
+"270
+[e ( _writeICSP (2 , -> -> 0 `i `ui -> 33446 `ui ]
+[; ;FlashProg.c: 271: writeBits(0x0, 3);
+"271
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 3 `i `ui ]
+[; ;FlashProg.c: 272: PGC_high();
+"272
+[e ( _PGC_high ..  ]
+[; ;FlashProg.c: 273: PGD_low();
+"273
+[e ( _PGD_low ..  ]
+[; ;FlashProg.c: 274: for(i = 0; i < 25 ; i++){}
+"274
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 25 `i 469  ]
+[e $U 470  ]
+[e :U 469 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 25 `i 469  ]
+[e :U 470 ]
+}
+[; ;FlashProg.c: 275: PGC_low();
+"275
+[e ( _PGC_low ..  ]
+[; ;FlashProg.c: 276: for(i = 0; i < 25 ; i++){}
+"276
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 25 `i 472  ]
+[e $U 473  ]
+[e :U 472 ]
+{
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 25 `i 472  ]
+[e :U 473 ]
+}
+[; ;FlashProg.c: 277: writeBits(0x0, 16);
+"277
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 16 `i `ui ]
+[; ;FlashProg.c: 278: }
+"278
+[e :UE 468 ]
+}
+[p f _printf 8388736 ]
+[a 1C 37 100 32 10 0 ]
+[a 2C 37 100 32 10 0 ]

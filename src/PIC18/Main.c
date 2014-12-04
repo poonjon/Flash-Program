@@ -26,31 +26,90 @@ void trisInit(){
 }
 
 void main(){
-    uint16 i = 0;
-    uint16 a = 0;
-    uint16 b = 0;
-    uint16 c = 0;
-    uint16 d = 0;
+  uint16 i = 0;
+  uint16 a = 0;
+  uint16 b = 0;
+  uint16 c = 0;
+  uint16 d = 0;
+  uint16 e = 0;
+  uint16 data = 0x0000;
+  uint32 address = 0x000000;
   trisInit();
 
   enter_HVP();
   
   bulkErase();
-  tableSelect(0x001232);
   enableWrite();
-  writeTableThenIncremeant(0x25d6, 0x58a6);
-  writeTableThenIncremeant(0x2fdf, 0x58ff);
-  tableSelect(0x001232);
-  a = read2Byte();
-  b = read2Byte();
-  c = read2Byte();
-  d = read2Byte();
   
-  i = i;
-  exit_HVP();
+  flashSetAddress(0x000000);
+  for(i = 0 ; i < 15 ; i++){
+    flashWriteData(data);
+    data++;
+  }
+  flashWriteAndProgram(data);
+  data++;
+  //rowErase(0x000000);
+  flashSetAddress(0x000032);
+  for(i = 0 ; i < 14 ; i++){
+    flashWriteData(data);
+    data++;
+  }
+  flashWriteAndProgram(data);
 
-  while(1){
+
+  flashSetAddress(0x000000);
+  for(i = 0 ; i < 16 ; i++){
+    a = flashRead16Bits();
+    b = flashRead16Bits();
+    c = flashRead16Bits();
+    d = flashRead16Bits();
+    e = flashRead16Bits();
 
   }
+  flashSetAddress(address);
+  writeICSP(0x0, 0x84a6);
+  writeICSP(0x0, 0x88a6);
+  writeICSP(0x0, 0x82a6);
+  writeBits(0x0, 3);
+  PGC_high();
+  PGD_low();
+  for(i = 0; i < 25 ; i++){} //p9 minimum 1ms
+  PGC_low();
+  for(i = 0; i < 25 ; i++){} //p10 minimum 100us
+  writeBits(0x0, 16);
+  flashSetAddress(address);
+  for(i = 0 ; i <15 ; i++){
+    flashWriteData(0x6666);
+  }
+  flashWriteAndProgram(0x8778);
+  writeBits(0x0, 3);
+  PGC_high();
+  PGD_low();
+  for(i = 0; i < 25 ; i++){} //p9 minimum 1ms
+  PGC_low();
+  for(i = 0; i < 25 ; i++){} //p10 minimum 100us
+  writeICSP(0x0, 0x94a6);
+
+  flashSetAddress(0x000000);
+  for(i = 0 ; i < 17 ; i++){
+    a = flashRead16Bits();
+  }
+
+  i = i;
+
+  exit_HVP();
+
+  while(1){}
 }
 
+/*  flashSetAddress(address);
+  flashWriteData(0x2934);
+  flashWriteAndProgram(0x8a95);
+
+  flashSetAddress(0x000038);
+  for(i = 0 ; i < 17 ; i++){
+    a = flashRead16Bits();
+  }
+
+  rowErase(0x000000);
+*/

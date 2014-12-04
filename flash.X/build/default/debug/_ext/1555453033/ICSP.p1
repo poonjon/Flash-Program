@@ -7,7 +7,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _writePGD `(v ~T0 @X0 0 ef1`i ]
 "19
 [v _PGC_low `(v ~T0 @X0 0 ef ]
-"2402 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+"2402 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
 [s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S128 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
 "2412
@@ -25,7 +25,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f4520.h: 47: extern volatile unsigned char PORTA @ 0xF80;
-"49 C:\Program Files\Microchip\xc8\v1.33\include\pic18f4520.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
 [; ;pic18f4520.h: 49: asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
 [; ;pic18f4520.h: 52: typedef union {
@@ -3776,8 +3776,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;Type.h: 4: typedef unsigned int uint16;
-[; ;Type.h: 5: typedef unsigned long uint32;
+[; ;Type.h: 4: typedef unsigned char uint8;
+[; ;Type.h: 5: typedef unsigned int uint16;
+[; ;Type.h: 6: typedef unsigned long uint32;
 [; ;FlashProg.h: 10: uint16 readPGD();
 [; ;FlashProg.h: 11: void writePGD(int data);
 [; ;FlashProg.h: 18: void PGC_high();
@@ -3802,9 +3803,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashProg.h: 61: void readDeviceID1();
 [; ;FlashProg.h: 62: void readDeviceID2();
 [; ;FlashProg.h: 63: void enableWrite();
-[; ;FlashProg.h: 64: void tableSelect(uint32 address);
-[; ;FlashProg.h: 65: void writeTableThenIncremeant(uint16 first2Byte, uint16 second2Byte);
-[; ;FlashProg.h: 66: uint16 read2Byte();
+[; ;FlashProg.h: 64: void flashSetAddress(uint32 address);
+[; ;FlashProg.h: 65: void flashWriteAndProgram(uint32 data);
+[; ;FlashProg.h: 66: void flashWrite8Bits(uint8 data);
+[; ;FlashProg.h: 67: uint16 flashRead16Bits();
+[; ;FlashProg.h: 68: uint8 flashRead8Bits();
+[; ;FlashProg.h: 69: int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
+[; ;FlashProg.h: 70: int flashReadData(uint8 *data, uint16 size, uint32 address);
+[; ;FlashProg.h: 71: int memRange(uint32 address);
+[; ;FlashProg.h: 72: void rowErase(uint32 address);
+[; ;FlashProg.h: 73: void flashWriteData(uint32 data);
 [; ;ICSP.h: 9: void writeICSP(uint16 commandByte, uint16 dataBytes);
 [; ;ICSP.h: 10: void writeBit(uint16 bitToWrite);
 [; ;ICSP.h: 11: void writeBits(uint16 pattern, uint16 bitsToWrite);
@@ -3913,33 +3921,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 "32
 [e :UE 408 ]
 }
-"33
+"34
 [v _readFirstByte `(ui ~T0 @X0 1 ef ]
 {
-[; ;ICSP.c: 33: uint16 readFirstByte(){
+[; ;ICSP.c: 34: uint16 readFirstByte(){
 [e :U _readFirstByte ]
 [f ]
-"34
-[v _data `ui ~T0 @X0 1 a ]
-[; ;ICSP.c: 34: uint16 data;
-[; ;ICSP.c: 35: writeBits(9, 4);
 "35
-[e ( _writeBits (2 , -> -> 9 `i `ui -> -> 4 `i `ui ]
-[; ;ICSP.c: 36: writeBits(0, 8);
+[v _data `ui ~T0 @X0 1 a ]
+[; ;ICSP.c: 35: uint16 data;
+[; ;ICSP.c: 36: writeBits(9, 4);
 "36
-[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 8 `i `ui ]
-[; ;ICSP.c: 37: data = readBits(8);
+[e ( _writeBits (2 , -> -> 9 `i `ui -> -> 4 `i `ui ]
+[; ;ICSP.c: 37: writeBits(0, 8);
 "37
-[e = _data ( _readBits (1 -> 8 `i ]
-[; ;ICSP.c: 38: data = data<<8;
+[e ( _writeBits (2 , -> -> 0 `i `ui -> -> 8 `i `ui ]
+[; ;ICSP.c: 38: data = readBits(8);
 "38
-[e = _data << _data -> 8 `i ]
-[; ;ICSP.c: 39: return data;
+[e = _data ( _readBits (1 -> 8 `i ]
+[; ;ICSP.c: 39: data = data<<8;
 "39
+[e = _data << _data -> 8 `i ]
+[; ;ICSP.c: 40: return data;
+"40
 [e ) _data ]
 [e $UE 409  ]
-[; ;ICSP.c: 41: }
-"41
+[; ;ICSP.c: 42: }
+"42
 [e :UE 409 ]
 }
 "44
