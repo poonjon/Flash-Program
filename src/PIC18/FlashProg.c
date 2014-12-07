@@ -3,7 +3,6 @@
 #include "FlashProg.h"
 #include "ICSP.h"
 
-
 uint16 readPGD(){
   return _PGD;
 }
@@ -43,7 +42,7 @@ void MCLR_low(){
   _PGC = 0;
 }
 
-  void MCLR_high(){
+void MCLR_high(){
   _MCLR = 1;
 }
 
@@ -132,12 +131,11 @@ void flashSetAddress(uint32 address){
   writeICSP(0x0, 0x6ef6);
 }
 
-void flashWriteData(uint32 data){
+void writeToBuffer(uint16 data){
   writeICSP(0xd, data);
-  
 }
 
-void flashWriteAndProgram(uint32 data){
+void flashWriteAndProgram(uint16 data){
   int i;
 
 
@@ -156,7 +154,7 @@ void flashWriteAndProgram(uint32 data){
 void flashWrite8Bits(uint8 data){
   int i;
 
-  writeICSP(0xe, data);
+  writeICSP(0xf, data);
 
   writeBits(0x0, 3);
   PGC_high();
@@ -188,70 +186,51 @@ uint8 flashRead8Bits(){
     return data;
 }
 
-int flashReadData(uint8 *data, uint16 size, uint32 address){
+void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber){
   int i;
+  uint32 blockSelect;
+
+  blockSelect = (blockNumber-1)*64;
+  flashSetAddress(blockSelect);
   
-  flashSetAddress(address);
-  
-  if(size < 64000){
-    for(i = 0; i < size/8 ; i++){
-      data[i] = flashRead8Bits();
-    }
+  for(i = 0; i < size/2 ; i++){
+    data[i] = flashRead16Bits();
   }
-  else 
-    return 0;
+}
+
+void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber){
+  int i;
+  uint32 blockSelect;
+
+  blockSelect = (blockNumber-1)*64;
+  flashSetAddress(blockSelect);
+  flashSetAddress(blockSelect);
+  for(i = 0 ; i < 15 ; i++){
+    writeToBuffer(firstHalf[i]);
+  }
+  flashWriteAndProgram(firstHalf[15]);
+  
+  flashSetAddress(blockSelect+32);
+  for(i = 0 ; i < 15 ; i++){
+    writeToBuffer(secondHalf[i]);
+  }
+  flashWriteAndProgram(secondHalf[15]);
+}
+
+void flashWriteHalfBlock(uint16 *data, uint16 size, uint32 halfBlockNumber){
+  int i;
+  uint32 blockSelect;
+
+  blockSelect = (halfBlockNumber-1)*32;
+  flashSetAddress(blockSelect);
+
+  for(i = 0 ; i < (size/2)-1 ; i++){
     
-  return size;
-}
-
-// (size/8) = bytes
-int flashWriteBlock(uint8 *data, uint16 size, uint32 address){
-  uint32 writeLimit;
-  uint8 buffer[32];
-  uint16 read;
-  int i;
-  read = flashReadData(&buffer[0], 32, 0x000000);
-  rowErase(0x000000);
-  writeLimit = memRange(address);
-  printf("%d \n", address);
-  printf("%d \n", writeLimit/8);
-  for(i = 0 ; i < 40 ; i++){
-
+    writeToBuffer(data[i]);
+    
   }
-  if(size <= writeLimit){
-		
-    if(size == 8){
-      for(i = 0 ; i < (size/8) ; i++){
-        flashSetAddress(address);
-        flashWrite8Bits(data[i]);
-        address++;
-      }
-    }
-    else{
-      for(i = 0 ; i < (size/8) ; i++){
-        flashSetAddress(address);
-        flashWriteAndProgram(data[i]);
-        address++;
-      }
-    }
-    return size/8;
-  }  
-  else{
-    for(i = 0 ; i < writeLimit ; i++){
-      flashSetAddress(address);
-      flashWriteAndProgram(data[i]);
-      address++;
-    }
-    return writeLimit;
-  }
-}
 
-int memRange(uint32 address){
-	int range;
-  
-  range = 40-(address%40);
-  
-  return range;
+  flashWriteAndProgram(data[15]);
 }
 
 void rowErase(uint32 address){
@@ -276,7 +255,3 @@ void rowErase(uint32 address){
   for(i = 0; i < 25 ; i++){} //p10 minimum 100us
   writeBits(0x0, 16);
 }
-
-
-
-//flashWriteData();

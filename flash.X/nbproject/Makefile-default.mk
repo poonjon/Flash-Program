@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../src/PIC18/FlashProg.c ../src/PIC18/ICSP.c ../src/PIC18/Main.c
+SOURCEFILES_QUOTED_IF_SPACED=../src/PIC18/FlashProg.c ../src/PIC18/ICSP.c ../src/PIC18/Main.c ../src/PIC18/FlashWrite.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1555453033/FlashProg.p1 ${OBJECTDIR}/_ext/1555453033/ICSP.p1 ${OBJECTDIR}/_ext/1555453033/Main.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1555453033/FlashProg.p1.d ${OBJECTDIR}/_ext/1555453033/ICSP.p1.d ${OBJECTDIR}/_ext/1555453033/Main.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1555453033/FlashProg.p1 ${OBJECTDIR}/_ext/1555453033/ICSP.p1 ${OBJECTDIR}/_ext/1555453033/Main.p1 ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1555453033/FlashProg.p1.d ${OBJECTDIR}/_ext/1555453033/ICSP.p1.d ${OBJECTDIR}/_ext/1555453033/Main.p1.d ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1555453033/FlashProg.p1 ${OBJECTDIR}/_ext/1555453033/ICSP.p1 ${OBJECTDIR}/_ext/1555453033/Main.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1555453033/FlashProg.p1 ${OBJECTDIR}/_ext/1555453033/ICSP.p1 ${OBJECTDIR}/_ext/1555453033/Main.p1 ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1
 
 # Source Files
-SOURCEFILES=../src/PIC18/FlashProg.c ../src/PIC18/ICSP.c ../src/PIC18/Main.c
+SOURCEFILES=../src/PIC18/FlashProg.c ../src/PIC18/ICSP.c ../src/PIC18/Main.c ../src/PIC18/FlashWrite.c
 
 
 CFLAGS=
@@ -105,6 +105,14 @@ ${OBJECTDIR}/_ext/1555453033/Main.p1: ../src/PIC18/Main.c  nbproject/Makefile-${
 	@-${MV} ${OBJECTDIR}/_ext/1555453033/Main.d ${OBJECTDIR}/_ext/1555453033/Main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1555453033/Main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/1555453033/FlashWrite.p1: ../src/PIC18/FlashWrite.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1555453033 
+	@${RM} ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1555453033/FlashWrite.p1  ../src/PIC18/FlashWrite.c 
+	@-${MV} ${OBJECTDIR}/_ext/1555453033/FlashWrite.d ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/_ext/1555453033/FlashProg.p1: ../src/PIC18/FlashProg.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1555453033 
@@ -129,6 +137,14 @@ ${OBJECTDIR}/_ext/1555453033/Main.p1: ../src/PIC18/Main.c  nbproject/Makefile-${
 	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1555453033/Main.p1  ../src/PIC18/Main.c 
 	@-${MV} ${OBJECTDIR}/_ext/1555453033/Main.d ${OBJECTDIR}/_ext/1555453033/Main.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1555453033/Main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1555453033/FlashWrite.p1: ../src/PIC18/FlashWrite.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1555453033 
+	@${RM} ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1555453033/FlashWrite.p1  ../src/PIC18/FlashWrite.c 
+	@-${MV} ${OBJECTDIR}/_ext/1555453033/FlashWrite.d ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1555453033/FlashWrite.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

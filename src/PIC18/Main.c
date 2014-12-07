@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include "../18c.h"
 #include "FlashProg.h"
+#include "FlashWrite.h"
 #include "ICSP.h"
 
 /*
@@ -26,90 +27,55 @@ void trisInit(){
 }
 
 void main(){
-  uint16 i = 0;
-  uint16 a = 0;
-  uint16 b = 0;
-  uint16 c = 0;
-  uint16 d = 0;
-  uint16 e = 0;
+  int i;
   uint16 data = 0x0000;
+  uint16 newData = 0x1000;
+  uint16 newData2 = 0x1000;
+  uint16 newData3 = 0x1000;
+  uint16 newData4 = 0x1000;
+  uint16 newData5 = 0x5000;
   uint32 address = 0x000000;
-  trisInit();
+  uint16 blockRead[32];
+  uint16 blockWrite[16];
+  uint16 blockWrite2[16];
+  uint16 blockWrite3[16];
+  uint16 blockWrite4[16];
+  uint16 blockWrite5[32];
+  uint16 incomingData[4];
 
+  for(i = 0 ; i < 16 ; i++){
+      blockWrite[i] = data;
+      data++;
+  }
+  for(i = 0 ; i < 16 ; i++){
+      blockWrite2[i] = newData;
+      newData++;
+  }
+
+  for(i = 0 ; i < 16 ; i++){
+      blockWrite3[i] = newData2;
+      newData2++;
+  }
+  for(i = 0 ; i < 16 ; i++){
+      blockWrite4[i] = newData3;
+      newData3++;
+  }
+  for(i = 0 ; i < 32 ; i++){
+      blockWrite5[i] = newData4;
+      newData4++;
+  }
+
+  trisInit();
   enter_HVP();
   
   bulkErase();
   enableWrite();
-  
-  flashSetAddress(0x000000);
-  for(i = 0 ; i < 15 ; i++){
-    flashWriteData(data);
-    data++;
-  }
-  flashWriteAndProgram(data);
-  data++;
-  //rowErase(0x000000);
-  flashSetAddress(0x000032);
-  for(i = 0 ; i < 14 ; i++){
-    flashWriteData(data);
-    data++;
-  }
-  flashWriteAndProgram(data);
+  flashWriteBlock(blockWrite, blockWrite2, 1);
+  flashWriteBlock(blockWrite3, blockWrite4, 2);
 
-
-  flashSetAddress(0x000000);
-  for(i = 0 ; i < 16 ; i++){
-    a = flashRead16Bits();
-    b = flashRead16Bits();
-    c = flashRead16Bits();
-    d = flashRead16Bits();
-    e = flashRead16Bits();
-
-  }
-  flashSetAddress(address);
-  writeICSP(0x0, 0x84a6);
-  writeICSP(0x0, 0x88a6);
-  writeICSP(0x0, 0x82a6);
-  writeBits(0x0, 3);
-  PGC_high();
-  PGD_low();
-  for(i = 0; i < 25 ; i++){} //p9 minimum 1ms
-  PGC_low();
-  for(i = 0; i < 25 ; i++){} //p10 minimum 100us
-  writeBits(0x0, 16);
-  flashSetAddress(address);
-  for(i = 0 ; i <15 ; i++){
-    flashWriteData(0x6666);
-  }
-  flashWriteAndProgram(0x8778);
-  writeBits(0x0, 3);
-  PGC_high();
-  PGD_low();
-  for(i = 0; i < 25 ; i++){} //p9 minimum 1ms
-  PGC_low();
-  for(i = 0; i < 25 ; i++){} //p10 minimum 100us
-  writeICSP(0x0, 0x94a6);
-
-  flashSetAddress(0x000000);
-  for(i = 0 ; i < 17 ; i++){
-    a = flashRead16Bits();
-  }
-
-  i = i;
-
+  flashWriteData(blockWrite5, 62, 0);
+  flashReadBlock(blockRead, 62, 0);
   exit_HVP();
 
   while(1){}
 }
-
-/*  flashSetAddress(address);
-  flashWriteData(0x2934);
-  flashWriteAndProgram(0x8a95);
-
-  flashSetAddress(0x000038);
-  for(i = 0 ; i < 17 ; i++){
-    a = flashRead16Bits();
-  }
-
-  rowErase(0x000000);
-*/

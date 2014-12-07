@@ -2,7 +2,6 @@
 #define FlashProg_H
 #include "Type.h"
 
-
 #if defined PIC1C8 || X8
   #define readPGD() (_PGD)
   #define writePGD(x) (_PGD = x)
@@ -62,13 +61,13 @@ void readDeviceID1();
 void readDeviceID2();
 void enableWrite();
 void flashSetAddress(uint32 address);
-void flashWriteAndProgram(uint32 data);
+void writeToBuffer(uint16 data);
+void flashWriteAndProgram(uint16 data);
 void flashWrite8Bits(uint8 data);
 uint16 flashRead16Bits();
 uint8 flashRead8Bits();
-int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
-int flashReadData(uint8 *data, uint16 size, uint32 address);
-int memRange(uint32 address);
+void flashWriteHalfBlock(uint16 *data, uint16 size, uint32 halfBlockNumber);
+void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber);
+void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber);
 void rowErase(uint32 address);
-void flashWriteData(uint32 data);
 #endif // FlashProg_H

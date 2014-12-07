@@ -1,11 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "11 ../src/PIC18/ICSP.h
 [v _writeBits `(v ~T0 @X0 0 ef2`ui`ui ]
-"18 ../src/PIC18/FlashProg.h
+"17 ../src/PIC18/FlashProg.h
 [v _PGC_high `(v ~T0 @X0 0 ef ]
-"11
+"10
 [v _writePGD `(v ~T0 @X0 0 ef1`i ]
-"19
+"18
 [v _PGC_low `(v ~T0 @X0 0 ef ]
 "2402 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
 [s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -20,7 +20,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISDbits `VS127 ~T0 @X0 0 e@3989 ]
 "15 ../src/PIC18/ICSP.h
 [v _readBits `(ui ~T0 @X0 0 ef1`i ]
-"10 ../src/PIC18/FlashProg.h
+"9 ../src/PIC18/FlashProg.h
 [v _readPGD `(ui ~T0 @X0 0 ef ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
@@ -3779,40 +3779,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Type.h: 4: typedef unsigned char uint8;
 [; ;Type.h: 5: typedef unsigned int uint16;
 [; ;Type.h: 6: typedef unsigned long uint32;
-[; ;FlashProg.h: 10: uint16 readPGD();
-[; ;FlashProg.h: 11: void writePGD(int data);
-[; ;FlashProg.h: 18: void PGC_high();
-[; ;FlashProg.h: 19: void PGC_low();
-[; ;FlashProg.h: 26: void MCLR_low();
-[; ;FlashProg.h: 27: void MCLR_high();
-[; ;FlashProg.h: 34: void PGM_low();
-[; ;FlashProg.h: 35: void PGM_high();
-[; ;FlashProg.h: 48: uint16 readPGD();
-[; ;FlashProg.h: 49: void writePGD(int data);
-[; ;FlashProg.h: 50: void PGC_high();
-[; ;FlashProg.h: 51: void PGC_low();
-[; ;FlashProg.h: 52: void PGD_high();
-[; ;FlashProg.h: 53: void PGD_low();
-[; ;FlashProg.h: 54: void PGM_high();
-[; ;FlashProg.h: 55: void PGM_low();
-[; ;FlashProg.h: 56: void MCLR_low();
-[; ;FlashProg.h: 57: void MCLR_high();
-[; ;FlashProg.h: 58: void enter_HVP();
-[; ;FlashProg.h: 59: void exit_HVP();
-[; ;FlashProg.h: 60: void bulkErase();
-[; ;FlashProg.h: 61: void readDeviceID1();
-[; ;FlashProg.h: 62: void readDeviceID2();
-[; ;FlashProg.h: 63: void enableWrite();
-[; ;FlashProg.h: 64: void flashSetAddress(uint32 address);
-[; ;FlashProg.h: 65: void flashWriteAndProgram(uint32 data);
+[; ;FlashProg.h: 9: uint16 readPGD();
+[; ;FlashProg.h: 10: void writePGD(int data);
+[; ;FlashProg.h: 17: void PGC_high();
+[; ;FlashProg.h: 18: void PGC_low();
+[; ;FlashProg.h: 25: void MCLR_low();
+[; ;FlashProg.h: 26: void MCLR_high();
+[; ;FlashProg.h: 33: void PGM_low();
+[; ;FlashProg.h: 34: void PGM_high();
+[; ;FlashProg.h: 47: uint16 readPGD();
+[; ;FlashProg.h: 48: void writePGD(int data);
+[; ;FlashProg.h: 49: void PGC_high();
+[; ;FlashProg.h: 50: void PGC_low();
+[; ;FlashProg.h: 51: void PGD_high();
+[; ;FlashProg.h: 52: void PGD_low();
+[; ;FlashProg.h: 53: void PGM_high();
+[; ;FlashProg.h: 54: void PGM_low();
+[; ;FlashProg.h: 55: void MCLR_low();
+[; ;FlashProg.h: 56: void MCLR_high();
+[; ;FlashProg.h: 57: void enter_HVP();
+[; ;FlashProg.h: 58: void exit_HVP();
+[; ;FlashProg.h: 59: void bulkErase();
+[; ;FlashProg.h: 60: void readDeviceID1();
+[; ;FlashProg.h: 61: void readDeviceID2();
+[; ;FlashProg.h: 62: void enableWrite();
+[; ;FlashProg.h: 63: void flashSetAddress(uint32 address);
+[; ;FlashProg.h: 64: void writeToBuffer(uint16 data);
+[; ;FlashProg.h: 65: void flashWriteAndProgram(uint16 data);
 [; ;FlashProg.h: 66: void flashWrite8Bits(uint8 data);
 [; ;FlashProg.h: 67: uint16 flashRead16Bits();
 [; ;FlashProg.h: 68: uint8 flashRead8Bits();
-[; ;FlashProg.h: 69: int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
-[; ;FlashProg.h: 70: int flashReadData(uint8 *data, uint16 size, uint32 address);
-[; ;FlashProg.h: 71: int memRange(uint32 address);
+[; ;FlashProg.h: 69: void flashWriteHalfBlock(uint16 *data, uint16 size, uint32 halfBlockNumber);
+[; ;FlashProg.h: 70: void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber);
+[; ;FlashProg.h: 71: void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber);
 [; ;FlashProg.h: 72: void rowErase(uint32 address);
-[; ;FlashProg.h: 73: void flashWriteData(uint32 data);
 [; ;ICSP.h: 9: void writeICSP(uint16 commandByte, uint16 dataBytes);
 [; ;ICSP.h: 10: void writeBit(uint16 bitToWrite);
 [; ;ICSP.h: 11: void writeBits(uint16 pattern, uint16 bitsToWrite);

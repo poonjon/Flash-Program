@@ -8,6 +8,7 @@
       <itemPath>../src/PIC18/ICSP.h</itemPath>
       <itemPath>../src/PIC18/Type.h</itemPath>
       <itemPath>../src/18c.h</itemPath>
+      <itemPath>../src/PIC18/FlashWrite.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -19,6 +20,7 @@
       <itemPath>../src/PIC18/FlashProg.c</itemPath>
       <itemPath>../src/PIC18/ICSP.c</itemPath>
       <itemPath>../src/PIC18/Main.c</itemPath>
+      <itemPath>../src/PIC18/FlashWrite.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

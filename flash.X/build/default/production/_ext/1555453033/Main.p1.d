@@ -3,5 +3,6 @@
  ../src/PIC18/Main.c  \
 ../src/PIC18/../18c.h  \
 ../src/PIC18/ICSP.h  \
+../src/PIC18/FlashWrite.h  \
 ../src/PIC18/Type.h  \
 ../src/PIC18/FlashProg.h 

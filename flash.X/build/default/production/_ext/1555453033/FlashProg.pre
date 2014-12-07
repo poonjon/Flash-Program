@@ -5062,23 +5062,23 @@ typedef unsigned char uint8;
 typedef unsigned int uint16;
 typedef unsigned long uint32;
 
-# 10 "../src/PIC18/FlashProg.h"
+# 9 "../src/PIC18/FlashProg.h"
 uint16 readPGD();
 void writePGD(int data);
 
-# 18
+# 17
 void PGC_high();
 void PGC_low();
 
-# 26
+# 25
 void MCLR_low();
 void MCLR_high();
 
-# 34
+# 33
 void PGM_low();
 void PGM_high();
 
-# 48
+# 47
 uint16 readPGD();
 void writePGD(int data);
 void PGC_high();
@@ -5096,15 +5096,15 @@ void readDeviceID1();
 void readDeviceID2();
 void enableWrite();
 void flashSetAddress(uint32 address);
-void flashWriteAndProgram(uint32 data);
+void writeToBuffer(uint16 data);
+void flashWriteAndProgram(uint16 data);
 void flashWrite8Bits(uint8 data);
 uint16 flashRead16Bits();
 uint8 flashRead8Bits();
-int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
-int flashReadData(uint8 *data, uint16 size, uint32 address);
-int memRange(uint32 address);
+void flashWriteHalfBlock(uint16 *data, uint16 size, uint32 halfBlockNumber);
+void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber);
+void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber);
 void rowErase(uint32 address);
-void flashWriteData(uint32 data);
 
 # 9 "../src/PIC18/ICSP.h"
 void writeICSP(uint16 commandByte, uint16 dataBytes);
@@ -5115,7 +5115,7 @@ uint16 readFirstByte();
 uint16 readBit();
 uint16 readBits(int bitsToRead);
 
-# 7 "../src/PIC18/FlashProg.c"
+# 6 "../src/PIC18/FlashProg.c"
 uint16 readPGD(){
 return PORTDbits.RD4;
 }
@@ -5244,12 +5244,11 @@ writeICSP(0x0, 0x0e00|lowAddr);
 writeICSP(0x0, 0x6ef6);
 }
 
-void flashWriteData(uint32 data){
+void writeToBuffer(uint16 data){
 writeICSP(0xd, data);
-
 }
 
-void flashWriteAndProgram(uint32 data){
+void flashWriteAndProgram(uint16 data){
 int i;
 
 
@@ -5268,7 +5267,7 @@ writeBits(0x0, 16);
 void flashWrite8Bits(uint8 data){
 int i;
 
-writeICSP(0xe, data);
+writeICSP(0xf, data);
 
 writeBits(0x0, 3);
 PGC_high();
@@ -5300,70 +5299,51 @@ data = readICSP();
 return data;
 }
 
-int flashReadData(uint8 *data, uint16 size, uint32 address){
+void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber){
 int i;
+uint32 blockSelect;
 
-flashSetAddress(address);
+blockSelect = (blockNumber-1)*64;
+flashSetAddress(blockSelect);
 
-if(size < 64000){
-for(i = 0; i < size/8 ; i++){
-data[i] = flashRead8Bits();
+for(i = 0; i < size/2 ; i++){
+data[i] = flashRead16Bits();
 }
 }
-else
-return 0;
 
-return size;
-}
-
-
-int flashWriteBlock(uint8 *data, uint16 size, uint32 address){
-uint32 writeLimit;
-uint8 buffer[32];
-uint16 read;
+void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber){
 int i;
-read = flashReadData(&buffer[0], 32, 0x000000);
-rowErase(0x000000);
-writeLimit = memRange(address);
-printf("%d \n", address);
-printf("%d \n", writeLimit/8);
-for(i = 0 ; i < 40 ; i++){
+uint32 blockSelect;
 
+blockSelect = (blockNumber-1)*64;
+flashSetAddress(blockSelect);
+flashSetAddress(blockSelect);
+for(i = 0 ; i < 15 ; i++){
+writeToBuffer(firstHalf[i]);
 }
-if(size <= writeLimit){
+flashWriteAndProgram(firstHalf[15]);
 
-if(size == 8){
-for(i = 0 ; i < (size/8) ; i++){
-flashSetAddress(address);
-flashWrite8Bits(data[i]);
-address++;
+flashSetAddress(blockSelect+32);
+for(i = 0 ; i < 15 ; i++){
+writeToBuffer(secondHalf[i]);
 }
-}
-else{
-for(i = 0 ; i < (size/8) ; i++){
-flashSetAddress(address);
-flashWriteAndProgram(data[i]);
-address++;
-}
-}
-return size/8;
-}
-else{
-for(i = 0 ; i < writeLimit ; i++){
-flashSetAddress(address);
-flashWriteAndProgram(data[i]);
-address++;
-}
-return writeLimit;
-}
+flashWriteAndProgram(secondHalf[15]);
 }
 
-int memRange(uint32 address){
-int range;
+void flashWriteHalfBlock(uint16 *data, uint16 size, uint32 halfBlockNumber){
+int i;
+uint32 blockSelect;
 
-range = 40-(address%40);
+blockSelect = (halfBlockNumber-1)*32;
+flashSetAddress(blockSelect);
 
-return range;
+for(i = 0 ; i < (size/2)-1 ; i++){
+
+writeToBuffer(data[i]);
+
+}
+
+flashWriteAndProgram(data[15]);
 }
 
 void rowErase(uint32 address){
@@ -5388,4 +5368,3 @@ PGC_low();
 for(i = 0; i < 25 ; i++){}
 writeBits(0x0, 16);
 }
-

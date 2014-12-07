@@ -5130,23 +5130,23 @@ typedef unsigned char uint8;
 typedef unsigned int uint16;
 typedef unsigned long uint32;
 
-# 10 "../src/PIC18/FlashProg.h"
+# 9 "../src/PIC18/FlashProg.h"
 uint16 readPGD();
 void writePGD(int data);
 
-# 18
+# 17
 void PGC_high();
 void PGC_low();
 
-# 26
+# 25
 void MCLR_low();
 void MCLR_high();
 
-# 34
+# 33
 void PGM_low();
 void PGM_high();
 
-# 48
+# 47
 uint16 readPGD();
 void writePGD(int data);
 void PGC_high();
@@ -5164,15 +5164,23 @@ void readDeviceID1();
 void readDeviceID2();
 void enableWrite();
 void flashSetAddress(uint32 address);
-void flashWriteAndProgram(uint32 data);
+void writeToBuffer(uint16 data);
+void flashWriteAndProgram(uint16 data);
 void flashWrite8Bits(uint8 data);
 uint16 flashRead16Bits();
 uint8 flashRead8Bits();
-int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
-int flashReadData(uint8 *data, uint16 size, uint32 address);
-int memRange(uint32 address);
+void flashWriteHalfBlock(uint16 *data, uint16 size, uint32 halfBlockNumber);
+void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber);
+void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber);
 void rowErase(uint32 address);
-void flashWriteData(uint32 data);
+
+# 5 "../src/PIC18/FlashWrite.h"
+extern uint16 halfBuffer1[16];
+extern uint16 halfBuffer2[16];
+extern uint16 blockBuffer[32];
+
+int flashWriteData(uint16 *data, uint16 size, uint32 address);
+int overwriteBufferData(uint16 *data, uint16 sizeToWrite, uint16 bufferStartPoint);
 
 # 9 "../src/PIC18/ICSP.h"
 void writeICSP(uint16 commandByte, uint16 dataBytes);
@@ -5184,7 +5192,7 @@ uint16 readBit();
 uint16 readBits(int bitsToRead);
 
 
-# 18 "../src/PIC18/Main.c"
+# 19 "../src/PIC18/Main.c"
 #pragma config OSC = INTIO67, PWRT = ON, WDT = OFF, LVP = OFF, DEBUG = ON
 
 
@@ -5196,77 +5204,55 @@ TRISDbits.TRISD7 = 0;
 }
 
 void main(){
-uint16 i = 0;
-uint16 a = 0;
-uint16 b = 0;
-uint16 c = 0;
-uint16 d = 0;
-uint16 e = 0;
+int i;
 uint16 data = 0x0000;
+uint16 newData = 0x1000;
+uint16 newData2 = 0x1000;
+uint16 newData3 = 0x1000;
+uint16 newData4 = 0x1000;
+uint16 newData5 = 0x5000;
 uint32 address = 0x000000;
-trisInit();
+uint16 blockRead[32];
+uint16 blockWrite[16];
+uint16 blockWrite2[16];
+uint16 blockWrite3[16];
+uint16 blockWrite4[16];
+uint16 blockWrite5[32];
+uint16 incomingData[4];
 
+for(i = 0 ; i < 16 ; i++){
+blockWrite[i] = data;
+data++;
+}
+for(i = 0 ; i < 16 ; i++){
+blockWrite2[i] = newData;
+newData++;
+}
+
+for(i = 0 ; i < 16 ; i++){
+blockWrite3[i] = newData2;
+newData2++;
+}
+for(i = 0 ; i < 16 ; i++){
+blockWrite4[i] = newData3;
+newData3++;
+}
+for(i = 0 ; i < 32 ; i++){
+blockWrite5[i] = newData4;
+newData4++;
+}
+
+trisInit();
 enter_HVP();
 
 bulkErase();
 enableWrite();
+flashWriteBlock(blockWrite, blockWrite2, 1);
+flashWriteBlock(blockWrite3, blockWrite4, 2);
 
-flashSetAddress(0x000000);
-for(i = 0 ; i < 15 ; i++){
-flashWriteData(data);
-data++;
-}
-flashWriteAndProgram(data);
-
-for(i = 0 ; i < 15 ; i++){
-flashWriteData(data);
-data++;
-}
-flashWriteAndProgram(data);
-
-
-flashSetAddress(0x000000);
-for(i = 0 ; i < 16 ; i++){
-a = flashRead16Bits();
-b = flashRead16Bits();
-c = flashRead16Bits();
-d = flashRead16Bits();
-e = flashRead16Bits();
-
-}
-flashSetAddress(address);
-writeICSP(0x0, 0x84a6);
-writeICSP(0x0, 0x88a6);
-writeICSP(0x0, 0x82a6);
-writeBits(0x0, 3);
-PGC_high();
-PGD_low();
-for(i = 0; i < 25 ; i++){}
-PGC_low();
-for(i = 0; i < 25 ; i++){}
-writeBits(0x0, 16);
-flashSetAddress(address);
-for(i = 0 ; i <15 ; i++){
-flashWriteData(0x6666);
-}
-flashWriteAndProgram(0x8778);
-writeBits(0x0, 3);
-PGC_high();
-PGD_low();
-for(i = 0; i < 25 ; i++){}
-PGC_low();
-for(i = 0; i < 25 ; i++){}
-writeICSP(0x0, 0x94a6);
-
-flashSetAddress(0x000000);
-for(i = 0 ; i < 17 ; i++){
-a = flashRead16Bits();
-}
-
-i = i;
-
+flashWriteData(blockWrite5, 62, 0);
+flashReadBlock(blockRead, 62, 0);
 exit_HVP();
 
 while(1){}
 }
-

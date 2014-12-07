@@ -4999,23 +4999,23 @@ typedef unsigned char uint8;
 typedef unsigned int uint16;
 typedef unsigned long uint32;
 
-# 10 "../src/PIC18/FlashProg.h"
+# 9 "../src/PIC18/FlashProg.h"
 uint16 readPGD();
 void writePGD(int data);
 
-# 18
+# 17
 void PGC_high();
 void PGC_low();
 
-# 26
+# 25
 void MCLR_low();
 void MCLR_high();
 
-# 34
+# 33
 void PGM_low();
 void PGM_high();
 
-# 48
+# 47
 uint16 readPGD();
 void writePGD(int data);
 void PGC_high();
@@ -5033,15 +5033,15 @@ void readDeviceID1();
 void readDeviceID2();
 void enableWrite();
 void flashSetAddress(uint32 address);
-void flashWriteAndProgram(uint32 data);
+void writeToBuffer(uint16 data);
+void flashWriteAndProgram(uint16 data);
 void flashWrite8Bits(uint8 data);
 uint16 flashRead16Bits();
 uint8 flashRead8Bits();
-int flashWriteBlock(uint8 *data, uint16 size, uint32 address);
-int flashReadData(uint8 *data, uint16 size, uint32 address);
-int memRange(uint32 address);
+void flashWriteHalfBlock(uint16 *data, uint16 size, uint32 halfBlockNumber);
+void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber);
+void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber);
 void rowErase(uint32 address);
-void flashWriteData(uint32 data);
 
 # 9 "../src/PIC18/ICSP.h"
 void writeICSP(uint16 commandByte, uint16 dataBytes);
