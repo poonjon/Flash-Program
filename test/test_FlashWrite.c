@@ -190,6 +190,12 @@ void test_overwriteBufferData_should_overwrite_array_28_to_32_and_overflow(){
   
 }
 
+/*
+** 0__4__8__________________________
+** |  ///                           |
+** |  ///                           |
+** |________________________________|
+*/
 void test_flashWriteData_should_write_data_from_address_4_to_8_should_return_3(){
   int i, bytesWritten;
   uint16 incomingData[3];
@@ -222,6 +228,12 @@ void test_flashWriteData_should_write_data_from_address_4_to_8_should_return_3()
   TEST_ASSERT_EQUAL(3, bytesWritten);
 }
 
+/*
+** 0______14______30________________
+** |       ////////                 |
+** |       ////////                 |
+** |________________________________|
+*/
 void test_flashWriteData_should_write_0_to_8_from_address_14_to_30_should_return_9(){
   int i, bytesWritten, data = 0;
   uint16 incomingData[9];
@@ -259,6 +271,12 @@ void test_flashWriteData_should_write_0_to_8_from_address_14_to_30_should_return
   TEST_ASSERT_EQUAL(9, bytesWritten);
 }
 
+/*
+** 0______________30________________
+** |///////////////                 |
+** |///////////////                 |
+** |________________________________|
+*/
 void test_flashWriteData_should_write_0_to_15_from_address_0_to_30_should_return_16(){
   int i, bytesWritten, data = 0;
   uint16 incomingData[16];
@@ -300,6 +318,12 @@ void test_flashWriteData_should_write_0_to_15_from_address_0_to_30_should_return
   TEST_ASSERT_EQUAL(16, bytesWritten);
 }
 
+/*
+** 0______________28______42________
+** |               ////////         |
+** |               ////////         |
+** |________________________________|
+*/
 void test_flashWriteData_should_write_0_to_7_from_address_28_to_42_should_return_8(){
   int i, bytesWritten, data = 0;
   uint16 incomingData[8];
@@ -335,6 +359,12 @@ void test_flashWriteData_should_write_0_to_7_from_address_28_to_42_should_return
   TEST_ASSERT_EQUAL(8, bytesWritten);
 }
 
+/*
+** 64_66_________88_________________
+** |  ////////////                  |
+** |  ////////////                  |
+** |________________________________|
+*/
 void test_flashWriteData_should_write_0_to_7_from_address_66_to_88_should_return_11(){
   int i, bytesWritten, data = 0;
   uint16 incomingData[11];
@@ -370,6 +400,12 @@ void test_flashWriteData_should_write_0_to_7_from_address_66_to_88_should_return
   TEST_ASSERT_EQUAL(11, bytesWritten);
 }
 
+/*
+** 0_______________________________62
+** |////////////////////////////////|
+** |////////////////////////////////|
+** |________________________________|
+*/
 void test_flashWriteData_should_write_0_to_31_from_address_0_to_62_should_return_32(){
   int i, bytesWritten, data = 0;
   uint16 incomingData[32];
@@ -427,7 +463,13 @@ void test_flashWriteData_should_write_0_to_31_from_address_0_to_62_should_return
   TEST_ASSERT_EQUAL(32, bytesWritten);
 }
 
-void test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return_32(){
+/*
+** 0_____________________________62_64_68___
+** |////////////////////////////////|///
+** |////////////////////////////////|///
+** |________________________________|________
+*/
+void test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return_35(){
   int i, bytesWritten, data = 0;
   uint16 incomingData[35];
   *halfBuffer1 = 0;
@@ -442,13 +484,11 @@ void test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return
     data++;
   }
   flashReadBlock_Expect(blockBuffer, 64, 1);
-  
   rowErase_Expect(0x000000);
   flashSetAddress_Expect(0);
   flashWriteBlock_Expect(halfBuffer1, halfBuffer2, 1);
   
   flashReadBlock_Expect(blockBuffer, 64, 2);
-  
   rowErase_Expect(64);
   flashSetAddress_Expect(64);
   flashWriteBlock_Expect(halfBuffer1, halfBuffer2, 2);
@@ -458,6 +498,48 @@ void test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return
   TEST_ASSERT_EQUAL(33, halfBuffer1[1]);
   TEST_ASSERT_EQUAL(34, halfBuffer1[2]);
   TEST_ASSERT_EQUAL(35, bytesWritten);
+}
+
+/*
+** 0___________________________62_64_________________________126_128_________
+** |                             /|//////////////////////////////|/
+** |                             /|//////////////////////////////|/
+** |______________________________|______________________________|____________
+*/
+void test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_return_50(){
+  int i, bytesWritten, data = 0;
+  uint16 incomingData[34];
+  *halfBuffer1 = 0;
+  *halfBuffer2 = 0;
+  *blockBuffer = 0;
+   
+  for(i = 0 ; i < 32 ; i++){
+    blockBuffer[i] = 0xaabb;
+  }
+  for(i = 0 ; i < 34 ; i++){
+    incomingData[i] = data;
+    data++;
+  }
+  printf("start\n");
+  flashReadBlock_Expect(blockBuffer, 64, 1);
+  rowErase_Expect(0x000000);
+  flashSetAddress_Expect(0);
+  flashWriteBlock_Expect(halfBuffer1, halfBuffer2, 1);
+  
+  flashReadBlock_Expect(blockBuffer, 64, 2);
+  rowErase_Expect(64);
+  flashSetAddress_Expect(64);
+  flashWriteBlock_Expect(halfBuffer1, halfBuffer2, 2);
+  
+  flashReadBlock_Expect(blockBuffer, 64, 3);
+  rowErase_Expect(128);
+  flashSetAddress_Expect(128);
+  flashWriteBlock_Expect(halfBuffer1, halfBuffer2, 3);
+  
+  bytesWritten = flashWriteData(incomingData, 34, 62);
+  
+  TEST_ASSERT_EQUAL(33, halfBuffer1[0]);
+  TEST_ASSERT_EQUAL(34, bytesWritten);
 }
 
 

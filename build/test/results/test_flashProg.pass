@@ -1,0 +1,58 @@
+---
+:source:
+  :path: test
+  :file: test_flashProg.c
+:successes:
+- :test: test_PGD_high
+  :line: 54
+  :message: ''
+- :test: test_PGD_low
+  :line: 60
+  :message: ''
+- :test: test_PGC_high
+  :line: 66
+  :message: ''
+- :test: test_PGC_low
+  :line: 72
+  :message: ''
+- :test: test_enter_HVP
+  :line: 78
+  :message: ''
+- :test: test_exit_HVP
+  :line: 87
+  :message: ''
+- :test: test_MCLR_low
+  :line: 102
+  :message: ''
+- :test: test_MCLR_high
+  :line: 109
+  :message: ''
+- :test: test_PGM_high
+  :line: 116
+  :message: ''
+- :test: test_PGM_low
+  :line: 123
+  :message: ''
+- :test: test_enableWrite
+  :line: 130
+  :message: ''
+- :test: test_flashWriteAndProgram_2bytes_of_data
+  :line: 136
+  :message: ''
+- :test: test_flashWriteToBuffer_2bytes_of_data
+  :line: 145
+  :message: ''
+- :test: test_flashSetAddress_should_select_0x102030
+  :line: 152
+  :message: ''
+- :test: test_rowErase_should_erase_row
+  :line: 164
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 15
+  :passed: 15
+  :failed: 0
+  :ignored: 0
+:stdout: []

@@ -1,0 +1,57 @@
+---
+:source:
+  :path: test
+  :file: test_ICSP.c
+:successes:
+- :test: test_write_bit_1
+  :line: 36
+  :message: ''
+- :test: test_write_bit_0
+  :line: 44
+  :message: ''
+- :test: test_write_bits_0x50
+  :line: 52
+  :message: ''
+- :test: test_write_bits_0xf9
+  :line: 57
+  :message: ''
+- :test: test_write_bits_0x3c40
+  :line: 62
+  :message: ''
+- :test: test_writeICSP_write_0xd_command_0x3c40_data
+  :line: 67
+  :message: ''
+- :test: test_readBit_should_return_1
+  :line: 75
+  :message: ''
+- :test: test_readBit_should_return_0
+  :line: 84
+  :message: ''
+- :test: test_readBits_should_return_0x11
+  :line: 93
+  :message: ''
+- :test: test_readBits_should_return_0xf6
+  :line: 99
+  :message: ''
+- :test: test_readBits_should_return_0x35f6
+  :line: 106
+  :message: ''
+- :test: test_readICSP_should_read_0x34
+  :line: 113
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 12
+  :passed: 12
+  :failed: 0
+  :ignored: 0
+:stdout:
+- '00001010'
+- '10011111'
+- '1001111110111010'
+- '10110000001000111100'
+- '10001000'
+- '01101111'
+- '0110111110101100'
+- '10010000000000101100'

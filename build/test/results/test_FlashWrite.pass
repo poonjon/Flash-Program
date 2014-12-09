@@ -1,0 +1,53 @@
+---
+:source:
+  :path: test
+  :file: test_FlashWrite.c
+:successes:
+- :test: test_overwriteBufferData_should_overwrite_array_2_to_6
+  :line: 9
+  :message: ''
+- :test: test_overwriteBufferData_should_overwrite_array_0_to_32
+  :line: 38
+  :message: ''
+- :test: test_overwriteBufferData_should_overwrite_array_0_to_32_and_overflow
+  :line: 89
+  :message: ''
+- :test: test_overwriteBufferData_should_overwrite_array_15_to_21
+  :line: 140
+  :message: ''
+- :test: test_overwriteBufferData_should_overwrite_array_28_to_32_and_overflow
+  :line: 170
+  :message: ''
+- :test: test_flashWriteData_should_write_data_from_address_4_to_8_should_return_3
+  :line: 199
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_8_from_address_14_to_30_should_return_9
+  :line: 237
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_15_from_address_0_to_30_should_return_16
+  :line: 280
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_7_from_address_28_to_42_should_return_8
+  :line: 327
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_7_from_address_66_to_88_should_return_11
+  :line: 368
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_31_from_address_0_to_62_should_return_32
+  :line: 409
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return_35
+  :line: 472
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_return_50
+  :line: 509
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 13
+  :passed: 13
+  :failed: 0
+  :ignored: 0
+:stdout:
+- start
