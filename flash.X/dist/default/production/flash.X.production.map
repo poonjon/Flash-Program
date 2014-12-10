@@ -1,0 +1,1813 @@
+Microchip MPLAB XC8 Compiler V1.33 ()
+
+Linker command line:
+
+--edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
+  -h+dist/default/production\flash.X.production.sym \
+  --cmf=dist/default/production\flash.X.production.cmf -z -Q18F4520 \
+  -oC:\Users\Jon\AppData\Local\Temp\s154.6 \
+  -Mdist/default/production/flash.X.production.map -E1 -ver=XC8 \
+  -ASTACK=02C0h-05ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
+  -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-07Fh \
+  -AABS1=00h-05FFh -ABIGRAM=01h-05FFh -ARAM=080h-0FFh,0100h-01FFhx5 \
+  -ABANK0=080h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
+  -ABANK3=0300h-03FFh -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh \
+  -ASFR=0F80h-0FFFh -preset_vec=00h,intcode,intcodelo,powerup,init,end_init \
+  -pramtop=0600h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
+  -pconst=CONST -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
+  -AIDLOC=0200000h-0200007h -pidloc=IDLOC -AEEDATA=0F00000h-0F000FFh \
+  -peeprom_data=EEDATA \
+  -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
+  -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
+  -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
+  C:\Users\Jon\AppData\Local\Temp\s154.obj \
+  dist/default/production\flash.X.production.obj 
+
+Object code version is 3.11
+
+Machine type is 18F4520
+
+Call graph: (short form)
+
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\Jon\AppData\Local\Temp\s154.obj
+                end_init                              0        0        4        0       0
+                idloc                            200000   200000        8   200000       0
+                config                           300000   300000        E   300000       0
+dist/default/production\flash.X.production.obj
+                text31                             6F1A     6F1A        4     378D       0
+                text30                             6F1E     6F1E        4     378F       0
+                text29                             6F38     6F38        C     379C       0
+                text28                             6F8A     6F8A       16     37C5       0
+                text27                             708A     708A       44     3845       0
+                text26                             7008     7008       2A     3804       0
+                text25                             779A     779A      17C     3BCD       0
+                text24                             7032     7032       2A     3819       0
+                text23                             6F22     6F22        4     3791       0
+                text22                             6F52     6F52       12     37A9       0
+                text21                             6F44     6F44        E     37A2       0
+                text20                             6F26     6F26        4     3793       0
+                text19                             6FA0     6FA0       16     37D0       0
+                text18                             6F2A     6F2A        4     3795       0
+                text17                             6F64     6F64       12     37B2       0
+                text16                             6F76     6F76       14     37BB       0
+                text15                             6FCC     6FCC       1E     37E6       0
+                text14                             7160     7160       58     38B0       0
+                text13                             7114     7114       4C     388A       0
+                text12                             70CE     70CE       46     3867       0
+                text11                             705C     705C       2E     382E       0
+                text10                             746A     746A       E4     3A35       0
+                text9                              723E     723E       90     391F       0
+                text8                              71B8     71B8       86     38DC       0
+                text7                              6FB6     6FB6       16     37DB       0
+                text6                              754E     754E      126     3AA7       0
+                text5                              72CE     72CE       C2     3967       0
+                text4                              7390     7390       DA     39C8       0
+                text3                              7674     7674      126     3B3A       0
+                text2                              7BA4     7BA4      45C     3DD2       0
+                text1                              6F2E     6F2E        A     3797       0
+                cstackCOMRAM                          1        1       59        1       1
+                cstackBANK0                          80       80       80       80       1
+                cstackBANK1                         100      100      100      100       1
+                cstackBANK2                         260      260       60      200       1
+                bssBANK2                            200      200       60      200       1
+                bssCOMRAM                            5A       5A       20        1       1
+                cinit                              6FEA     6FEA       1E     37F5       0
+                text0                              7916     7916      28E     3C8B       0
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                              0        0        4         0
+                text31                             6F1A     6F1A        4         0
+                text30                             6F1E     6F1E        4         0
+                text29                             6F38     6F38        C         0
+                text28                             6F8A     6F8A       16         0
+                text27                             708A     708A       44         0
+                text26                             7008     7008       2A         0
+                text25                             779A     779A      17C         0
+                text24                             7032     7032       2A         0
+                text23                             6F22     6F22        4         0
+                text22                             6F52     6F52       12         0
+                text21                             6F44     6F44        E         0
+                text20                             6F26     6F26        4         0
+                text19                             6FA0     6FA0       16         0
+                text18                             6F2A     6F2A        4         0
+                text17                             6F64     6F64       12         0
+                text16                             6F76     6F76       14         0
+                text15                             6FCC     6FCC       1E         0
+                text14                             7160     7160       58         0
+                text13                             7114     7114       4C         0
+                text12                             70CE     70CE       46         0
+                text11                             705C     705C       2E         0
+                text10                             746A     746A       E4         0
+                text9                              723E     723E       90         0
+                text8                              71B8     71B8       86         0
+                text7                              6FB6     6FB6       16         0
+                text6                              754E     754E      126         0
+                text5                              72CE     72CE       C2         0
+                text4                              7390     7390       DA         0
+                text3                              7674     7674      126         0
+                text2                              7BA4     7BA4      45C         0
+                text1                              6F2E     6F2E        A         0
+                cinit                              6FEA     6FEA       1E         0
+                text0                              7916     7916      28E         0
+
+        CLASS   CONST          
+
+        CLASS   SMALLCONST     
+
+        CLASS   MEDIUMCONST    
+
+        CLASS   COMRAM         
+                cstackCOMRAM                          1        1       59         1
+                bssCOMRAM                            5A       5A       20         1
+
+        CLASS   ABS1           
+
+        CLASS   BIGRAM         
+
+        CLASS   RAM            
+
+        CLASS   BANK0          
+                cstackBANK0                          80       80       80         1
+
+        CLASS   BANK1          
+                cstackBANK1                         100      100      100         1
+
+        CLASS   BANK2          
+                cstackBANK2                         260      260       60         1
+                bssBANK2                            200      200       60         1
+
+        CLASS   BANK3          
+
+        CLASS   BANK4          
+
+        CLASS   BANK5          
+
+        CLASS   SFR            
+
+        CLASS   FARRAM         
+
+        CLASS   CONFIG         
+                config                           300000   300000        E         0
+
+        CLASS   IDLOC          
+                idloc                            200000   200000        8         0
+
+        CLASS   EEDATA         
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
+
+                reset_vec                      000000  000004  000004         0       0  CODE    
+                cstackCOMRAM                   000001  000079  00007A         1       1  COMRAM  
+                cstackBANK0                    000080  000080  000100        80       1  BANK0   
+                cstackBANK1                    000100  000100  000200       100       1  BANK1   
+                bssBANK2                       000200  0000C0  0002C0       200       1  BANK2   
+                text31                         006F1A  000004  006F1E      378D       0  CODE    
+                text30                         006F1E  000004  006F22      378F       0  CODE    
+                text23                         006F22  000004  006F26      3791       0  CODE    
+                text20                         006F26  000004  006F2A      3793       0  CODE    
+                text18                         006F2A  000004  006F2E      3795       0  CODE    
+                text1                          006F2E  00000A  006F38      3797       0  CODE    
+                text29                         006F38  00000C  006F44      379C       0  CODE    
+                text21                         006F44  00000E  006F52      37A2       0  CODE    
+                text22                         006F52  000012  006F64      37A9       0  CODE    
+                text17                         006F64  000012  006F76      37B2       0  CODE    
+                text16                         006F76  000014  006F8A      37BB       0  CODE    
+                text28                         006F8A  000016  006FA0      37C5       0  CODE    
+                text19                         006FA0  000016  006FB6      37D0       0  CODE    
+                text7                          006FB6  000016  006FCC      37DB       0  CODE    
+                text15                         006FCC  00001E  006FEA      37E6       0  CODE    
+                cinit                          006FEA  00001E  007008      37F5       0  CODE    
+                text26                         007008  00002A  007032      3804       0  CODE    
+                text24                         007032  00002A  00705C      3819       0  CODE    
+                text11                         00705C  00002E  00708A      382E       0  CODE    
+                text27                         00708A  000044  0070CE      3845       0  CODE    
+                text12                         0070CE  000046  007114      3867       0  CODE    
+                text13                         007114  00004C  007160      388A       0  CODE    
+                text14                         007160  000058  0071B8      38B0       0  CODE    
+                text8                          0071B8  000086  00723E      38DC       0  CODE    
+                text9                          00723E  000090  0072CE      391F       0  CODE    
+                text5                          0072CE  0000C2  007390      3967       0  CODE    
+                text4                          007390  0000DA  00746A      39C8       0  CODE    
+                text10                         00746A  0000E4  00754E      3A35       0  CODE    
+                text6                          00754E  000126  007674      3AA7       0  CODE    
+                text3                          007674  000126  00779A      3B3A       0  CODE    
+                text25                         00779A  00017C  007916      3BCD       0  CODE    
+                text0                          007916  00028E  007BA4      3C8B       0  CODE    
+                text2                          007BA4  00045C  008000      3DD2       0  CODE    
+                idloc                          200000  000008  200008    200000       0  IDLOC   
+                config                         300000  00000E  30000E    300000       0  CONFIG  
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK2            0002C0-0002FF               40
+        BANK3            000300-0003FF              100
+        BANK4            000400-0004FF              100
+        BANK5            000500-0005FF              100
+        BIGRAM           00007A-00007F                6
+                         0002C0-0005FF              340
+        CODE             000004-006F19             6F16
+        COMRAM           00007A-00007F                6
+        CONST            000004-006F19             6F16
+        EEDATA           F00000-F000FF              100
+        MEDIUMCONST      000600-006F19             691A
+        RAM              0002C0-0005FF              100
+        SFR              000F80-000FFF               80
+        SMALLCONST       000600-006F19              100
+        STACK            0002C0-0005FF              340
+
+                                  Symbol Table
+
+?_flashRead16Bits                       cstackCOMRAM 000013
+?_overwriteBufferData                   cstackCOMRAM 000009
+?_readBit                               cstackCOMRAM 000004
+?_readBits                              cstackCOMRAM 000008
+?_readFirstByte                         cstackCOMRAM 00000F
+?_readICSP                              cstackCOMRAM 00000F
+?_readPGD                               cstackCOMRAM 000001
+_MCLR_high                              text23       006F22
+_MCLR_low                               text22       006F52
+_PGC_high                               text31       006F1A
+_PGC_low                                text30       006F1E
+_PGD_low                                text21       006F44
+_PGM_high                               text20       006F26
+_PGM_low                                text18       006F2A
+_PORTDbits                              (abs)        000F83
+_TRISDbits                              (abs)        000F95
+__CFG_DEBUG$ON                          (abs)        000000
+__CFG_LVP$OFF                           (abs)        000000
+__CFG_OSC$INTIO67                       (abs)        000000
+__CFG_PWRT$ON                           (abs)        000000
+__CFG_WDT$OFF                           (abs)        000000
+__HRAM                                  (abs)        000000
+__Habs1                                 abs1         000000
+__Hbank0                                bank0        000000
+__Hbank1                                bank1        000000
+__Hbank2                                bank2        000000
+__Hbank3                                bank3        000000
+__Hbank4                                bank4        000000
+__Hbank5                                bank5        000000
+__Hbigbss                               bigbss       000000
+__Hbigdata                              bigdata      000000
+__Hbigram                               bigram       000000
+__Hbss                                  bss          000000
+__HbssBANK2                             bssBANK2     000000
+__HbssCOMRAM                            bssCOMRAM    000000
+__Hcinit                                cinit        000000
+__Hclrtext                              clrtext      000000
+__Hcomram                               comram       000000
+__Hconfig                               config       30000E
+__Hconst                                const        000000
+__HcstackBANK0                          cstackBANK0  000000
+__HcstackBANK1                          cstackBANK1  000000
+__HcstackBANK2                          cstackBANK2  000000
+__HcstackCOMRAM                         cstackCOMRAM 000000
+__Hdata                                 data         000000
+__Heeprom_data                          eeprom_data  000000
+__Hend_init                             end_init     000004
+__Hfarbss                               farbss       000000
+__Hfardata                              fardata      000000
+__Hibigdata                             ibigdata     000000
+__Hidata                                idata        000000
+__Hidloc                                idloc        200008
+__Hifardata                             ifardata     000000
+__Hinit                                 init         000000
+__Hintcode                              intcode      000000
+__Hintcode_body                         intcode_body 000000
+__Hintcodelo                            intcodelo    000000
+__Hintentry                             intentry     000000
+__Hintret                               intret       000000
+__Hintsave_regs                         intsave_regs 000000
+__Hirdata                               irdata       000000
+__Hmediumconst                          mediumconst  000000
+__HnvFARRAM                             nvFARRAM     000000
+__Hnvbit                                nvbit        000000
+__Hnvrram                               nvrram       000000
+__Hparam                                rparam       000000
+__Hpowerup                              powerup      000000
+__Hram                                  ram          000000
+__Hramtop                               ramtop       000600
+__Hrbit                                 rbit         000000
+__Hrbss                                 rbss         000000
+__Hrdata                                rdata        000000
+__Hreset_vec                            reset_vec    000000
+__Hrparam                               rparam       000000
+__Hsfr                                  sfr          000000
+__Hsmallconst                           smallconst   000000
+__Hspace_0                              (abs)        30000E
+__Hspace_1                              (abs)        0002C0
+__Hspace_2                              (abs)        000000
+__Hstack                                stack        000000
+__Hstruct                               struct       000000
+__Htemp                                 temp         000000
+__Htext                                 text         000000
+__Htext0                                text0        000000
+__Htext1                                text1        000000
+__Htext10                               text10       000000
+__Htext11                               text11       000000
+__Htext12                               text12       000000
+__Htext13                               text13       000000
+__Htext14                               text14       000000
+__Htext15                               text15       000000
+__Htext16                               text16       000000
+__Htext17                               text17       000000
+__Htext18                               text18       000000
+__Htext19                               text19       000000
+__Htext2                                text2        000000
+__Htext20                               text20       000000
+__Htext21                               text21       000000
+__Htext22                               text22       000000
+__Htext23                               text23       000000
+__Htext24                               text24       000000
+__Htext25                               text25       000000
+__Htext26                               text26       000000
+__Htext27                               text27       000000
+__Htext28                               text28       000000
+__Htext29                               text29       000000
+__Htext3                                text3        000000
+__Htext30                               text30       000000
+__Htext31                               text31       000000
+__Htext4                                text4        000000
+__Htext5                                text5        000000
+__Htext6                                text6        000000
+__Htext7                                text7        000000
+__Htext8                                text8        000000
+__Htext9                                text9        000000
+__LRAM                                  (abs)        000001
+__Labs1                                 abs1         000000
+__Lbank0                                bank0        000000
+__Lbank1                                bank1        000000
+__Lbank2                                bank2        000000
+__Lbank3                                bank3        000000
+__Lbank4                                bank4        000000
+__Lbank5                                bank5        000000
+__Lbigbss                               bigbss       000000
+__Lbigdata                              bigdata      000000
+__Lbigram                               bigram       000000
+__Lbss                                  bss          000000
+__LbssBANK2                             bssBANK2     000000
+__LbssCOMRAM                            bssCOMRAM    000000
+__Lcinit                                cinit        000000
+__Lclrtext                              clrtext      000000
+__Lcomram                               comram       000000
+__Lconfig                               config       300000
+__Lconst                                const        000000
+__LcstackBANK0                          cstackBANK0  000000
+__LcstackBANK1                          cstackBANK1  000000
+__LcstackBANK2                          cstackBANK2  000000
+__LcstackCOMRAM                         cstackCOMRAM 000000
+__Ldata                                 data         000000
+__Leeprom_data                          eeprom_data  000000
+__Lend_init                             end_init     000000
+__Lfarbss                               farbss       000000
+__Lfardata                              fardata      000000
+__Libigdata                             ibigdata     000000
+__Lidata                                idata        000000
+__Lidloc                                idloc        200000
+__Lifardata                             ifardata     000000
+__Linit                                 init         000000
+__Lintcode                              intcode      000000
+__Lintcode_body                         intcode_body 000000
+__Lintcodelo                            intcodelo    000000
+__Lintentry                             intentry     000000
+__Lintret                               intret       000000
+__Lintsave_regs                         intsave_regs 000000
+__Lirdata                               irdata       000000
+__Lmediumconst                          mediumconst  000000
+__LnvFARRAM                             nvFARRAM     000000
+__Lnvbit                                nvbit        000000
+__Lnvrram                               nvrram       000000
+__Lparam                                rparam       000000
+__Lpowerup                              powerup      000000
+__Lram                                  ram          000000
+__Lramtop                               ramtop       000600
+__Lrbit                                 rbit         000000
+__Lrbss                                 rbss         000000
+__Lrdata                                rdata        000000
+__Lreset_vec                            reset_vec    000000
+__Lrparam                               rparam       000000
+__Lsfr                                  sfr          000000
+__Lsmallconst                           smallconst   000000
+__Lspace_0                              (abs)        000000
+__Lspace_1                              (abs)        000000
+__Lspace_2                              (abs)        000000
+__Lstack                                stack        000000
+__Lstruct                               struct       000000
+__Ltemp                                 temp         000000
+__Ltext                                 text         000000
+__Ltext0                                text0        000000
+__Ltext1                                text1        000000
+__Ltext10                               text10       000000
+__Ltext11                               text11       000000
+__Ltext12                               text12       000000
+__Ltext13                               text13       000000
+__Ltext14                               text14       000000
+__Ltext15                               text15       000000
+__Ltext16                               text16       000000
+__Ltext17                               text17       000000
+__Ltext18                               text18       000000
+__Ltext19                               text19       000000
+__Ltext2                                text2        000000
+__Ltext20                               text20       000000
+__Ltext21                               text21       000000
+__Ltext22                               text22       000000
+__Ltext23                               text23       000000
+__Ltext24                               text24       000000
+__Ltext25                               text25       000000
+__Ltext26                               text26       000000
+__Ltext27                               text27       000000
+__Ltext28                               text28       000000
+__Ltext29                               text29       000000
+__Ltext3                                text3        000000
+__Ltext30                               text30       000000
+__Ltext31                               text31       000000
+__Ltext4                                text4        000000
+__Ltext5                                text5        000000
+__Ltext6                                text6        000000
+__Ltext7                                text7        000000
+__Ltext8                                text8        000000
+__Ltext9                                text9        000000
+__S0                                    (abs)        30000E
+__S1                                    (abs)        0002C0
+__S2                                    (abs)        000000
+___inthi_sp                             stack        000000
+___intlo_sp                             stack        000000
+___sp                                   stack        000000
+__accesstop                             (abs)        000080
+__activetblptr                          (abs)        000000
+__end_of_MCLR_high                      text23       006F26
+__end_of_MCLR_low                       text22       006F64
+__end_of_PGC_high                       text31       006F1E
+__end_of_PGC_low                        text30       006F22
+__end_of_PGD_low                        text21       006F52
+__end_of_PGM_high                       text20       006F2A
+__end_of_PGM_low                        text18       006F2E
+__end_of__initialization                cinit        007002
+__end_of_bulkErase                      text25       007916
+__end_of_enableWrite                    text24       00705C
+__end_of_enter_HVP                      text19       006FB6
+__end_of_exit_HVP                       text17       006F76
+__end_of_flashRead16Bits                text11       00708A
+__end_of_flashReadBlock                 text9        0072CE
+__end_of_flashSetAddress                text10       00754E
+__end_of_flashWriteAndProgram           text8        00723E
+__end_of_flashWriteBlock                text6        007674
+__end_of_flashWriteData                 text2        008000
+__end_of_loadHalfBuffer                 text5        007390
+__end_of_main                           text0        007BA4
+__end_of_overwriteBufferData            text4        00746A
+__end_of_readBit                        text15       006FEA
+__end_of_readBits                       text14       0071B8
+__end_of_readFirstByte                  text13       007160
+__end_of_readICSP                       text12       007114
+__end_of_readPGD                        text16       006F8A
+__end_of_rowErase                       text3        00779A
+__end_of_trisInit                       text1        006F38
+__end_of_writeBit                       text28       006FA0
+__end_of_writeBits                      text27       0070CE
+__end_of_writeICSP                      text26       007032
+__end_of_writePGD                       text29       006F44
+__end_of_writeToBuffer                  text7        006FCC
+__initialization                        cinit        006FEA
+__mediumconst                           mediumconst  000000
+__pbssBANK2                             bssBANK2     000200
+__pbssCOMRAM                            bssCOMRAM    00005A
+__pcinit                                cinit        006FEA
+__pcstackBANK0                          cstackBANK0  000080
+__pcstackBANK1                          cstackBANK1  000100
+__pcstackBANK2                          cstackBANK2  000260
+__pcstackCOMRAM                         cstackCOMRAM 000001
+__ptext0                                text0        007916
+__ptext1                                text1        006F2E
+__ptext10                               text10       00746A
+__ptext11                               text11       00705C
+__ptext12                               text12       0070CE
+__ptext13                               text13       007114
+__ptext14                               text14       007160
+__ptext15                               text15       006FCC
+__ptext16                               text16       006F76
+__ptext17                               text17       006F64
+__ptext18                               text18       006F2A
+__ptext19                               text19       006FA0
+__ptext2                                text2        007BA4
+__ptext20                               text20       006F26
+__ptext21                               text21       006F44
+__ptext22                               text22       006F52
+__ptext23                               text23       006F22
+__ptext24                               text24       007032
+__ptext25                               text25       00779A
+__ptext26                               text26       007008
+__ptext27                               text27       00708A
+__ptext28                               text28       006F8A
+__ptext29                               text29       006F38
+__ptext3                                text3        007674
+__ptext30                               text30       006F1E
+__ptext31                               text31       006F1A
+__ptext4                                text4        007390
+__ptext5                                text5        0072CE
+__ptext6                                text6        00754E
+__ptext7                                text7        006FB6
+__ptext8                                text8        0071B8
+__ptext9                                text9        00723E
+__ramtop                                ramtop       000600
+__size_of_MCLR_high                     (abs)        000000
+__size_of_MCLR_low                      (abs)        000000
+__size_of_PGC_high                      (abs)        000000
+__size_of_PGC_low                       (abs)        000000
+__size_of_PGD_low                       (abs)        000000
+__size_of_PGM_high                      (abs)        000000
+__size_of_PGM_low                       (abs)        000000
+__size_of_bulkErase                     (abs)        000000
+__size_of_enableWrite                   (abs)        000000
+__size_of_enter_HVP                     (abs)        000000
+__size_of_exit_HVP                      (abs)        000000
+__size_of_flashRead16Bits               (abs)        000000
+__size_of_flashReadBlock                (abs)        000000
+__size_of_flashSetAddress               (abs)        000000
+__size_of_flashWriteAndProgram          (abs)        000000
+__size_of_flashWriteBlock               (abs)        000000
+__size_of_flashWriteData                (abs)        000000
+__size_of_loadHalfBuffer                (abs)        000000
+__size_of_main                          (abs)        000000
+__size_of_overwriteBufferData           (abs)        000000
+__size_of_readBit                       (abs)        000000
+__size_of_readBits                      (abs)        000000
+__size_of_readFirstByte                 (abs)        000000
+__size_of_readICSP                      (abs)        000000
+__size_of_readPGD                       (abs)        000000
+__size_of_rowErase                      (abs)        000000
+__size_of_trisInit                      (abs)        000000
+__size_of_writeBit                      (abs)        000000
+__size_of_writeBits                     (abs)        000000
+__size_of_writeICSP                     (abs)        000000
+__size_of_writePGD                      (abs)        000000
+__size_of_writeToBuffer                 (abs)        000000
+__smallconst                            smallconst   000000
+_blockBuffer                            bssBANK2     000200
+_bulkErase                              text25       00779A
+_enableWrite                            text24       007032
+_enter_HVP                              text19       006FA0
+_exit_HVP                               text17       006F64
+_flashRead16Bits                        text11       00705C
+_flashReadBlock                         text9        00723E
+_flashSetAddress                        text10       00746A
+_flashWriteAndProgram                   text8        0071B8
+_flashWriteBlock                        text6        00754E
+_flashWriteData                         text2        007BA4
+_halfBuffer1                            bssCOMRAM    00005A
+_halfBuffer2                            bssBANK2     000240
+_loadHalfBuffer                         text5        0072CE
+_main                                   text0        007916
+_overwriteBufferData                    text4        007390
+_readBit                                text15       006FCC
+_readBits                               text14       007160
+_readFirstByte                          text13       007114
+_readICSP                               text12       0070CE
+_readPGD                                text16       006F76
+_rowErase                               text3        007674
+_trisInit                               text1        006F2E
+_writeBit                               text28       006F8A
+_writeBits                              text27       00708A
+_writeICSP                              text26       007008
+_writePGD                               text29       006F38
+_writeToBuffer                          text7        006FB6
+bulkErase@i                             cstackCOMRAM 000012
+end_of_initialization                   cinit        007002
+flashRead16Bits@data                    cstackCOMRAM 000017
+flashRead16Bits@firstData               cstackCOMRAM 000015
+flashReadBlock@blockNumber              cstackCOMRAM 00002A
+flashReadBlock@blockSelect              cstackCOMRAM 000032
+flashReadBlock@data                     cstackCOMRAM 000026
+flashReadBlock@i                        cstackCOMRAM 000036
+flashReadBlock@size                     cstackCOMRAM 000028
+flashSetAddress@address                 cstackCOMRAM 000012
+flashSetAddress@highAddr                cstackCOMRAM 00001E
+flashSetAddress@lowAddr                 cstackCOMRAM 000022
+flashSetAddress@upperAddr               cstackCOMRAM 00001A
+flashWriteAndProgram@data               cstackCOMRAM 000012
+flashWriteAndProgram@i                  cstackCOMRAM 000014
+flashWriteBlock@blockNumber             cstackCOMRAM 00002A
+flashWriteBlock@blockSelect             cstackCOMRAM 000032
+flashWriteBlock@firstHalf               cstackCOMRAM 000026
+flashWriteBlock@i                       cstackCOMRAM 000036
+flashWriteBlock@secondHalf              cstackCOMRAM 000028
+flashWriteData@address                  cstackCOMRAM 00003C
+flashWriteData@bytesWritten             cstackBANK1  0001D6
+flashWriteData@currentStartPoint        cstackBANK1  0001D4
+flashWriteData@data                     cstackCOMRAM 000038
+flashWriteData@i                        cstackBANK1  0001DC
+flashWriteData@j                        cstackBANK1  0001C8
+flashWriteData@k                        cstackBANK1  0001CE
+flashWriteData@memoryBlock              cstackBANK1  0001D2
+flashWriteData@newAddress               cstackBANK1  0001D8
+flashWriteData@newData                  cstackBANK1  000100
+flashWriteData@newSize                  cstackBANK1  0001D0
+flashWriteData@nextDataSet              cstackBANK1  0001CA
+flashWriteData@size                     cstackCOMRAM 00003A
+flashWriteData@timesToWrite             cstackBANK1  0001CC
+intlevel0                               text         000000
+intlevel1                               text         000000
+intlevel2                               text         000000
+intlevel3                               text         000000
+loadHalfBuffer@i                        cstackCOMRAM 000007
+loadHalfBuffer@j                        cstackCOMRAM 000005
+main@address                            cstackCOMRAM 00004A
+main@blockRead                          cstackBANK0  000080
+main@blockWrite                         cstackBANK1  0001DE
+main@blockWrite2                        cstackBANK2  000260
+main@blockWrite3                        cstackBANK2  000280
+main@blockWrite4                        cstackBANK2  0002A0
+main@blockWrite5                        cstackBANK0  0000C0
+main@data                               cstackCOMRAM 000050
+main@i                                  cstackBANK1  0001FE
+main@newData                            cstackCOMRAM 000052
+main@newData2                           cstackCOMRAM 000054
+main@newData3                           cstackCOMRAM 000056
+main@newData4                           cstackCOMRAM 000058
+main@newData5                           cstackCOMRAM 00004E
+overwriteBufferData@availableWriteSpace cstackCOMRAM 000019
+overwriteBufferData@bufferStartPoint    cstackCOMRAM 00000D
+overwriteBufferData@bytesLeft           cstackCOMRAM 000013
+overwriteBufferData@bytesWritten        cstackCOMRAM 000015
+overwriteBufferData@data                cstackCOMRAM 000009
+overwriteBufferData@i                   cstackCOMRAM 00001B
+overwriteBufferData@j                   cstackCOMRAM 000011
+overwriteBufferData@sizeToWrite         cstackCOMRAM 00000B
+overwriteBufferData@start               cstackCOMRAM 000017
+readBit@data                            cstackCOMRAM 000006
+readBits@bitsToRead                     cstackCOMRAM 000008
+readBits@data                           cstackCOMRAM 00000D
+readBits@i                              cstackCOMRAM 00000B
+readFirstByte@data                      cstackCOMRAM 000011
+readICSP@data                           cstackCOMRAM 000011
+rowErase@address                        cstackCOMRAM 000026
+rowErase@i                              cstackCOMRAM 00002A
+stackhi                                 (abs)        0005FF
+stacklo                                 (abs)        0002C0
+start                                   init         000000
+start_initialization                    cinit        006FEA
+writeBit@bitToWrite                     cstackCOMRAM 000003
+writeBits@bitsToWrite                   cstackCOMRAM 000007
+writeBits@i                             cstackCOMRAM 00000C
+writeBits@pattern                       cstackCOMRAM 000005
+writeICSP@commandByte                   cstackCOMRAM 00000E
+writeICSP@dataBytes                     cstackCOMRAM 000010
+writePGD@data                           cstackCOMRAM 000001
+writeToBuffer@data                      cstackCOMRAM 000012
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 29 in file "../src/PIC18/Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  blockWrite5    64   64[BANK0 ] unsigned int [32]
+  blockRead      64    0[BANK0 ] unsigned int [32]
+  blockWrite4    32   64[BANK2 ] unsigned int [16]
+  blockWrite3    32   32[BANK2 ] unsigned int [16]
+  blockWrite2    32    0[BANK2 ] unsigned int [16]
+  blockWrite     32  222[BANK1 ] unsigned int [16]
+  incomingData    8    0        unsigned int [4]
+  address         4   73[COMRAM] unsigned long 
+  i               2  254[BANK1 ] int 
+  newData4        2   87[COMRAM] unsigned int 
+  newData3        2   85[COMRAM] unsigned int 
+  newData2        2   83[COMRAM] unsigned int 
+  newData         2   81[COMRAM] unsigned int 
+  data            2   79[COMRAM] unsigned int 
+  newData5        2   77[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:        16     128      34      96       0       0       0
+      Temps:          2       0       0       0       0       0       0
+      Totals:        18     128      34      96       0       0       0
+Total ram usage:      276 bytes
+ Hardware stack levels required when called:    7
+ This function calls:
+		_bulkErase
+		_enableWrite
+		_enter_HVP
+		_exit_HVP
+		_flashReadBlock
+		_flashWriteBlock
+		_flashWriteData
+		_trisInit
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _trisInit *****************
+ Defined at:
+		line 22 in file "../src/PIC18/Main.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _flashWriteData *****************
+ Defined at:
+		line 11 in file "../src/PIC18/FlashWrite.c"
+ Parameters:    Size  Location     Type
+  data            2   55[COMRAM] PTR unsigned int 
+		 -> main@blockWrite5(64), 
+  size            2   57[COMRAM] unsigned int 
+  address         4   59[COMRAM] unsigned long 
+ Auto vars:     Size  Location     Type
+  newData       200    0[BANK1 ] unsigned int [100]
+  newAddress      4  216[BANK1 ] unsigned long 
+  i               2  220[BANK1 ] int 
+  bytesWritten    2  214[BANK1 ] int 
+  currentStart    2  212[BANK1 ] unsigned int 
+  memoryBlock     2  210[BANK1 ] unsigned int 
+  newSize         2  208[BANK1 ] unsigned int 
+  k               2  206[BANK1 ] int 
+  timesToWrite    2  204[BANK1 ] int 
+  nextDataSet     2  202[BANK1 ] int 
+  j               2  200[BANK1 ] int 
+ Return value:  Size  Location     Type
+                  2   55[COMRAM] int 
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         8       0       0       0       0       0       0
+      Locals:         0       0     222       0       0       0       0
+      Temps:          8       0       0       0       0       0       0
+      Totals:        16       0     222       0       0       0       0
+Total ram usage:      238 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_flashReadBlock
+		_flashSetAddress
+		_flashWriteBlock
+		_loadHalfBuffer
+		_overwriteBufferData
+		_rowErase
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _rowErase *****************
+ Defined at:
+		line 236 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+  address         4   37[COMRAM] unsigned long 
+ Auto vars:     Size  Location     Type
+  i               2   41[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         4       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_PGC_high
+		_PGC_low
+		_PGD_low
+		_flashSetAddress
+		_writeBits
+		_writeICSP
+ This function is called by:
+		_flashWriteData
+ This function uses a non-reentrant model
+
+
+ *************** function _overwriteBufferData *****************
+ Defined at:
+		line 57 in file "../src/PIC18/FlashWrite.c"
+ Parameters:    Size  Location     Type
+  data            2    8[COMRAM] PTR unsigned int 
+		 -> flashWriteData@newData(200), 
+  sizeToWrite     2   10[COMRAM] unsigned int 
+  bufferStartP    2   12[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  i               2   26[COMRAM] int 
+  availableWri    2   24[COMRAM] int 
+  start           2   22[COMRAM] int 
+  bytesWritten    2   20[COMRAM] int 
+  bytesLeft       2   18[COMRAM] int 
+  j               2   16[COMRAM] int 
+ Return value:  Size  Location     Type
+                  2    8[COMRAM] int 
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         6       0       0       0       0       0       0
+      Locals:        12       0       0       0       0       0       0
+      Temps:          2       0       0       0       0       0       0
+      Totals:        20       0       0       0       0       0       0
+Total ram usage:       20 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_loadHalfBuffer
+ This function is called by:
+		_flashWriteData
+ This function uses a non-reentrant model
+
+
+ *************** function _loadHalfBuffer *****************
+ Defined at:
+		line 82 in file "../src/PIC18/FlashWrite.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               2    6[COMRAM] int 
+  j               2    4[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0
+      Totals:         8       0       0       0       0       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_flashWriteData
+		_overwriteBufferData
+ This function uses a non-reentrant model
+
+
+ *************** function _flashWriteBlock *****************
+ Defined at:
+		line 201 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+  firstHalf       2   37[COMRAM] PTR unsigned int 
+		 -> halfBuffer1(32), main@blockWrite3(32), main@blockWrite(32), 
+  secondHalf      2   39[COMRAM] PTR unsigned int 
+		 -> halfBuffer2(32), main@blockWrite4(32), main@blockWrite2(32), 
+  blockNumber     4   41[COMRAM] unsigned long 
+ Auto vars:     Size  Location     Type
+  blockSelect     4   49[COMRAM] unsigned long 
+  i               2   53[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         8       0       0       0       0       0       0
+      Locals:         6       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0
+      Totals:        18       0       0       0       0       0       0
+Total ram usage:       18 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_flashSetAddress
+		_flashWriteAndProgram
+		_writeToBuffer
+ This function is called by:
+		_main
+		_flashWriteData
+ This function uses a non-reentrant model
+
+
+ *************** function _writeToBuffer *****************
+ Defined at:
+		line 134 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+  data            2   17[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_writeICSP
+ This function is called by:
+		_flashWriteBlock
+		_flashWriteHalfBlock
+ This function uses a non-reentrant model
+
+
+ *************** function _flashWriteAndProgram *****************
+ Defined at:
+		line 138 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+  data            2   17[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  i               2   19[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_PGC_high
+		_PGC_low
+		_PGD_low
+		_writeBits
+		_writeICSP
+ This function is called by:
+		_flashWriteBlock
+		_flashWriteHalfBlock
+ This function uses a non-reentrant model
+
+
+ *************** function _flashReadBlock *****************
+ Defined at:
+		line 189 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+  data            2   37[COMRAM] PTR unsigned int 
+		 -> blockBuffer(64), main@blockRead(64), 
+  size            2   39[COMRAM] unsigned int 
+  blockNumber     4   41[COMRAM] unsigned long 
+ Auto vars:     Size  Location     Type
+  blockSelect     4   49[COMRAM] unsigned long 
+  i               2   53[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         8       0       0       0       0       0       0
+      Locals:         6       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0
+      Totals:        18       0       0       0       0       0       0
+Total ram usage:       18 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_flashRead16Bits
+		_flashSetAddress
+ This function is called by:
+		_main
+		_flashWriteData
+ This function uses a non-reentrant model
+
+
+ *************** function _flashSetAddress *****************
+ Defined at:
+		line 117 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+  address         4   17[COMRAM] unsigned long 
+ Auto vars:     Size  Location     Type
+  lowAddr         4   33[COMRAM] unsigned long 
+  highAddr        4   29[COMRAM] unsigned long 
+  upperAddr       4   25[COMRAM] unsigned long 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         4       0       0       0       0       0       0
+      Locals:        12       0       0       0       0       0       0
+      Temps:          4       0       0       0       0       0       0
+      Totals:        20       0       0       0       0       0       0
+Total ram usage:       20 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_writeICSP
+ This function is called by:
+		_flashReadBlock
+		_flashWriteBlock
+		_rowErase
+		_flashWriteData
+		_flashWriteHalfBlock
+ This function uses a non-reentrant model
+
+
+ *************** function _flashRead16Bits *****************
+ Defined at:
+		line 169 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  data            2   22[COMRAM] unsigned int 
+  firstData       2   20[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+                  2   18[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_readFirstByte
+		_readICSP
+ This function is called by:
+		_flashReadBlock
+ This function uses a non-reentrant model
+
+
+ *************** function _readICSP *****************
+ Defined at:
+		line 25 in file "../src/PIC18/ICSP.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  data            2   16[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+                  2   14[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_readBits
+		_writeBits
+ This function is called by:
+		_flashRead16Bits
+		_readDeviceID1
+		_readDeviceID2
+		_flashRead8Bits
+ This function uses a non-reentrant model
+
+
+ *************** function _readFirstByte *****************
+ Defined at:
+		line 34 in file "../src/PIC18/ICSP.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  data            2   16[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+                  2   14[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_readBits
+		_writeBits
+ This function is called by:
+		_flashRead16Bits
+ This function uses a non-reentrant model
+
+
+ *************** function _readBits *****************
+ Defined at:
+		line 52 in file "../src/PIC18/ICSP.c"
+ Parameters:    Size  Location     Type
+  bitsToRead      2    7[COMRAM] int 
+ Auto vars:     Size  Location     Type
+  data            2   12[COMRAM] unsigned int 
+  i               2   10[COMRAM] int 
+ Return value:  Size  Location     Type
+                  2    7[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0
+      Totals:         7       0       0       0       0       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_readBit
+ This function is called by:
+		_readICSP
+		_readFirstByte
+ This function uses a non-reentrant model
+
+
+ *************** function _readBit *****************
+ Defined at:
+		line 44 in file "../src/PIC18/ICSP.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  data            2    5[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+                  2    3[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_PGC_high
+		_PGC_low
+		_readPGD
+ This function is called by:
+		_readBits
+ This function uses a non-reentrant model
+
+
+ *************** function _readPGD *****************
+ Defined at:
+		line 6 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  2    0[COMRAM] unsigned int 
+ Registers used:
+		wreg, status,2
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          1       0       0       0       0       0       0
+      Totals:         3       0       0       0       0       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_readBit
+ This function uses a non-reentrant model
+
+
+ *************** function _exit_HVP *****************
+ Defined at:
+		line 57 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_MCLR_low
+		_PGC_low
+		_PGD_low
+		_PGM_low
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _PGM_low *****************
+ Defined at:
+		line 30 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_exit_HVP
+ This function uses a non-reentrant model
+
+
+ *************** function _enter_HVP *****************
+ Defined at:
+		line 49 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_MCLR_high
+		_MCLR_low
+		_PGC_low
+		_PGD_low
+		_PGM_high
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _PGM_high *****************
+ Defined at:
+		line 34 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_enter_HVP
+ This function uses a non-reentrant model
+
+
+ *************** function _PGD_low *****************
+ Defined at:
+		line 18 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_writePGD
+ This function is called by:
+		_enter_HVP
+		_exit_HVP
+		_flashWriteAndProgram
+		_rowErase
+		_flashWrite8Bits
+ This function uses a non-reentrant model
+
+
+ *************** function _MCLR_low *****************
+ Defined at:
+		line 38 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_writePGD
+ This function is called by:
+		_enter_HVP
+		_exit_HVP
+ This function uses a non-reentrant model
+
+
+ *************** function _MCLR_high *****************
+ Defined at:
+		line 45 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_enter_HVP
+ This function uses a non-reentrant model
+
+
+ *************** function _enableWrite *****************
+ Defined at:
+		line 112 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_writeICSP
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _bulkErase *****************
+ Defined at:
+		line 65 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               2   17[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_writeBits
+		_writeICSP
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _writeICSP *****************
+ Defined at:
+		line 5 in file "../src/PIC18/ICSP.c"
+ Parameters:    Size  Location     Type
+  commandByte     2   13[COMRAM] unsigned int 
+  dataBytes       2   15[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         4       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         4       0       0       0       0       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_writeBits
+ This function is called by:
+		_bulkErase
+		_enableWrite
+		_flashSetAddress
+		_writeToBuffer
+		_flashWriteAndProgram
+		_rowErase
+		_readDeviceID1
+		_readDeviceID2
+		_flashWrite8Bits
+ This function uses a non-reentrant model
+
+
+ *************** function _writeBits *****************
+ Defined at:
+		line 16 in file "../src/PIC18/ICSP.c"
+ Parameters:    Size  Location     Type
+  pattern         2    4[COMRAM] unsigned int 
+  bitsToWrite     2    6[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  i               2   11[COMRAM] int 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         4       0       0       0       0       0       0
+      Locals:         2       0       0       0       0       0       0
+      Temps:          3       0       0       0       0       0       0
+      Totals:         9       0       0       0       0       0       0
+Total ram usage:        9 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_writeBit
+ This function is called by:
+		_bulkErase
+		_flashWriteAndProgram
+		_rowErase
+		_writeICSP
+		_readICSP
+		_readFirstByte
+		_flashWrite8Bits
+ This function uses a non-reentrant model
+
+
+ *************** function _writeBit *****************
+ Defined at:
+		line 10 in file "../src/PIC18/ICSP.c"
+ Parameters:    Size  Location     Type
+  bitToWrite      2    2[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_PGC_high
+		_PGC_low
+		_writePGD
+ This function is called by:
+		_writeBits
+ This function uses a non-reentrant model
+
+
+ *************** function _writePGD *****************
+ Defined at:
+		line 10 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+  data            2    0[COMRAM] int 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         2       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         2       0       0       0       0       0       0
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_PGD_low
+		_MCLR_low
+		_writeBit
+		_PGD_high
+ This function uses a non-reentrant model
+
+
+ *************** function _PGC_low *****************
+ Defined at:
+		line 26 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_enter_HVP
+		_exit_HVP
+		_flashWriteAndProgram
+		_rowErase
+		_writeBit
+		_readBit
+		_flashWrite8Bits
+ This function uses a non-reentrant model
+
+
+ *************** function _PGC_high *****************
+ Defined at:
+		line 22 in file "../src/PIC18/FlashProg.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		None
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+      Params:         0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_flashWriteAndProgram
+		_rowErase
+		_writeBit
+		_readBit
+		_flashWrite8Bits
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+../src/PIC18/Main.c
+		_main          		CODE           	7916	0000	654
+		_trisInit      		CODE           	6F2E	0000	10
+
+../src/PIC18/Main.c estimated size: 664
+
+../src/PIC18/FlashProg.c
+		_MCLR_high     		CODE           	6F22	0000	4
+		_enter_HVP     		CODE           	6FA0	0000	22
+		_writePGD      		CODE           	6F38	0000	12
+		_flashWriteAndP		CODE           	71B8	0000	134
+		_writeToBuffer 		CODE           	6FB6	0000	22
+		_flashSetAddres		CODE           	746A	0000	228
+		_PGC_low       		CODE           	6F1E	0000	4
+		_PGD_low       		CODE           	6F44	0000	14
+		_readPGD       		CODE           	6F76	0000	20
+		_bulkErase     		CODE           	779A	0000	380
+		_enableWrite   		CODE           	7032	0000	42
+		_flashWriteBloc		CODE           	754E	0000	294
+		_PGC_high      		CODE           	6F1A	0000	4
+		_flashReadBlock		CODE           	723E	0000	144
+		_exit_HVP      		CODE           	6F64	0000	18
+		_MCLR_low      		CODE           	6F52	0000	18
+		_PGM_low       		CODE           	6F2A	0000	4
+		_flashRead16Bit		CODE           	705C	0000	46
+		_PGM_high      		CODE           	6F26	0000	4
+		_rowErase      		CODE           	7674	0000	294
+
+../src/PIC18/FlashProg.c estimated size: 1708
+
+../src/PIC18/FlashWrite.c
+		_flashWriteData		CODE           	7BA4	0000	1116
+		_overwriteBuffe		CODE           	7390	0000	218
+		_loadHalfBuffer		CODE           	72CE	0000	194
+
+../src/PIC18/FlashWrite.c estimated size: 1528
+
+shared
+		__initializatio		CODE           	6FEA	0000	24
+
+shared estimated size: 24
+
+../src/PIC18/ICSP.c
+		_readBit       		CODE           	6FCC	0000	30
+		_readBits      		CODE           	7160	0000	88
+		_writeBit      		CODE           	6F8A	0000	22
+		_writeBits     		CODE           	708A	0000	68
+		_writeICSP     		CODE           	7008	0000	42
+		_readICSP      		CODE           	70CE	0000	70
+		_readFirstByte 		CODE           	7114	0000	76
+
+../src/PIC18/ICSP.c estimated size: 396
+

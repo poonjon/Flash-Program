@@ -42,7 +42,6 @@
 #define _MCLR PORTDbits.RD7
 #define setICSPDataPinAsInput (TRISDbits.TRISD4 = 1)
 #define setICSPDataPinAsOutput (TRISDbits.TRISD4 = 0)
-#define defaultTable flashSetAddress(0x00, 0x00, 0x00)
 
 uint16 readPGD();
 void writePGD(int data);

@@ -1,0 +1,536 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4520 ]
+[d frameptr 4065 ]
+"6 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+[v _readPGD readPGD `(ui  1 e 2 0 ]
+"10
+[v _writePGD writePGD `(v  1 e 0 0 ]
+"14
+[v _PGD_high PGD_high `(v  1 e 0 0 ]
+"18
+[v _PGD_low PGD_low `(v  1 e 0 0 ]
+"22
+[v _PGC_high PGC_high `(v  1 e 0 0 ]
+"26
+[v _PGC_low PGC_low `(v  1 e 0 0 ]
+"30
+[v _PGM_low PGM_low `(v  1 e 0 0 ]
+"34
+[v _PGM_high PGM_high `(v  1 e 0 0 ]
+"38
+[v _MCLR_low MCLR_low `(v  1 e 0 0 ]
+"45
+[v _MCLR_high MCLR_high `(v  1 e 0 0 ]
+"49
+[v _enter_HVP enter_HVP `(v  1 e 0 0 ]
+"57
+[v _exit_HVP exit_HVP `(v  1 e 0 0 ]
+"65
+[v _bulkErase bulkErase `(v  1 e 0 0 ]
+"87
+[v _readDeviceID1 readDeviceID1 `(v  1 e 0 0 ]
+"99
+[v _readDeviceID2 readDeviceID2 `(v  1 e 0 0 ]
+"112
+[v _enableWrite enableWrite `(v  1 e 0 0 ]
+"117
+[v _flashSetAddress flashSetAddress `(v  1 e 0 0 ]
+"134
+[v _writeToBuffer writeToBuffer `(v  1 e 0 0 ]
+"138
+[v _flashWriteAndProgram flashWriteAndProgram `(v  1 e 0 0 ]
+"154
+[v _flashWrite8Bits flashWrite8Bits `(v  1 e 0 0 ]
+"169
+[v _flashRead16Bits flashRead16Bits `(ui  1 e 2 0 ]
+"181
+[v _flashRead8Bits flashRead8Bits `(uc  1 e 1 0 ]
+"189
+[v _flashReadBlock flashReadBlock `(v  1 e 0 0 ]
+"201
+[v _flashWriteBlock flashWriteBlock `(v  1 e 0 0 ]
+"220
+[v _flashWriteHalfBlock flashWriteHalfBlock `(v  1 e 0 0 ]
+"236
+[v _rowErase rowErase `(v  1 e 0 0 ]
+"11 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashWrite.c
+[v _flashWriteData flashWriteData `(i  1 e 2 0 ]
+"57
+[v _overwriteBufferData overwriteBufferData `(i  1 e 2 0 ]
+"82
+[v _loadHalfBuffer loadHalfBuffer `(v  1 e 0 0 ]
+"5 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/ICSP.c
+[v _writeICSP writeICSP `(v  1 e 0 0 ]
+"10
+[v _writeBit writeBit `(v  1 e 0 0 ]
+"16
+[v _writeBits writeBits `(v  1 e 0 0 ]
+"25
+[v _readICSP readICSP `(ui  1 e 2 0 ]
+"34
+[v _readFirstByte readFirstByte `(ui  1 e 2 0 ]
+"44
+[v _readBit readBit `(ui  1 e 2 0 ]
+"52
+[v _readBits readBits `(ui  1 e 2 0 ]
+"22 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/Main.c
+[v _trisInit trisInit `(v  1 e 0 0 ]
+"29
+[v _main main `(v  1 e 0 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
+[v ___abdiv __abdiv `(c  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abmod.c
+[v ___abmod __abmod `(c  1 e 1 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abtofl.c
+[v ___abtofl __abtofl `(d  1 e 3 0 ]
+"33 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abtoft.c
+[v ___abtoft __abtoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"36 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altofl.c
+[v ___altofl __altofl `(d  1 e 3 0 ]
+"42 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atdiv.c
+[v ___atdiv __atdiv `(m  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atmod.c
+[v ___atmod __atmod `(m  1 e 3 0 ]
+"37 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\attofl.c
+[v ___attofl __attofl `(d  1 e 3 0 ]
+"37 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\attoft.c
+[v ___attoft __attoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"31 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtofl.c
+[v ___awtofl __awtofl `(d  1 e 3 0 ]
+"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+"63 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\double.c
+[v ___flpack __flpack `(d  1 e 3 0 ]
+"88 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fladd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fldiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flge.c
+[v ___flge __flge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flneg.c
+[v ___flneg __flneg `(d  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flsub.c
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"43 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"27 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbtofl.c
+[v ___lbtofl __lbtofl `(d  1 e 3 0 ]
+"27 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c
+[v ___llmod __llmod `(ul  1 e 4 0 ]
+"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltofl.c
+[v ___lltofl __lltofl `(d  1 e 3 0 ]
+"35 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltdiv.c
+[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltmod.c
+[v ___ltmod __ltmod `(um  1 e 3 0 ]
+"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lttofl.c
+[v ___lttofl __lttofl `(d  1 e 3 0 ]
+"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lttoft.c
+[v ___lttoft __lttoft `(f  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtofl.c
+[v ___lwtofl __lwtofl `(d  1 e 3 0 ]
+"28 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asfladd.c
+[v ___asfladd __asfladd `(d  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asfldiv.c
+[v ___asfldiv __asfldiv `(d  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asflmul.c
+[v ___asflmul __asflmul `(d  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asflsub.c
+[v ___asflsub __asflsub `(d  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftadd.c
+[v ___asftadd __asftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftdiv.c
+[v ___asftdiv __asftdiv `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftmul.c
+[v ___asftmul __asftmul `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftsub.c
+[v ___asftsub __asftsub `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\aslmul.c
+[v ___aslmul __aslmul `(ul  1 e 4 0 ]
+"6 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashWrite.c
+[v _halfBuffer1 halfBuffer1 `[16]ui  1 e 32 0 ]
+"7
+[v _halfBuffer2 halfBuffer2 `[16]ui  1 e 32 0 ]
+"8
+[v _blockBuffer blockBuffer `[32]ui  1 e 64 0 ]
+[s S21 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"666 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f4520.h
+[s S30 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S39 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 P1B 1 0 :1:5 
+`uc 1 P1C 1 0 :1:6 
+`uc 1 P1D 1 0 :1:7 
+]
+[s S44 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S47 . 1 `S21 1 . 1 0 `S30 1 . 1 0 `S39 1 . 1 0 `S44 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES47  1 e 1 @3971 ]
+[s S182 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"2423
+[u S200 . 1 `S182 1 . 1 0 `S21 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES200  1 e 1 @3989 ]
+"29 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/Main.c
+[v _main main `(v  1 e 0 0 ]
+{
+"43
+[v main@blockWrite5 blockWrite5 `[32]ui  1 a 64 64 ]
+"38
+[v main@blockRead blockRead `[32]ui  1 a 64 0 ]
+"42
+[v main@blockWrite4 blockWrite4 `[16]ui  1 a 32 64 ]
+"41
+[v main@blockWrite3 blockWrite3 `[16]ui  1 a 32 32 ]
+"40
+[v main@blockWrite2 blockWrite2 `[16]ui  1 a 32 0 ]
+"39
+[v main@blockWrite blockWrite `[16]ui  1 a 32 222 ]
+"37
+[v main@address address `ul  1 a 4 73 ]
+"30
+[v main@i i `i  1 a 2 254 ]
+"35
+[v main@newData4 newData4 `ui  1 a 2 87 ]
+"34
+[v main@newData3 newData3 `ui  1 a 2 85 ]
+"33
+[v main@newData2 newData2 `ui  1 a 2 83 ]
+"32
+[v main@newData newData `ui  1 a 2 81 ]
+"31
+[v main@data data `ui  1 a 2 79 ]
+"36
+[v main@newData5 newData5 `ui  1 a 2 77 ]
+"81
+} 0
+"22
+[v _trisInit trisInit `(v  1 e 0 0 ]
+{
+"27
+} 0
+"11 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashWrite.c
+[v _flashWriteData flashWriteData `(i  1 e 2 0 ]
+{
+"17
+[v flashWriteData@newData newData `[100]ui  1 a 200 0 ]
+"14
+[v flashWriteData@newAddress newAddress `ul  1 a 4 216 ]
+"12
+[v flashWriteData@i i `i  1 a 2 220 ]
+[v flashWriteData@bytesWritten bytesWritten `i  1 a 2 214 ]
+"16
+[v flashWriteData@currentStartPoint currentStartPoint `ui  1 a 2 212 ]
+[v flashWriteData@memoryBlock memoryBlock `ui  1 a 2 210 ]
+"15
+[v flashWriteData@newSize newSize `ui  1 a 2 208 ]
+"12
+[v flashWriteData@k k `i  1 a 2 206 ]
+[v flashWriteData@timesToWrite timesToWrite `i  1 a 2 204 ]
+[v flashWriteData@nextDataSet nextDataSet `i  1 a 2 202 ]
+"13
+[v flashWriteData@j j `i  1 a 2 200 ]
+"11
+[v flashWriteData@data data `*.39ui  1 p 2 55 ]
+[v flashWriteData@size size `ui  1 p 2 57 ]
+[v flashWriteData@address address `ul  1 p 4 59 ]
+"55
+} 0
+"236 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+[v _rowErase rowErase `(v  1 e 0 0 ]
+{
+"237
+[v rowErase@i i `i  1 a 2 41 ]
+"236
+[v rowErase@address address `ul  1 p 4 37 ]
+"257
+} 0
+"57 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashWrite.c
+[v _overwriteBufferData overwriteBufferData `(i  1 e 2 0 ]
+{
+"59
+[v overwriteBufferData@i i `i  1 a 2 26 ]
+"58
+[v overwriteBufferData@availableWriteSpace availableWriteSpace `i  1 a 2 24 ]
+[v overwriteBufferData@start start `i  1 a 2 22 ]
+[v overwriteBufferData@bytesWritten bytesWritten `i  1 a 2 20 ]
+[v overwriteBufferData@bytesLeft bytesLeft `i  1 a 2 18 ]
+"59
+[v overwriteBufferData@j j `i  1 a 2 16 ]
+"57
+[v overwriteBufferData@data data `*.39ui  1 p 2 8 ]
+[v overwriteBufferData@sizeToWrite sizeToWrite `ui  1 p 2 10 ]
+[v overwriteBufferData@bufferStartPoint bufferStartPoint `ui  1 p 2 12 ]
+"80
+} 0
+"82
+[v _loadHalfBuffer loadHalfBuffer `(v  1 e 0 0 ]
+{
+"83
+[v loadHalfBuffer@i i `i  1 a 2 6 ]
+[v loadHalfBuffer@j j `i  1 a 2 4 ]
+"94
+} 0
+"201 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+[v _flashWriteBlock flashWriteBlock `(v  1 e 0 0 ]
+{
+"203
+[v flashWriteBlock@blockSelect blockSelect `ul  1 a 4 49 ]
+"202
+[v flashWriteBlock@i i `i  1 a 2 53 ]
+"201
+[v flashWriteBlock@firstHalf firstHalf `*.39ui  1 p 2 37 ]
+[v flashWriteBlock@secondHalf secondHalf `*.39ui  1 p 2 39 ]
+[v flashWriteBlock@blockNumber blockNumber `ul  1 p 4 41 ]
+"218
+} 0
+"134
+[v _writeToBuffer writeToBuffer `(v  1 e 0 0 ]
+{
+[v writeToBuffer@data data `ui  1 p 2 17 ]
+"136
+} 0
+"138
+[v _flashWriteAndProgram flashWriteAndProgram `(v  1 e 0 0 ]
+{
+"139
+[v flashWriteAndProgram@i i `i  1 a 2 19 ]
+"138
+[v flashWriteAndProgram@data data `ui  1 p 2 17 ]
+"152
+} 0
+"189
+[v _flashReadBlock flashReadBlock `(v  1 e 0 0 ]
+{
+"191
+[v flashReadBlock@blockSelect blockSelect `ul  1 a 4 49 ]
+"190
+[v flashReadBlock@i i `i  1 a 2 53 ]
+"189
+[v flashReadBlock@data data `*.39ui  1 p 2 37 ]
+[v flashReadBlock@size size `ui  1 p 2 39 ]
+[v flashReadBlock@blockNumber blockNumber `ul  1 p 4 41 ]
+"199
+} 0
+"117
+[v _flashSetAddress flashSetAddress `(v  1 e 0 0 ]
+{
+"120
+[v flashSetAddress@lowAddr lowAddr `ul  1 a 4 33 ]
+"119
+[v flashSetAddress@highAddr highAddr `ul  1 a 4 29 ]
+"118
+[v flashSetAddress@upperAddr upperAddr `ul  1 a 4 25 ]
+"117
+[v flashSetAddress@address address `ul  1 p 4 17 ]
+"132
+} 0
+"169
+[v _flashRead16Bits flashRead16Bits `(ui  1 e 2 0 ]
+{
+"170
+[v flashRead16Bits@data data `ui  1 a 2 22 ]
+"171
+[v flashRead16Bits@firstData firstData `ui  1 a 2 20 ]
+"179
+} 0
+"25 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/ICSP.c
+[v _readICSP readICSP `(ui  1 e 2 0 ]
+{
+"26
+[v readICSP@data data `ui  1 a 2 16 ]
+"32
+} 0
+"34
+[v _readFirstByte readFirstByte `(ui  1 e 2 0 ]
+{
+"35
+[v readFirstByte@data data `ui  1 a 2 16 ]
+"42
+} 0
+"52
+[v _readBits readBits `(ui  1 e 2 0 ]
+{
+"54
+[v readBits@data data `ui  1 a 2 12 ]
+"53
+[v readBits@i i `i  1 a 2 10 ]
+"52
+[v readBits@bitsToRead bitsToRead `i  1 p 2 7 ]
+"63
+} 0
+"44
+[v _readBit readBit `(ui  1 e 2 0 ]
+{
+"45
+[v readBit@data data `ui  1 a 2 5 ]
+"50
+} 0
+"6 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+[v _readPGD readPGD `(ui  1 e 2 0 ]
+{
+"8
+} 0
+"57
+[v _exit_HVP exit_HVP `(v  1 e 0 0 ]
+{
+"63
+} 0
+"30
+[v _PGM_low PGM_low `(v  1 e 0 0 ]
+{
+"32
+} 0
+"49
+[v _enter_HVP enter_HVP `(v  1 e 0 0 ]
+{
+"55
+} 0
+"34
+[v _PGM_high PGM_high `(v  1 e 0 0 ]
+{
+"36
+} 0
+"18
+[v _PGD_low PGD_low `(v  1 e 0 0 ]
+{
+"20
+} 0
+"38
+[v _MCLR_low MCLR_low `(v  1 e 0 0 ]
+{
+"43
+} 0
+"45
+[v _MCLR_high MCLR_high `(v  1 e 0 0 ]
+{
+"47
+} 0
+"112
+[v _enableWrite enableWrite `(v  1 e 0 0 ]
+{
+"115
+} 0
+"65
+[v _bulkErase bulkErase `(v  1 e 0 0 ]
+{
+"66
+[v bulkErase@i i `i  1 a 2 17 ]
+"85
+} 0
+"5 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/ICSP.c
+[v _writeICSP writeICSP `(v  1 e 0 0 ]
+{
+[v writeICSP@commandByte commandByte `ui  1 p 2 13 ]
+[v writeICSP@dataBytes dataBytes `ui  1 p 2 15 ]
+"8
+} 0
+"16
+[v _writeBits writeBits `(v  1 e 0 0 ]
+{
+"17
+[v writeBits@i i `i  1 a 2 11 ]
+"16
+[v writeBits@pattern pattern `ui  1 p 2 4 ]
+[v writeBits@bitsToWrite bitsToWrite `ui  1 p 2 6 ]
+"23
+} 0
+"10
+[v _writeBit writeBit `(v  1 e 0 0 ]
+{
+[v writeBit@bitToWrite bitToWrite `ui  1 p 2 2 ]
+"14
+} 0
+"10 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+[v _writePGD writePGD `(v  1 e 0 0 ]
+{
+[v writePGD@data data `i  1 p 2 0 ]
+"12
+} 0
+"26
+[v _PGC_low PGC_low `(v  1 e 0 0 ]
+{
+"28
+} 0
+"22
+[v _PGC_high PGC_high `(v  1 e 0 0 ]
+{
+"24
+} 0

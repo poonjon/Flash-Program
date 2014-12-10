@@ -5067,8 +5067,12 @@ extern uint16 halfBuffer1[16];
 extern uint16 halfBuffer2[16];
 extern uint16 blockBuffer[32];
 
+
+
+
 int flashWriteData(uint16 *data, uint16 size, uint32 address);
 int overwriteBufferData(uint16 *data, uint16 sizeToWrite, uint16 bufferStartPoint);
+void loadHalfBuffer();
 
 # 9 "../src/PIC18/FlashProg.h"
 uint16 readPGD();
@@ -5121,40 +5125,48 @@ uint16 blockBuffer[32];
 
 
 int flashWriteData(uint16 *data, uint16 size, uint32 address){
-int i, bytesWritten, startPoint;
+int i, k, bytesWritten = 0, timesToWrite = 1, nextDataSet;
 int j = 16;
-uint32 newAddress;
-uint16 newSize, memoryBlock;
+uint32 newAddress = address;
+uint16 newSize = size;
+uint16 memoryBlock, currentStartPoint;
 uint16 newData[100];
 
-memoryBlock = (address/64)+1;
+for(i = 0 ; i < size ; i++){
+newData[i] = data[i];
+}
 
+currentStartPoint = (address - ((address/64)*64))/2;
+if((size+currentStartPoint) > 32){
+i = (size+currentStartPoint) - 32;
+timesToWrite++;
+while(i > 32){
+i = i - 32;
+timesToWrite++;
+}
+}
+
+for(i = 0 ; i < timesToWrite ; i++){
+memoryBlock = (newAddress/64)+1;
 flashReadBlock(blockBuffer, 64, memoryBlock);
-for(i = 0 ; i < 16 ; i++){
-halfBuffer1[i] = blockBuffer[i];
-}
-for(i = 0 ; i < 16 ; i++){
-halfBuffer2[i] = blockBuffer[j];
-j++;
-}
+loadHalfBuffer();
+bytesWritten = bytesWritten + (overwriteBufferData(newData, newSize, currentStartPoint));
 
-startPoint = (address - ((address/64)*64))/2;
-bytesWritten = overwriteBufferData(data, size, startPoint);
-
-rowErase((address/64)*64);
-flashSetAddress((address/64)*64);
+rowErase((newAddress/64)*64);
+flashSetAddress((newAddress/64)*64);
 flashWriteBlock(halfBuffer1, halfBuffer2, memoryBlock);
 
 if(bytesWritten < size){
+nextDataSet = bytesWritten;
 newAddress = (memoryBlock*64);
 newSize = size - bytesWritten;
-for(i = 0 ; i < newSize ; i++){
-newData[i] = data[bytesWritten];
-bytesWritten++;
+currentStartPoint = (newAddress - ((newAddress/64)*64))/2;
+for(k = 0 ; k < newSize ; k++){
+newData[k] = data[nextDataSet];
+nextDataSet++;
 }
-flashWriteData(newData, newSize, newAddress);
 }
-
+}
 return bytesWritten;
 }
 
@@ -5177,6 +5189,15 @@ bytesWritten = sizeToWrite - bytesLeft;
 else
 bytesWritten = sizeToWrite;
 
+loadHalfBuffer();
+
+return bytesWritten;
+
+}
+
+void loadHalfBuffer(){
+int i, j = 16;
+
 for(i = 0 ; i < 16 ; i++){
 halfBuffer1[i] = blockBuffer[i];
 }
@@ -5185,7 +5206,6 @@ halfBuffer2[i] = blockBuffer[j];
 j++;
 }
 
-return bytesWritten;
 
 }
 

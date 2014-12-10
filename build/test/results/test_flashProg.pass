@@ -36,23 +36,32 @@
 - :test: test_enableWrite
   :line: 130
   :message: ''
-- :test: test_flashWriteAndProgram_2bytes_of_data
+- :test: test_flashSetAddress_should_select_0x102030
   :line: 136
   :message: ''
 - :test: test_flashWriteToBuffer_2bytes_of_data
-  :line: 145
+  :line: 148
   :message: ''
-- :test: test_flashSetAddress_should_select_0x102030
-  :line: 152
+- :test: test_flashWriteAndProgram_2bytes_of_data
+  :line: 155
+  :message: ''
+- :test: test_flashRead16Bits_should_read_2bytes_and_return_0x1001
+  :line: 164
+  :message: ''
+- :test: test_flashReadBlock_should_read_64bits
+  :line: 174
+  :message: ''
+- :test: test_flashWriteBlock_should_write
+  :line: 185
   :message: ''
 - :test: test_rowErase_should_erase_row
-  :line: 164
+  :line: 204
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 15
-  :passed: 15
+  :total: 18
+  :passed: 18
   :failed: 0
   :ignored: 0
 :stdout: []

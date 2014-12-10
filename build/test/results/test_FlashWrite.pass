@@ -39,14 +39,17 @@
 - :test: test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return_35
   :line: 472
   :message: ''
-- :test: test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_return_50
+- :test: test_flashWriteData_should_write_0_to_63_from_address_0_to_126_should_return_64
   :line: 509
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_34_from_address_62_to_130_should_return_50
+  :line: 575
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 13
-  :passed: 13
+  :total: 14
+  :passed: 14
   :failed: 0
   :ignored: 0
 :stdout:

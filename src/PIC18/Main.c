@@ -28,41 +28,41 @@ void trisInit(){
 
 void main(){
   int i;
-  uint16 data = 0x0000;
-  uint16 newData = 0x1000;
-  uint16 newData2 = 0x1000;
-  uint16 newData3 = 0x1000;
-  uint16 newData4 = 0x1000;
-  uint16 newData5 = 0x5000;
+  uint16 data0 = 0x0000;
+  uint16 data1 = 0x1000;
+  uint16 data2 = 0x2000;
+  uint16 data3 = 0x3000;
+  uint16 data4 = 0x1000;
+  uint16 data5 = 0x5000;
   uint32 address = 0x000000;
   uint16 blockRead[32];
-  uint16 blockWrite[16];
+  uint16 blockWrite0[16];
+  uint16 blockWrite1[16];
   uint16 blockWrite2[16];
   uint16 blockWrite3[16];
-  uint16 blockWrite4[16];
-  uint16 blockWrite5[32];
+  uint16 blockWrite5[64];
   uint16 incomingData[4];
 
   for(i = 0 ; i < 16 ; i++){
-      blockWrite[i] = data;
-      data++;
+      blockWrite0[i] = data0;
+      data0++;
   }
   for(i = 0 ; i < 16 ; i++){
-      blockWrite2[i] = newData;
-      newData++;
+      blockWrite1[i] = data1;
+      data1++;
   }
 
   for(i = 0 ; i < 16 ; i++){
-      blockWrite3[i] = newData2;
-      newData2++;
+      blockWrite2[i] = data2;
+      data2++;
   }
   for(i = 0 ; i < 16 ; i++){
-      blockWrite4[i] = newData3;
-      newData3++;
+      blockWrite3[i] = data3;
+      data3++;
   }
-  for(i = 0 ; i < 32 ; i++){
-      blockWrite5[i] = newData4;
-      newData4++;
+  for(i = 0 ; i < 64 ; i++){
+      blockWrite5[i] = data5;
+      data5++;
   }
 
   trisInit();
@@ -70,11 +70,14 @@ void main(){
   
   bulkErase();
   enableWrite();
-  flashWriteBlock(blockWrite, blockWrite2, 1);
-  flashWriteBlock(blockWrite3, blockWrite4, 2);
-
-  flashWriteData(blockWrite5, 62, 0);
-  flashReadBlock(blockRead, 62, 0);
+ 
+  flashWriteBlock(blockWrite0, blockWrite1, 1);
+  flashWriteBlock(blockWrite2, blockWrite3, 2);
+  flashReadBlock(blockRead, 64, 1);
+  flashReadBlock(blockRead, 64, 2);
+  flashWriteData(blockWrite5, 64, 0);
+  flashReadBlock(blockRead, 64, 1);
+  flashReadBlock(blockRead, 64, 2);
   exit_HVP();
 
   while(1){}

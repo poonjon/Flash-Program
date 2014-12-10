@@ -86,7 +86,7 @@ void writeMock(uint16 data){
 
 
 
-void write8Mock(uint16 data){
+void writeProgramMock(uint16 data){
 
 
 
@@ -264,53 +264,21 @@ void test_enableWrite(){
 
 
 
-void test_flashWriteAndProgram_2bytes_of_data(){
-
-
-
-  writeICSP_CMockExpect(138, 0xf, 0x5342);
-
-  writeBits_CMockExpect(139, 0x0, 3);
-
-  writeBits_CMockExpect(140, 0x0, 16);
-
-
-
-  flashWriteAndProgram(0x5342);
-
-}
-
-
-
-void test_flashWriteToBuffer_2bytes_of_data(){
-
-
-
-  writeICSP_CMockExpect(147, 0xd, 0x5342);
-
-
-
-  writeToBuffer(0x5342);
-
-}
-
-
-
 void test_flashSetAddress_should_select_0x102030(){
 
 
 
-  writeICSP_CMockExpect(154, 0x0, 0x0e00|0x10);
+  writeICSP_CMockExpect(138, 0x0, 0x0e00|0x10);
 
-  writeICSP_CMockExpect(155, 0x0, 0x6ef8);
+  writeICSP_CMockExpect(139, 0x0, 0x6ef8);
 
-  writeICSP_CMockExpect(156, 0x0, 0x0e00|0x20);
+  writeICSP_CMockExpect(140, 0x0, 0x0e00|0x20);
 
-  writeICSP_CMockExpect(157, 0x0, 0x6ef7);
+  writeICSP_CMockExpect(141, 0x0, 0x6ef7);
 
-  writeICSP_CMockExpect(158, 0x0, 0x0e00|0x30);
+  writeICSP_CMockExpect(142, 0x0, 0x0e00|0x30);
 
-  writeICSP_CMockExpect(159, 0x0, 0x6ef6);
+  writeICSP_CMockExpect(143, 0x0, 0x6ef6);
 
   flashSetAddress(0x102030);
 
@@ -320,39 +288,151 @@ void test_flashSetAddress_should_select_0x102030(){
 
 
 
+void test_flashWriteToBuffer_2bytes_of_data(){
+
+
+
+  writeICSP_CMockExpect(150, 0xd, 0x5342);
+
+
+
+  writeToBuffer(0x5342);
+
+}
+
+
+
+void test_flashWriteAndProgram_2bytes_of_data(){
+
+
+
+  writeICSP_CMockExpect(157, 0xf, 0x5342);
+
+  writeBits_CMockExpect(158, 0x0, 3);
+
+  writeBits_CMockExpect(159, 0x0, 16);
+
+
+
+  flashWriteAndProgram(0x5342);
+
+}
+
+
+
+void test_flashRead16Bits_should_read_2bytes_and_return_0x1001(){
+
+  uint16 data;
+
+
+
+  readICSP_CMockExpectAndReturn(167, 0x0001);
+
+  readFirstByte_CMockExpectAndReturn(168, 0x1000);
+
+
+
+  data = flashRead16Bits();
+
+  UnityAssertEqualNumber((_U_SINT)((0x1001)), (_U_SINT)((data)), (((void *)0)), (_U_UINT)171, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+void test_flashReadBlock_should_read_64bits(){
+
+  uint16 i, read[32];
+
+
+
+  addressMock(0x000000);
+
+  for(i = 0 ; i < 32 ; i++){
+
+    readICSP_CMockExpectAndReturn(179, 0x0000);
+
+    readFirstByte_CMockExpectAndReturn(180, 0x0000);
+
+  }
+
+  flashReadBlock(read, 64, 1);
+
+}
+
+
+
+void test_flashWriteBlock_should_write(){
+
+  int i, first[16] = {0}, second[16] = {0};
+
+
+
+  addressMock(0);
+
+  for(i = 0 ; i < 15 ; i++){
+
+    writeMock(first[i]);
+
+  }
+
+  writeProgramMock(first[15]);
+
+
+
+  addressMock(32);
+
+  for(i = 0 ; i < 15 ; i++){
+
+    writeMock(second[i]);
+
+  }
+
+  writeProgramMock(second[15]);
+
+
+
+  flashWriteBlock(first, second, 1);
+
+}
+
+
+
+
+
 void test_rowErase_should_erase_row(){
 
 
 
   uint32 address = 0x000000;
 
-  writeICSP_CMockExpect(167, 0x0, 0x8ea6);
+  writeICSP_CMockExpect(207, 0x0, 0x8ea6);
 
-  writeICSP_CMockExpect(168, 0x0, 0x9ca6);
+  writeICSP_CMockExpect(208, 0x0, 0x9ca6);
 
-  writeICSP_CMockExpect(169, 0x0, 0x84a6);
-
-
+  writeICSP_CMockExpect(209, 0x0, 0x84a6);
 
 
 
-  writeICSP_CMockExpect(172, 0x0, 0x6af8);
 
-  writeICSP_CMockExpect(173, 0x0, 0x6af7);
 
-  writeICSP_CMockExpect(174, 0x0, 0x6af6);
+  writeICSP_CMockExpect(212, 0x0, 0x6af8);
+
+  writeICSP_CMockExpect(213, 0x0, 0x6af7);
+
+  writeICSP_CMockExpect(214, 0x0, 0x6af6);
 
   addressMock(address);
 
 
 
-  writeICSP_CMockExpect(177, 0x0, 0x88a6);
+  writeICSP_CMockExpect(217, 0x0, 0x88a6);
 
-  writeICSP_CMockExpect(178, 0x0, 0x82a6);
+  writeICSP_CMockExpect(218, 0x0, 0x82a6);
 
-  writeBits_CMockExpect(179, 0x0, 3);
+  writeBits_CMockExpect(219, 0x0, 3);
 
-  writeBits_CMockExpect(180, 0x0, 16);
+  writeBits_CMockExpect(220, 0x0, 16);
 
 
 

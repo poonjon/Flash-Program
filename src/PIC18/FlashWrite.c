@@ -14,7 +14,7 @@ int flashWriteData(uint16 *data, uint16 size, uint32 address){
   uint32 newAddress = address;
   uint16 newSize = size;
   uint16 memoryBlock, currentStartPoint;
-  uint16 newData[300];
+  uint16 newData[100];
   
   for(i = 0 ; i < size ; i++){ //fill newData with incoming data
     newData[i] = data[i];

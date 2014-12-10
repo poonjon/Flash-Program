@@ -501,12 +501,78 @@ void test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return
 }
 
 /*
+** 0______________________________62_64___________________________126
+** |////////////////////////////////|////////////////////////////////|
+** |////////////////////////////////|////////////////////////////////|
+** |________________________________|________________________________
+*/
+void test_flashWriteData_should_write_0_to_63_from_address_0_to_126_should_return_64(){
+  int i, bytesWritten, data = 0;
+  uint16 incomingData[64];
+  *halfBuffer1 = 0;
+  *halfBuffer2 = 0;
+  *blockBuffer = 0;
+   
+  for(i = 0 ; i < 32 ; i++){
+    blockBuffer[i] = 0xaabb;
+  }
+  for(i = 0 ; i < 64 ; i++){
+    incomingData[i] = data;
+    data++;
+  }
+  flashReadBlock_Expect(blockBuffer, 64, 1);
+  rowErase_Expect(0x000000);
+  flashSetAddress_Expect(0);
+  flashWriteBlock_Expect(halfBuffer1, halfBuffer2, 1);
+  
+  flashReadBlock_Expect(blockBuffer, 64, 2);
+  rowErase_Expect(64);
+  flashSetAddress_Expect(64);
+  flashWriteBlock_Expect(halfBuffer1, halfBuffer2, 2);
+  bytesWritten = flashWriteData(incomingData, 64, 0);
+  
+  TEST_ASSERT_EQUAL(32, halfBuffer1[0]);  
+  TEST_ASSERT_EQUAL(33, halfBuffer1[1]);
+  TEST_ASSERT_EQUAL(34, halfBuffer1[2]);
+  TEST_ASSERT_EQUAL(35, halfBuffer1[3]);
+  TEST_ASSERT_EQUAL(36, halfBuffer1[4]);
+  TEST_ASSERT_EQUAL(37, halfBuffer1[5]);
+  TEST_ASSERT_EQUAL(38, halfBuffer1[6]);
+  TEST_ASSERT_EQUAL(39, halfBuffer1[7]);
+  TEST_ASSERT_EQUAL(40, halfBuffer1[8]); 
+  TEST_ASSERT_EQUAL(41, halfBuffer1[9]);
+  TEST_ASSERT_EQUAL(42, halfBuffer1[10]);
+  TEST_ASSERT_EQUAL(43, halfBuffer1[11]);
+  TEST_ASSERT_EQUAL(44, halfBuffer1[12]);
+  TEST_ASSERT_EQUAL(45, halfBuffer1[13]);
+  TEST_ASSERT_EQUAL(46, halfBuffer1[14]);
+  TEST_ASSERT_EQUAL(47, halfBuffer1[15]);  
+  TEST_ASSERT_EQUAL(48, halfBuffer2[0]);
+  TEST_ASSERT_EQUAL(49, halfBuffer2[1]);
+  TEST_ASSERT_EQUAL(50, halfBuffer2[2]);
+  TEST_ASSERT_EQUAL(51, halfBuffer2[3]);
+  TEST_ASSERT_EQUAL(52, halfBuffer2[4]);
+  TEST_ASSERT_EQUAL(53, halfBuffer2[5]);
+  TEST_ASSERT_EQUAL(54, halfBuffer2[6]);
+  TEST_ASSERT_EQUAL(55, halfBuffer2[7]);
+  TEST_ASSERT_EQUAL(56, halfBuffer2[8]); 
+  TEST_ASSERT_EQUAL(57, halfBuffer2[9]);
+  TEST_ASSERT_EQUAL(58, halfBuffer2[10]);
+  TEST_ASSERT_EQUAL(59, halfBuffer2[11]);
+  TEST_ASSERT_EQUAL(60, halfBuffer2[12]);
+  TEST_ASSERT_EQUAL(61, halfBuffer2[13]);
+  TEST_ASSERT_EQUAL(62, halfBuffer2[14]);
+  TEST_ASSERT_EQUAL(63, halfBuffer2[15]);
+  TEST_ASSERT_EQUAL(64, bytesWritten);
+}
+
+/*
 ** 0___________________________62_64_________________________126_128_________
 ** |                             /|//////////////////////////////|/
 ** |                             /|//////////////////////////////|/
 ** |______________________________|______________________________|____________
 */
-void test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_return_50(){
+void test_flashWriteData_should_write_0_to_34_from_address_62_to_130_should_return_50(){
   int i, bytesWritten, data = 0;
   uint16 incomingData[34];
   *halfBuffer1 = 0;
@@ -538,7 +604,38 @@ void test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_retu
   
   bytesWritten = flashWriteData(incomingData, 34, 62);
   
-  TEST_ASSERT_EQUAL(33, halfBuffer1[0]);
+  TEST_ASSERT_EQUAL(33, halfBuffer1[0]);  
+  TEST_ASSERT_EQUAL(2, halfBuffer1[1]);
+  TEST_ASSERT_EQUAL(3, halfBuffer1[2]);
+  TEST_ASSERT_EQUAL(4, halfBuffer1[3]);
+  TEST_ASSERT_EQUAL(5, halfBuffer1[4]);
+  TEST_ASSERT_EQUAL(6, halfBuffer1[5]);
+  TEST_ASSERT_EQUAL(7, halfBuffer1[6]);
+  TEST_ASSERT_EQUAL(8, halfBuffer1[7]);
+  TEST_ASSERT_EQUAL(9, halfBuffer1[8]); 
+  TEST_ASSERT_EQUAL(10, halfBuffer1[9]);
+  TEST_ASSERT_EQUAL(11, halfBuffer1[10]);
+  TEST_ASSERT_EQUAL(12, halfBuffer1[11]);
+  TEST_ASSERT_EQUAL(13, halfBuffer1[12]);
+  TEST_ASSERT_EQUAL(14, halfBuffer1[13]);
+  TEST_ASSERT_EQUAL(15, halfBuffer1[14]);
+  TEST_ASSERT_EQUAL(16, halfBuffer1[15]);  
+  TEST_ASSERT_EQUAL(17, halfBuffer2[0]);
+  TEST_ASSERT_EQUAL(18, halfBuffer2[1]);
+  TEST_ASSERT_EQUAL(19, halfBuffer2[2]);
+  TEST_ASSERT_EQUAL(20, halfBuffer2[3]);
+  TEST_ASSERT_EQUAL(21, halfBuffer2[4]);
+  TEST_ASSERT_EQUAL(22, halfBuffer2[5]);
+  TEST_ASSERT_EQUAL(23, halfBuffer2[6]);
+  TEST_ASSERT_EQUAL(24, halfBuffer2[7]);
+  TEST_ASSERT_EQUAL(25, halfBuffer2[8]); 
+  TEST_ASSERT_EQUAL(26, halfBuffer2[9]);
+  TEST_ASSERT_EQUAL(27, halfBuffer2[10]);
+  TEST_ASSERT_EQUAL(28, halfBuffer2[11]);
+  TEST_ASSERT_EQUAL(29, halfBuffer2[12]);
+  TEST_ASSERT_EQUAL(30, halfBuffer2[13]);
+  TEST_ASSERT_EQUAL(31, halfBuffer2[14]);
+  TEST_ASSERT_EQUAL(32, halfBuffer2[15]);
   TEST_ASSERT_EQUAL(34, bytesWritten);
 }
 

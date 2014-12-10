@@ -191,8 +191,8 @@ void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber){
   uint32 blockSelect;
 
   blockSelect = (blockNumber-1)*64;
-  flashSetAddress(blockSelect);
   
+  flashSetAddress(blockSelect);
   for(i = 0; i < size/2 ; i++){
     data[i] = flashRead16Bits();
   }
@@ -203,7 +203,7 @@ void flashWriteBlock(uint16 *firstHalf, uint16 *secondHalf, uint32 blockNumber){
   uint32 blockSelect;
 
   blockSelect = (blockNumber-1)*64;
-  flashSetAddress(blockSelect);
+  
   flashSetAddress(blockSelect);
   for(i = 0 ; i < 15 ; i++){
     writeToBuffer(firstHalf[i]);

@@ -1010,7 +1010,139 @@ void test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return
 
 
 
-void test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_return_50(){
+void test_flashWriteData_should_write_0_to_63_from_address_0_to_126_should_return_64(){
+
+  int i, bytesWritten, data = 0;
+
+  uint16 incomingData[64];
+
+  *halfBuffer1 = 0;
+
+  *halfBuffer2 = 0;
+
+  *blockBuffer = 0;
+
+
+
+  for(i = 0 ; i < 32 ; i++){
+
+    blockBuffer[i] = 0xaabb;
+
+  }
+
+  for(i = 0 ; i < 64 ; i++){
+
+    incomingData[i] = data;
+
+    data++;
+
+  }
+
+  flashReadBlock_CMockExpect(523, blockBuffer, 64, 1);
+
+  rowErase_CMockExpect(524, 0x000000);
+
+  flashSetAddress_CMockExpect(525, 0);
+
+  flashWriteBlock_CMockExpect(526, halfBuffer1, halfBuffer2, 1);
+
+
+
+  flashReadBlock_CMockExpect(528, blockBuffer, 64, 2);
+
+  rowErase_CMockExpect(529, 64);
+
+  flashSetAddress_CMockExpect(530, 64);
+
+  flashWriteBlock_CMockExpect(531, halfBuffer1, halfBuffer2, 2);
+
+  bytesWritten = flashWriteData(incomingData, 64, 0);
+
+
+
+  UnityAssertEqualNumber((_U_SINT)((32)), (_U_SINT)((halfBuffer1[0])), (((void *)0)), (_U_UINT)534, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((33)), (_U_SINT)((halfBuffer1[1])), (((void *)0)), (_U_UINT)535, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((34)), (_U_SINT)((halfBuffer1[2])), (((void *)0)), (_U_UINT)536, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((35)), (_U_SINT)((halfBuffer1[3])), (((void *)0)), (_U_UINT)537, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((36)), (_U_SINT)((halfBuffer1[4])), (((void *)0)), (_U_UINT)538, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((37)), (_U_SINT)((halfBuffer1[5])), (((void *)0)), (_U_UINT)539, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((38)), (_U_SINT)((halfBuffer1[6])), (((void *)0)), (_U_UINT)540, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((39)), (_U_SINT)((halfBuffer1[7])), (((void *)0)), (_U_UINT)541, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((40)), (_U_SINT)((halfBuffer1[8])), (((void *)0)), (_U_UINT)542, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((41)), (_U_SINT)((halfBuffer1[9])), (((void *)0)), (_U_UINT)543, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((42)), (_U_SINT)((halfBuffer1[10])), (((void *)0)), (_U_UINT)544, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((43)), (_U_SINT)((halfBuffer1[11])), (((void *)0)), (_U_UINT)545, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((44)), (_U_SINT)((halfBuffer1[12])), (((void *)0)), (_U_UINT)546, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((45)), (_U_SINT)((halfBuffer1[13])), (((void *)0)), (_U_UINT)547, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((46)), (_U_SINT)((halfBuffer1[14])), (((void *)0)), (_U_UINT)548, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((47)), (_U_SINT)((halfBuffer1[15])), (((void *)0)), (_U_UINT)549, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((48)), (_U_SINT)((halfBuffer2[0])), (((void *)0)), (_U_UINT)550, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((49)), (_U_SINT)((halfBuffer2[1])), (((void *)0)), (_U_UINT)551, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((50)), (_U_SINT)((halfBuffer2[2])), (((void *)0)), (_U_UINT)552, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((51)), (_U_SINT)((halfBuffer2[3])), (((void *)0)), (_U_UINT)553, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((52)), (_U_SINT)((halfBuffer2[4])), (((void *)0)), (_U_UINT)554, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((53)), (_U_SINT)((halfBuffer2[5])), (((void *)0)), (_U_UINT)555, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((54)), (_U_SINT)((halfBuffer2[6])), (((void *)0)), (_U_UINT)556, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((55)), (_U_SINT)((halfBuffer2[7])), (((void *)0)), (_U_UINT)557, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((56)), (_U_SINT)((halfBuffer2[8])), (((void *)0)), (_U_UINT)558, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((57)), (_U_SINT)((halfBuffer2[9])), (((void *)0)), (_U_UINT)559, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((58)), (_U_SINT)((halfBuffer2[10])), (((void *)0)), (_U_UINT)560, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((59)), (_U_SINT)((halfBuffer2[11])), (((void *)0)), (_U_UINT)561, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((60)), (_U_SINT)((halfBuffer2[12])), (((void *)0)), (_U_UINT)562, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((61)), (_U_SINT)((halfBuffer2[13])), (((void *)0)), (_U_UINT)563, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((62)), (_U_SINT)((halfBuffer2[14])), (((void *)0)), (_U_UINT)564, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((63)), (_U_SINT)((halfBuffer2[15])), (((void *)0)), (_U_UINT)565, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((64)), (_U_SINT)((bytesWritten)), (((void *)0)), (_U_UINT)566, UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void test_flashWriteData_should_write_0_to_34_from_address_62_to_130_should_return_50(){
 
   int i, bytesWritten, data = 0;
 
@@ -1040,33 +1172,33 @@ void test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_retu
 
   printf("start\n");
 
-  flashReadBlock_CMockExpect(524, blockBuffer, 64, 1);
+  flashReadBlock_CMockExpect(590, blockBuffer, 64, 1);
 
-  rowErase_CMockExpect(525, 0x000000);
+  rowErase_CMockExpect(591, 0x000000);
 
-  flashSetAddress_CMockExpect(526, 0);
+  flashSetAddress_CMockExpect(592, 0);
 
-  flashWriteBlock_CMockExpect(527, halfBuffer1, halfBuffer2, 1);
-
-
-
-  flashReadBlock_CMockExpect(529, blockBuffer, 64, 2);
-
-  rowErase_CMockExpect(530, 64);
-
-  flashSetAddress_CMockExpect(531, 64);
-
-  flashWriteBlock_CMockExpect(532, halfBuffer1, halfBuffer2, 2);
+  flashWriteBlock_CMockExpect(593, halfBuffer1, halfBuffer2, 1);
 
 
 
-  flashReadBlock_CMockExpect(534, blockBuffer, 64, 3);
+  flashReadBlock_CMockExpect(595, blockBuffer, 64, 2);
 
-  rowErase_CMockExpect(535, 128);
+  rowErase_CMockExpect(596, 64);
 
-  flashSetAddress_CMockExpect(536, 128);
+  flashSetAddress_CMockExpect(597, 64);
 
-  flashWriteBlock_CMockExpect(537, halfBuffer1, halfBuffer2, 3);
+  flashWriteBlock_CMockExpect(598, halfBuffer1, halfBuffer2, 2);
+
+
+
+  flashReadBlock_CMockExpect(600, blockBuffer, 64, 3);
+
+  rowErase_CMockExpect(601, 128);
+
+  flashSetAddress_CMockExpect(602, 128);
+
+  flashWriteBlock_CMockExpect(603, halfBuffer1, halfBuffer2, 3);
 
 
 
@@ -1074,8 +1206,70 @@ void test_flashWriteData_should_write_0_to_34_from_address_30_to_130_should_retu
 
 
 
-  UnityAssertEqualNumber((_U_SINT)((33)), (_U_SINT)((halfBuffer1[0])), (((void *)0)), (_U_UINT)541, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((33)), (_U_SINT)((halfBuffer1[0])), (((void *)0)), (_U_UINT)607, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((34)), (_U_SINT)((bytesWritten)), (((void *)0)), (_U_UINT)542, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((2)), (_U_SINT)((halfBuffer1[1])), (((void *)0)), (_U_UINT)608, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((3)), (_U_SINT)((halfBuffer1[2])), (((void *)0)), (_U_UINT)609, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((4)), (_U_SINT)((halfBuffer1[3])), (((void *)0)), (_U_UINT)610, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((5)), (_U_SINT)((halfBuffer1[4])), (((void *)0)), (_U_UINT)611, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((6)), (_U_SINT)((halfBuffer1[5])), (((void *)0)), (_U_UINT)612, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((7)), (_U_SINT)((halfBuffer1[6])), (((void *)0)), (_U_UINT)613, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((8)), (_U_SINT)((halfBuffer1[7])), (((void *)0)), (_U_UINT)614, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((9)), (_U_SINT)((halfBuffer1[8])), (((void *)0)), (_U_UINT)615, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((10)), (_U_SINT)((halfBuffer1[9])), (((void *)0)), (_U_UINT)616, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((11)), (_U_SINT)((halfBuffer1[10])), (((void *)0)), (_U_UINT)617, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((12)), (_U_SINT)((halfBuffer1[11])), (((void *)0)), (_U_UINT)618, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((13)), (_U_SINT)((halfBuffer1[12])), (((void *)0)), (_U_UINT)619, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((14)), (_U_SINT)((halfBuffer1[13])), (((void *)0)), (_U_UINT)620, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((15)), (_U_SINT)((halfBuffer1[14])), (((void *)0)), (_U_UINT)621, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((16)), (_U_SINT)((halfBuffer1[15])), (((void *)0)), (_U_UINT)622, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((17)), (_U_SINT)((halfBuffer2[0])), (((void *)0)), (_U_UINT)623, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((18)), (_U_SINT)((halfBuffer2[1])), (((void *)0)), (_U_UINT)624, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((19)), (_U_SINT)((halfBuffer2[2])), (((void *)0)), (_U_UINT)625, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((20)), (_U_SINT)((halfBuffer2[3])), (((void *)0)), (_U_UINT)626, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((21)), (_U_SINT)((halfBuffer2[4])), (((void *)0)), (_U_UINT)627, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((22)), (_U_SINT)((halfBuffer2[5])), (((void *)0)), (_U_UINT)628, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((23)), (_U_SINT)((halfBuffer2[6])), (((void *)0)), (_U_UINT)629, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((24)), (_U_SINT)((halfBuffer2[7])), (((void *)0)), (_U_UINT)630, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((25)), (_U_SINT)((halfBuffer2[8])), (((void *)0)), (_U_UINT)631, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((26)), (_U_SINT)((halfBuffer2[9])), (((void *)0)), (_U_UINT)632, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((27)), (_U_SINT)((halfBuffer2[10])), (((void *)0)), (_U_UINT)633, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((28)), (_U_SINT)((halfBuffer2[11])), (((void *)0)), (_U_UINT)634, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((29)), (_U_SINT)((halfBuffer2[12])), (((void *)0)), (_U_UINT)635, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((30)), (_U_SINT)((halfBuffer2[13])), (((void *)0)), (_U_UINT)636, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((31)), (_U_SINT)((halfBuffer2[14])), (((void *)0)), (_U_UINT)637, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((32)), (_U_SINT)((halfBuffer2[15])), (((void *)0)), (_U_UINT)638, UNITY_DISPLAY_STYLE_INT);
+
+  UnityAssertEqualNumber((_U_SINT)((34)), (_U_SINT)((bytesWritten)), (((void *)0)), (_U_UINT)639, UNITY_DISPLAY_STYLE_INT);
 
 }

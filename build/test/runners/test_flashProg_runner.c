@@ -50,9 +50,12 @@ extern void test_MCLR_high(void);
 extern void test_PGM_high(void);
 extern void test_PGM_low(void);
 extern void test_enableWrite(void);
-extern void test_flashWriteAndProgram_2bytes_of_data(void);
-extern void test_flashWriteToBuffer_2bytes_of_data(void);
 extern void test_flashSetAddress_should_select_0x102030(void);
+extern void test_flashWriteToBuffer_2bytes_of_data(void);
+extern void test_flashWriteAndProgram_2bytes_of_data(void);
+extern void test_flashRead16Bits_should_read_2bytes_and_return_0x1001(void);
+extern void test_flashReadBlock_should_read_64bits(void);
+extern void test_flashWriteBlock_should_write(void);
 extern void test_rowErase_should_erase_row(void);
 
 
@@ -100,10 +103,13 @@ int main(void)
   RUN_TEST(test_PGM_high, 116);
   RUN_TEST(test_PGM_low, 123);
   RUN_TEST(test_enableWrite, 130);
-  RUN_TEST(test_flashWriteAndProgram_2bytes_of_data, 136);
-  RUN_TEST(test_flashWriteToBuffer_2bytes_of_data, 145);
-  RUN_TEST(test_flashSetAddress_should_select_0x102030, 152);
-  RUN_TEST(test_rowErase_should_erase_row, 164);
+  RUN_TEST(test_flashSetAddress_should_select_0x102030, 136);
+  RUN_TEST(test_flashWriteToBuffer_2bytes_of_data, 148);
+  RUN_TEST(test_flashWriteAndProgram_2bytes_of_data, 155);
+  RUN_TEST(test_flashRead16Bits_should_read_2bytes_and_return_0x1001, 164);
+  RUN_TEST(test_flashReadBlock_should_read_64bits, 174);
+  RUN_TEST(test_flashWriteBlock_should_write, 185);
+  RUN_TEST(test_rowErase_should_erase_row, 204);
 
   return (UnityEnd());
 }

@@ -19,7 +19,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _enableWrite `(v ~T0 @X0 0 ef ]
 "70
 [v _flashWriteBlock `(v ~T0 @X0 0 ef3`*ui`*ui`ul ]
-"9 ../src/PIC18/FlashWrite.h
+"12 ../src/PIC18/FlashWrite.h
 [v _flashWriteData `(i ~T0 @X0 0 ef3`*ui`ui`ul ]
 "71 ../src/PIC18/FlashProg.h
 [v _flashReadBlock `(v ~T0 @X0 0 ef3`*ui`ui`ul ]
@@ -3900,8 +3900,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FlashWrite.h: 5: extern uint16 halfBuffer1[16];
 [; ;FlashWrite.h: 6: extern uint16 halfBuffer2[16];
 [; ;FlashWrite.h: 7: extern uint16 blockBuffer[32];
-[; ;FlashWrite.h: 9: int flashWriteData(uint16 *data, uint16 size, uint32 address);
-[; ;FlashWrite.h: 10: int overwriteBufferData(uint16 *data, uint16 sizeToWrite, uint16 bufferStartPoint);
+[; ;FlashWrite.h: 12: int flashWriteData(uint16 *data, uint16 size, uint32 address);
+[; ;FlashWrite.h: 13: int overwriteBufferData(uint16 *data, uint16 sizeToWrite, uint16 bufferStartPoint);
+[; ;FlashWrite.h: 14: void loadHalfBuffer();
 [; ;ICSP.h: 9: void writeICSP(uint16 commandByte, uint16 dataBytes);
 [; ;ICSP.h: 10: void writeBit(uint16 bitToWrite);
 [; ;ICSP.h: 11: void writeBits(uint16 pattern, uint16 bitsToWrite);
