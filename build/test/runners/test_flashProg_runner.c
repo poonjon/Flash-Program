@@ -109,7 +109,7 @@ int main(void)
   RUN_TEST(test_flashRead16Bits_should_read_2bytes_and_return_0x1001, 164);
   RUN_TEST(test_flashReadBlock_should_read_64bits, 174);
   RUN_TEST(test_flashWriteBlock_should_write, 185);
-  RUN_TEST(test_rowErase_should_erase_row, 204);
+  RUN_TEST(test_rowErase_should_erase_row, 203);
 
   return (UnityEnd());
 }

@@ -398,41 +398,39 @@ void test_flashWriteBlock_should_write(){
 
 
 
-
-
 void test_rowErase_should_erase_row(){
 
 
 
   uint32 address = 0x000000;
 
-  writeICSP_CMockExpect(207, 0x0, 0x8ea6);
+  writeICSP_CMockExpect(206, 0x0, 0x8ea6);
 
-  writeICSP_CMockExpect(208, 0x0, 0x9ca6);
+  writeICSP_CMockExpect(207, 0x0, 0x9ca6);
 
-  writeICSP_CMockExpect(209, 0x0, 0x84a6);
-
-
+  writeICSP_CMockExpect(208, 0x0, 0x84a6);
 
 
 
-  writeICSP_CMockExpect(212, 0x0, 0x6af8);
 
-  writeICSP_CMockExpect(213, 0x0, 0x6af7);
 
-  writeICSP_CMockExpect(214, 0x0, 0x6af6);
+  writeICSP_CMockExpect(211, 0x0, 0x6af8);
+
+  writeICSP_CMockExpect(212, 0x0, 0x6af7);
+
+  writeICSP_CMockExpect(213, 0x0, 0x6af6);
 
   addressMock(address);
 
 
 
-  writeICSP_CMockExpect(217, 0x0, 0x88a6);
+  writeICSP_CMockExpect(216, 0x0, 0x88a6);
 
-  writeICSP_CMockExpect(218, 0x0, 0x82a6);
+  writeICSP_CMockExpect(217, 0x0, 0x82a6);
 
-  writeBits_CMockExpect(219, 0x0, 3);
+  writeBits_CMockExpect(218, 0x0, 3);
 
-  writeBits_CMockExpect(220, 0x0, 16);
+  writeBits_CMockExpect(219, 0x0, 16);
 
 
 

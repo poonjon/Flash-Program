@@ -30,7 +30,7 @@
 - :test: test_flashWriteData_should_write_0_to_7_from_address_28_to_42_should_return_8
   :line: 327
   :message: ''
-- :test: test_flashWriteData_should_write_0_to_7_from_address_66_to_88_should_return_11
+- :test: test_flashWriteData_should_write_0_to_10_from_address_66_to_88_should_return_11
   :line: 368
   :message: ''
 - :test: test_flashWriteData_should_write_0_to_31_from_address_0_to_62_should_return_32
@@ -42,15 +42,20 @@
 - :test: test_flashWriteData_should_write_0_to_63_from_address_0_to_126_should_return_64
   :line: 509
   :message: ''
-- :test: test_flashWriteData_should_write_0_to_34_from_address_62_to_130_should_return_50
+- :test: test_flashWriteData_should_write_0_to_33_from_address_60_to_126_should_return_34
   :line: 575
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_95_from_address_0_to_192_should_return_96
+  :line: 643
+  :message: ''
+- :test: test_flashWriteData_should_write_0_to_14_from_address_96_to_126_16
+  :line: 716
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 14
-  :passed: 14
+  :total: 16
+  :passed: 16
   :failed: 0
   :ignored: 0
-:stdout:
-- start
+:stdout: []

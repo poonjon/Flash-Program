@@ -4,40 +4,40 @@
   :file: test_ICSP.c
 :successes:
 - :test: test_write_bit_1
-  :line: 36
+  :line: 34
   :message: ''
 - :test: test_write_bit_0
-  :line: 44
+  :line: 42
   :message: ''
 - :test: test_write_bits_0x50
-  :line: 52
+  :line: 50
   :message: ''
 - :test: test_write_bits_0xf9
-  :line: 57
+  :line: 55
   :message: ''
 - :test: test_write_bits_0x3c40
-  :line: 62
+  :line: 60
   :message: ''
 - :test: test_writeICSP_write_0xd_command_0x3c40_data
-  :line: 67
+  :line: 65
   :message: ''
 - :test: test_readBit_should_return_1
-  :line: 75
+  :line: 73
   :message: ''
 - :test: test_readBit_should_return_0
-  :line: 84
+  :line: 82
   :message: ''
 - :test: test_readBits_should_return_0x11
-  :line: 93
+  :line: 91
   :message: ''
 - :test: test_readBits_should_return_0xf6
-  :line: 99
+  :line: 97
   :message: ''
 - :test: test_readBits_should_return_0x35f6
-  :line: 106
+  :line: 104
   :message: ''
 - :test: test_readICSP_should_read_0x34
-  :line: 113
+  :line: 111
   :message: ''
 :failures: []
 :ignores: []
@@ -46,12 +46,4 @@
   :passed: 12
   :failed: 0
   :ignored: 0
-:stdout:
-- '00001010'
-- '10011111'
-- '1001111110111010'
-- '10110000001000111100'
-- '10001000'
-- '01101111'
-- '0110111110101100'
-- '10010000000000101100'
+:stdout: []

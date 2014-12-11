@@ -86,18 +86,18 @@ int main(void)
 {
   Unity.TestFile = "test_ICSP.c";
   UnityBegin();
-  RUN_TEST(test_write_bit_1, 36);
-  RUN_TEST(test_write_bit_0, 44);
-  RUN_TEST(test_write_bits_0x50, 52);
-  RUN_TEST(test_write_bits_0xf9, 57);
-  RUN_TEST(test_write_bits_0x3c40, 62);
-  RUN_TEST(test_writeICSP_write_0xd_command_0x3c40_data, 67);
-  RUN_TEST(test_readBit_should_return_1, 75);
-  RUN_TEST(test_readBit_should_return_0, 84);
-  RUN_TEST(test_readBits_should_return_0x11, 93);
-  RUN_TEST(test_readBits_should_return_0xf6, 99);
-  RUN_TEST(test_readBits_should_return_0x35f6, 106);
-  RUN_TEST(test_readICSP_should_read_0x34, 113);
+  RUN_TEST(test_write_bit_1, 34);
+  RUN_TEST(test_write_bit_0, 42);
+  RUN_TEST(test_write_bits_0x50, 50);
+  RUN_TEST(test_write_bits_0xf9, 55);
+  RUN_TEST(test_write_bits_0x3c40, 60);
+  RUN_TEST(test_writeICSP_write_0xd_command_0x3c40_data, 65);
+  RUN_TEST(test_readBit_should_return_1, 73);
+  RUN_TEST(test_readBit_should_return_0, 82);
+  RUN_TEST(test_readBits_should_return_0x11, 91);
+  RUN_TEST(test_readBits_should_return_0xf6, 97);
+  RUN_TEST(test_readBits_should_return_0x35f6, 104);
+  RUN_TEST(test_readICSP_should_read_0x34, 111);
 
   return (UnityEnd());
 }

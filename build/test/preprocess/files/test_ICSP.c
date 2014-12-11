@@ -19,13 +19,11 @@ void mockBitsWriting(uint16 pattern, uint16 bitsToWrite){
 
 
 
-    printf("%d", ((pattern>>i)&0x1));
+    PGC_high_CMockExpect(14);
 
-    PGC_high_CMockExpect(15);
+    writePGD_CMockExpect(15, ((pattern>>i)&0x1));
 
-    writePGD_CMockExpect(16, ((pattern>>i)&0x1));
-
-    PGC_low_CMockExpect(17);
+    PGC_low_CMockExpect(16);
 
     i++;
 
@@ -43,15 +41,13 @@ void mockBitsReading(uint16 pattern, uint16 bitsToRead){
 
 
 
-    printf("%d", ((pattern>>i)&0x1));
+    PGC_high_CMockExpect(25);
 
-    PGC_high_CMockExpect(27);
-
-    readPGD_CMockExpectAndReturn(28, ((pattern>>i)&0x1));
+    readPGD_CMockExpectAndReturn(26, ((pattern>>i)&0x1));
 
 
 
-    PGC_low_CMockExpect(30);
+    PGC_low_CMockExpect(28);
 
     i++;
 
@@ -65,11 +61,11 @@ void mockBitsReading(uint16 pattern, uint16 bitsToRead){
 
 void test_write_bit_1(){
 
-  PGC_high_CMockExpect(37);
+  PGC_high_CMockExpect(35);
 
-  writePGD_CMockExpect(38, 1);
+  writePGD_CMockExpect(36, 1);
 
-  PGC_low_CMockExpect(39);
+  PGC_low_CMockExpect(37);
 
 
 
@@ -81,11 +77,11 @@ void test_write_bit_1(){
 
 void test_write_bit_0(){
 
-  PGC_high_CMockExpect(45);
+  PGC_high_CMockExpect(43);
 
-  writePGD_CMockExpect(46, 0);
+  writePGD_CMockExpect(44, 0);
 
-  PGC_low_CMockExpect(47);
+  PGC_low_CMockExpect(45);
 
 
 
@@ -143,15 +139,15 @@ void test_writeICSP_write_0xd_command_0x3c40_data(){
 
 void test_readBit_should_return_1(){
 
-  PGC_high_CMockExpect(76);
+  PGC_high_CMockExpect(74);
 
-  readPGD_CMockExpectAndReturn(77, 1);
+  readPGD_CMockExpectAndReturn(75, 1);
 
-  PGC_low_CMockExpect(78);
+  PGC_low_CMockExpect(76);
 
 
 
-  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((readBit())), (((void *)0)), (_U_UINT)80, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((readBit())), (((void *)0)), (_U_UINT)78, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -161,15 +157,15 @@ void test_readBit_should_return_1(){
 
 void test_readBit_should_return_0(){
 
-  PGC_high_CMockExpect(85);
+  PGC_high_CMockExpect(83);
 
-  readPGD_CMockExpectAndReturn(86, 0);
+  readPGD_CMockExpectAndReturn(84, 0);
 
-  PGC_low_CMockExpect(87);
+  PGC_low_CMockExpect(85);
 
 
 
-  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((readBit())), (((void *)0)), (_U_UINT)89, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((readBit())), (((void *)0)), (_U_UINT)87, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -181,7 +177,7 @@ void test_readBits_should_return_0x11(){
 
   mockBitsReading(0x11, 8);
 
-  UnityAssertEqualNumber((_U_SINT)((0x11)), (_U_SINT)((readBits(8))), (((void *)0)), (_U_UINT)95, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0x11)), (_U_SINT)((readBits(8))), (((void *)0)), (_U_UINT)93, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -195,7 +191,7 @@ void test_readBits_should_return_0xf6(){
 
   mockBitsReading(0xf6, 8);
 
-  UnityAssertEqualNumber((_U_SINT)((0xf6)), (_U_SINT)((readBits(8))), (((void *)0)), (_U_UINT)102, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0xf6)), (_U_SINT)((readBits(8))), (((void *)0)), (_U_UINT)100, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -209,7 +205,7 @@ void test_readBits_should_return_0x35f6(){
 
   mockBitsReading(0x35f6, 16);
 
-  UnityAssertEqualNumber((_U_SINT)((0x35f6)), (_U_SINT)((readBits(16))), (((void *)0)), (_U_UINT)109, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0x35f6)), (_U_SINT)((readBits(16))), (((void *)0)), (_U_UINT)107, UNITY_DISPLAY_STYLE_INT);
 
 
 
@@ -227,7 +223,7 @@ void test_readICSP_should_read_0x34(){
 
 
 
-  UnityAssertEqualNumber((_U_SINT)((0x34)), (_U_SINT)((readICSP(0x34))), (((void *)0)), (_U_UINT)118, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0x34)), (_U_SINT)((readICSP(0x34))), (((void *)0)), (_U_UINT)116, UNITY_DISPLAY_STYLE_INT);
 
 
 

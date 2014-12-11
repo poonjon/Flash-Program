@@ -186,6 +186,7 @@ uint8 flashRead8Bits(){
     return data;
 }
 
+//size in bits
 void flashReadBlock(uint16 *data, uint16 size, uint32 blockNumber){
   int i;
   uint32 blockSelect;

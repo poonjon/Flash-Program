@@ -48,11 +48,13 @@ extern void test_flashWriteData_should_write_data_from_address_4_to_8_should_ret
 extern void test_flashWriteData_should_write_0_to_8_from_address_14_to_30_should_return_9(void);
 extern void test_flashWriteData_should_write_0_to_15_from_address_0_to_30_should_return_16(void);
 extern void test_flashWriteData_should_write_0_to_7_from_address_28_to_42_should_return_8(void);
-extern void test_flashWriteData_should_write_0_to_7_from_address_66_to_88_should_return_11(void);
+extern void test_flashWriteData_should_write_0_to_10_from_address_66_to_88_should_return_11(void);
 extern void test_flashWriteData_should_write_0_to_31_from_address_0_to_62_should_return_32(void);
 extern void test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return_35(void);
 extern void test_flashWriteData_should_write_0_to_63_from_address_0_to_126_should_return_64(void);
-extern void test_flashWriteData_should_write_0_to_34_from_address_62_to_130_should_return_50(void);
+extern void test_flashWriteData_should_write_0_to_33_from_address_60_to_126_should_return_34(void);
+extern void test_flashWriteData_should_write_0_to_95_from_address_0_to_192_should_return_96(void);
+extern void test_flashWriteData_should_write_0_to_14_from_address_96_to_126_16(void);
 
 
 //=======Mock Management=====
@@ -97,11 +99,13 @@ int main(void)
   RUN_TEST(test_flashWriteData_should_write_0_to_8_from_address_14_to_30_should_return_9, 237);
   RUN_TEST(test_flashWriteData_should_write_0_to_15_from_address_0_to_30_should_return_16, 280);
   RUN_TEST(test_flashWriteData_should_write_0_to_7_from_address_28_to_42_should_return_8, 327);
-  RUN_TEST(test_flashWriteData_should_write_0_to_7_from_address_66_to_88_should_return_11, 368);
+  RUN_TEST(test_flashWriteData_should_write_0_to_10_from_address_66_to_88_should_return_11, 368);
   RUN_TEST(test_flashWriteData_should_write_0_to_31_from_address_0_to_62_should_return_32, 409);
   RUN_TEST(test_flashWriteData_should_write_0_to_31_from_address_0_to_68_should_return_35, 472);
   RUN_TEST(test_flashWriteData_should_write_0_to_63_from_address_0_to_126_should_return_64, 509);
-  RUN_TEST(test_flashWriteData_should_write_0_to_34_from_address_62_to_130_should_return_50, 575);
+  RUN_TEST(test_flashWriteData_should_write_0_to_33_from_address_60_to_126_should_return_34, 575);
+  RUN_TEST(test_flashWriteData_should_write_0_to_95_from_address_0_to_192_should_return_96, 643);
+  RUN_TEST(test_flashWriteData_should_write_0_to_14_from_address_96_to_126_16, 716);
 
   return (UnityEnd());
 }
