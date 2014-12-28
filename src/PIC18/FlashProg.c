@@ -138,24 +138,8 @@ void writeToBuffer(uint16 data){
 void flashWriteAndProgram(uint16 data){
   int i;
 
-
   writeICSP(0xf, data);
-
-  writeBits(0x0, 3);
-  PGC_high();
-  PGD_low();
-  for(i = 0; i < 25 ; i++){} //p9 minimum 1ms
-  PGC_low();
-  for(i = 0; i < 25 ; i++){} //p10 minimum 100us
-  writeBits(0x0, 16);
-
-}
-
-void flashWrite8Bits(uint8 data){
-  int i;
-
-  writeICSP(0xf, data);
-
+  
   writeBits(0x0, 3);
   PGC_high();
   PGD_low();
@@ -256,3 +240,7 @@ void rowErase(uint32 address){
   for(i = 0; i < 25 ; i++){} //p10 minimum 100us
   writeBits(0x0, 16);
 }
+
+
+
+

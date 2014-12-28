@@ -47,13 +47,13 @@
 [v _flashRead16Bits flashRead16Bits `(ui  1 e 2 0 ]
 "181
 [v _flashRead8Bits flashRead8Bits `(uc  1 e 1 0 ]
-"189
+"190
 [v _flashReadBlock flashReadBlock `(v  1 e 0 0 ]
-"201
+"202
 [v _flashWriteBlock flashWriteBlock `(v  1 e 0 0 ]
-"220
+"221
 [v _flashWriteHalfBlock flashWriteHalfBlock `(v  1 e 0 0 ]
-"236
+"237
 [v _rowErase rowErase `(v  1 e 0 0 ]
 "11 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashWrite.c
 [v _flashWriteData flashWriteData `(i  1 e 2 0 ]
@@ -254,19 +254,19 @@
 "43
 [v main@blockWrite5 blockWrite5 `[64]ui  1 a 128 0 ]
 "38
-[v main@blockRead blockRead `[32]ui  1 a 64 0 ]
+[v main@blockRead blockRead `[32]ui  1 a 64 128 ]
 "42
-[v main@blockWrite3 blockWrite3 `[16]ui  1 a 32 128 ]
+[v main@blockWrite3 blockWrite3 `[16]ui  1 a 32 0 ]
 "41
-[v main@blockWrite2 blockWrite2 `[16]ui  1 a 32 96 ]
+[v main@blockWrite2 blockWrite2 `[16]ui  1 a 32 224 ]
 "40
-[v main@blockWrite1 blockWrite1 `[16]ui  1 a 32 64 ]
+[v main@blockWrite1 blockWrite1 `[16]ui  1 a 32 192 ]
 "39
-[v main@blockWrite0 blockWrite0 `[16]ui  1 a 32 222 ]
+[v main@blockWrite0 blockWrite0 `[16]ui  1 a 32 86 ]
 "37
 [v main@address address `ul  1 a 4 73 ]
 "30
-[v main@i i `i  1 a 2 254 ]
+[v main@i i `i  1 a 2 118 ]
 "36
 [v main@data5 data5 `ui  1 a 2 87 ]
 "34
@@ -290,37 +290,39 @@
 [v _flashWriteData flashWriteData `(i  1 e 2 0 ]
 {
 "17
-[v flashWriteData@newData newData `[100]ui  1 a 200 0 ]
+[v flashWriteData@newData newData `[32]ui  1 a 64 0 ]
 "14
-[v flashWriteData@newAddress newAddress `ul  1 a 4 216 ]
+[v flashWriteData@newAddress newAddress `ul  1 a 4 82 ]
 "12
-[v flashWriteData@i i `i  1 a 2 220 ]
-[v flashWriteData@bytesWritten bytesWritten `i  1 a 2 214 ]
+[v flashWriteData@bytesWritten bytesWritten `i  1 a 2 80 ]
+[v flashWriteData@i i `i  1 a 2 78 ]
 "16
-[v flashWriteData@currentStartPoint currentStartPoint `ui  1 a 2 212 ]
-[v flashWriteData@memoryBlock memoryBlock `ui  1 a 2 210 ]
-"15
-[v flashWriteData@newSize newSize `ui  1 a 2 208 ]
+[v flashWriteData@currentStartPoint currentStartPoint `ui  1 a 2 76 ]
 "12
-[v flashWriteData@k k `i  1 a 2 206 ]
-[v flashWriteData@timesToWrite timesToWrite `i  1 a 2 204 ]
-[v flashWriteData@nextDataSet nextDataSet `i  1 a 2 202 ]
+[v flashWriteData@k k `i  1 a 2 74 ]
+"16
+[v flashWriteData@memoryBlock memoryBlock `ui  1 a 2 72 ]
+"12
+[v flashWriteData@nextDataSet nextDataSet `i  1 a 2 70 ]
+[v flashWriteData@timesToWrite timesToWrite `i  1 a 2 68 ]
+"15
+[v flashWriteData@newSize newSize `ui  1 a 2 66 ]
 "13
-[v flashWriteData@j j `i  1 a 2 200 ]
+[v flashWriteData@j j `i  1 a 2 64 ]
 "11
 [v flashWriteData@data data `*.39ui  1 p 2 55 ]
 [v flashWriteData@size size `ui  1 p 2 57 ]
 [v flashWriteData@address address `ul  1 p 4 59 ]
 "55
 } 0
-"236 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+"237 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
 [v _rowErase rowErase `(v  1 e 0 0 ]
 {
-"237
+"238
 [v rowErase@i i `i  1 a 2 41 ]
-"236
+"237
 [v rowErase@address address `ul  1 p 4 37 ]
-"257
+"258
 } 0
 "57 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashWrite.c
 [v _overwriteBufferData overwriteBufferData `(i  1 e 2 0 ]
@@ -328,10 +330,10 @@
 "59
 [v overwriteBufferData@i i `i  1 a 2 26 ]
 "58
-[v overwriteBufferData@availableWriteSpace availableWriteSpace `i  1 a 2 24 ]
-[v overwriteBufferData@start start `i  1 a 2 22 ]
-[v overwriteBufferData@bytesWritten bytesWritten `i  1 a 2 20 ]
-[v overwriteBufferData@bytesLeft bytesLeft `i  1 a 2 18 ]
+[v overwriteBufferData@availableWriteSpace availableWriteSpace `ui  1 a 2 24 ]
+[v overwriteBufferData@start start `ui  1 a 2 22 ]
+[v overwriteBufferData@bytesWritten bytesWritten `ui  1 a 2 20 ]
+[v overwriteBufferData@bytesLeft bytesLeft `ui  1 a 2 18 ]
 "59
 [v overwriteBufferData@j j `i  1 a 2 16 ]
 "57
@@ -346,20 +348,20 @@
 "83
 [v loadHalfBuffer@i i `i  1 a 2 6 ]
 [v loadHalfBuffer@j j `i  1 a 2 4 ]
-"94
+"93
 } 0
-"201 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
+"202 C:\Users\Jon\Desktop\Flash-Programmer/src/PIC18/FlashProg.c
 [v _flashWriteBlock flashWriteBlock `(v  1 e 0 0 ]
 {
-"203
+"204
 [v flashWriteBlock@blockSelect blockSelect `ul  1 a 4 49 ]
-"202
+"203
 [v flashWriteBlock@i i `i  1 a 2 53 ]
-"201
+"202
 [v flashWriteBlock@firstHalf firstHalf `*.39ui  1 p 2 37 ]
 [v flashWriteBlock@secondHalf secondHalf `*.39ui  1 p 2 39 ]
 [v flashWriteBlock@blockNumber blockNumber `ul  1 p 4 41 ]
-"218
+"219
 } 0
 "134
 [v _writeToBuffer writeToBuffer `(v  1 e 0 0 ]
@@ -376,18 +378,18 @@
 [v flashWriteAndProgram@data data `ui  1 p 2 17 ]
 "152
 } 0
-"189
+"190
 [v _flashReadBlock flashReadBlock `(v  1 e 0 0 ]
 {
-"191
+"192
 [v flashReadBlock@blockSelect blockSelect `ul  1 a 4 49 ]
-"190
+"191
 [v flashReadBlock@i i `i  1 a 2 53 ]
-"189
+"190
 [v flashReadBlock@data data `*.39ui  1 p 2 37 ]
 [v flashReadBlock@size size `ui  1 p 2 39 ]
 [v flashReadBlock@blockNumber blockNumber `ul  1 p 4 41 ]
-"199
+"200
 } 0
 "117
 [v _flashSetAddress flashSetAddress `(v  1 e 0 0 ]

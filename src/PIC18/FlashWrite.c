@@ -7,7 +7,13 @@ uint16 halfBuffer1[16];
 uint16 halfBuffer2[16];
 uint16 blockBuffer[32];
 
-//size is in 2bytes of data
+/* 
+** input : Data, size and address
+** output: the number of bytes written
+** 
+** flash write data will take data, the size of the data and the address for the data to write into
+** size is in 2bytes 
+*/
 int flashWriteData(uint16 *data, uint16 size, uint32 address){
   int i, k, bytesWritten = 0, timesToWrite = 1, nextDataSet = 0;
   int j = 16;
@@ -16,8 +22,6 @@ int flashWriteData(uint16 *data, uint16 size, uint32 address){
   uint16 memoryBlock, currentStartPoint = 0;
   uint16 newData[32], availableWriteSpace;
   
-  // currentStartPoint = (address - ((address/64)*64))/2; //to determine the current start point in the array
-  //availableWriteSpace = currentStartPoint - (address/2); //to determine how many address can be written until the next block
   currentStartPoint = newStartPoint(address);
   if((size+currentStartPoint) > 32){
     i = (size+currentStartPoint) - 32;
@@ -54,10 +58,17 @@ int flashWriteData(uint16 *data, uint16 size, uint32 address){
   return bytesWritten;
 }
 
+/*
+** input : data, size of data, start point
+** output: bytes written
+** 
+** overwrite previous buffer data with new data
+*/
 int overwriteBufferData(uint16 *data, uint16 sizeToWrite, uint16 bufferStartPoint){
   uint16 bytesWritten, availableWriteSpace = 0, bytesLeft, start;
   int i, j = 16;
   
+  //facilitate global buffer with data input
   start = bufferStartPoint;
   for(i = 0 ; i < sizeToWrite ; i++){
     blockBuffer[start] = data[i];
@@ -79,6 +90,12 @@ int overwriteBufferData(uint16 *data, uint16 sizeToWrite, uint16 bufferStartPoin
   
 }
 
+/*
+** input : -
+** output: -
+** 
+** split global 32 bytes of data into 2 16byte arrays
+*/
 void loadHalfBuffer(){
   int i, j = 16;
   
